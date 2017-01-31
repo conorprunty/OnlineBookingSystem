@@ -20,7 +20,6 @@
     <?php
             die();
 		}
-
 		// make sure user enters not-empty password
 		
 		if(empty($_POST['password']))         {
@@ -32,7 +31,6 @@
     <?php
             die();
 		}
-
 		// check for valid email address
 		
 		if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))         {
@@ -44,7 +42,6 @@
     <?php
             die();
 		}
-
 		// SQL query to check if username already taken 
 		$query = " 
             SELECT 
@@ -61,11 +58,9 @@
 			$stmt = $db->prepare($query);
 			$result = $stmt->execute($query_params);
 		}
-
 		catch(PDOException $ex)         {
 			die("Failed to run query: " . $ex->getMessage());
 		}
-
 		// fetch returns an array representing the next row or false for no rows
 		$row = $stmt->fetch();
 		// If a row is returned, then the email is in use
@@ -79,7 +74,6 @@
         <?php
             die();
 		}
-
 		// check same for email
 		$query = " 
             SELECT 
@@ -93,11 +87,9 @@
 			$stmt = $db->prepare($query);
 			$result = $stmt->execute($query_params);
 		}
-
 		catch(PDOException $ex)         {
 			die("Failed to run query: " . $ex->getMessage());
 		}
-
 		$row = $stmt->fetch();
 		
 		if($row)         {
@@ -109,7 +101,6 @@
         <?php
             die();
 		}
-
 		// Insert details into DB 
 		$query = " 
             INSERT INTO users ( 
@@ -136,7 +127,6 @@
 		for($round = 0; $round < 65536; $round++)         {
 			$password = hash('sha256', $password . $salt);
 		}
-
 		// Here we prepare our tokens for insertion into the SQL query.  We do not 
 		// store the original password; only the hashed version of it. 
 		$query_params = array(             ':username' => $_POST['username'],             ':password' => $password,             ':salt' => $salt,             ':email' => $_POST['email']         );
@@ -145,11 +135,9 @@
 			$stmt = $db->prepare($query);
 			$result = $stmt->execute($query_params);
 		}
-
 		catch(PDOException $ex)         {
 			die("Failed to run query: " . $ex->getMessage());
 		}
-
 		?>
         <script type="text/javascript">
             alert("Thank you for registering! Please click close to go to login page.");
@@ -187,7 +175,7 @@
         </div>
     </nav>
       
-      <div id="registerheader" align="center">
+      <div id="pageheader" align="center">
         Registration
       </div>
       
