@@ -13,9 +13,30 @@
 		// this statement is needed 
 		die("Redirecting to index.php");
 	}
+    else {
+			//selecting all areas available
+			$query = " 
+            SELECT 
+                allAreas
+            FROM areas;
+        ";
+
+		try {
+			// run query
+			$stmt   = $db->prepare($query);
+			$result = $stmt->execute($query_params);
+			$row    = $stmt->fetch();
+		}
+
+		catch (PDOException $ex) {
+			die("Failed to run query: " . $ex->getMessage());
+		}
+
+	}
 
 	//takes name from logged in username
 	$name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
+
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +52,17 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function validateForm()
+        {
+        var entry=document.forms["add"]["area"].value;
+        if (entry==null || entry=="")
+          {
+          alert("Please enter an area");
+          return false;
+          }
+        }
+    </script>
   </head>
   <body>
       
@@ -59,5 +91,38 @@
         Setup
       </div>
       
+      <div align="center">
+          <p><b>Choose area required for your club:</b></p>
+      </div>
+      <div align="center">
+          <?php
+	
+	if ($row) {
+		echo "<table class='arealist'><tr><th>Areas</th></tr>";
+		$count = 1;
+		// output data of first row
+		echo "<tr><td>" . $row["allAreas"] . "</td>";
+		while ($row = $stmt->fetch()) {
+			$count++;
+			echo "<tr><td>" . $row["allAreas"] . "</td>";
+		}
+
+		echo "</table>";
+	}
+
+	?>
+          
+      </div>
+      <br>
+      <br>
+      
+      <div align="center">
+          <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
+              <p>Don't see your area? Type here and click submit to add to the list!</p>
+              <input type="text" name="area" id="entry" placeholder="area" /></li>
+                <input type="submit" name="submit" value="Submit" />
+            </form>
+      </div>
+
 </body>
 </html>
