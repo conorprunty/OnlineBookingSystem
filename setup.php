@@ -16,9 +16,9 @@
     else {
 			//selecting all areas available
 			$query = " 
-            SELECT 
-                allAreas
-            FROM areas;
+            SELECT id, allAreas
+            FROM areas
+            ORDER BY id desc;
         ";
 
 		try {
@@ -96,21 +96,20 @@
       </div>
       <div align="center">
           <?php
-	
-	if ($row) {
-		echo "<table class='arealist'><tr><th>Areas</th></tr>";
-		$count = 1;
-		// output data of first row
-		echo "<tr><td>" . $row["allAreas"] . "</td>";
-		while ($row = $stmt->fetch()) {
-			$count++;
-			echo "<tr><td>" . $row["allAreas"] . "</td>";
-		}
 
-		echo "</table>";
-	}
+//partially taken from:
+//http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
 
-	?>
+            echo "<select name='id'>";
+            do{
+                unset($id, $name);
+                $id = $row['id'];
+                $allAreas = $row['allAreas']; 
+                echo '<option value="'.$id.'">'.$allAreas.'</option>';
+            }
+            while ($row = $stmt->fetch()) ;
+            echo "</select>";
+            ?>
           
       </div>
       <br>
