@@ -95,8 +95,8 @@
           <p><b>Choose area required for your club:</b></p>
       </div>
       <div align="center">
+          <form action="userSelect.php" name="userChoice" method="post">
           <?php
-
 //partially taken from:
 //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
 
@@ -110,7 +110,8 @@
             while ($row = $stmt->fetch()) ;
             echo "</select>";
             ?>
-          
+              <input type="submit" name="submit" value="Submit" />
+         </form> 
       </div>
       <br>
       <br>
