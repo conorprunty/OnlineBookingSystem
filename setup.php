@@ -94,23 +94,23 @@
       <div align="center">
           <p><b>Choose area required for your club:</b></p>
       </div>
-      <div align="center">
+      <div class="styled-select slate" align="center">
           <form action="userSelect.php" name="userChoice" method="post">
           <?php
-//partially taken from:
-//http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
+            //partially taken from:
+            //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
 
-            echo "<select name='id'>";
+            echo "<select name='userOption'>";
             do{
                 unset($id, $name);
-                $id = $row['id'];
+                $id = $row['allAreas'];
                 $allAreas = $row['allAreas']; 
-                echo '<option value="'.$id.'">'.$allAreas.'</option>';
+                echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
             }
             while ($row = $stmt->fetch()) ;
             echo "</select>";
             ?>
-              <input type="submit" name="submit" value="Submit" />
+              <input type="submit" class="selectionButton" name="submit" value="Submit" />
          </form> 
       </div>
       <br>

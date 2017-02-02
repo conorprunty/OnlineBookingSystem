@@ -16,9 +16,9 @@
 	}
 
     {
-        if(isset($_POST['id'])){
+        if(isset($_POST['userOption'])){
           $sql = "INSERT INTO areas (allAreas)
-          VALUES   ('".$_POST["id"]."')";
+          VALUES   ('".$_POST["userOption"]."')";
         }
     }
 
