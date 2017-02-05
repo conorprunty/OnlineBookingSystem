@@ -91,38 +91,74 @@
         Setup
       </div>
       
-      <div align="center">
-          <p><b>Choose area required for your club:</b></p>
-      </div>
-      <div class="styled-select slate" align="center">
-          <form action="userSelect.php" name="userChoice" method="post">
-          <?php
-            //partially taken from:
-            //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
+      <div class="container">
+          <div class="row">       
+            <form action="userSelect.php" name="userChoice" method="post" class="setupForm">
+              <div class="col-6 col-md-4">
+                  <br>
+                  <div class="styled-select select">
+                      <p><b>Choose area required for your club:</b></p>
+                      
+                      <?php
+                        //partially taken from:
+                        //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
 
-            echo "<select name='userOption'>";
-            do{
-                unset($id, $name);
-                $id = $row['allAreas'];
-                $allAreas = $row['allAreas']; 
-                echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
-            }
-            while ($row = $stmt->fetch()) ;
-            echo "</select>";
-            ?>
-              <input type="submit" class="selectionButton" name="submit" value="Submit" />
-         </form> 
+                        echo "<select name='userOption'>";
+                        do{
+                            unset($id, $name);
+                            $id = $row['allAreas'];
+                            $allAreas = $row['allAreas']; 
+                            echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
+                        }
+                        while ($row = $stmt->fetch()) ;
+                        echo "</select>";
+                        ?>                      
+                  </div>
+                  <br>
+              </div>
+              <div class="col-6 col-md-4">
+                  <br>
+                  <p><b>Choose days required:</b></p>
+                        <input type="checkbox" checked="true" name="monday" value="Free" class="dayselect">Monday<br>
+                        <input type="checkbox" checked="true" name="tuesday" value="Free" class="dayselect">Tuesday<br>
+                        <input type="checkbox" checked="true" name="wednesday" value="Free" class="dayselect">Wednesday<br>
+                        <input type="checkbox" checked="true" name="thursday" value="Free" class="dayselect">Thursday<br>
+                        <input type="checkbox" checked="true" name="friday" value="Free" class="dayselect">Friday<br>
+                        <input type="checkbox" checked="true" name="saturday" value="Free" class="dayselect">Saturday<br>
+                        <input type="checkbox" checked="true" name="sunday" value="Free" class="dayselect">Sunday<br>
+                  <br>
+                  <br>
+                        <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+              </div>
+              <div class="col-6 col-md-4">
+                  <br>
+                  <p><b>Choose times required:</b></p>
+                  <div class="col-6 col-md-4">
+                      <input type="checkbox" checked="true" name="time1" value="Free" class="timeselect">09-10<br>
+                      <input type="checkbox" checked="true" name="time2" value="Free" class="timeselect">10-11<br>
+                      <input type="checkbox" checked="true" name="time3" value="Free" class="timeselect">11-12<br>
+                      <input type="checkbox" checked="true" name="time4" value="Free" class="timeselect">12-13<br>
+                      <input type="checkbox" checked="true" name="time5" value="Free" class="timeselect">13-14<br>
+                      <input type="checkbox" checked="true" name="time6" value="Free" class="timeselect">14-15<br>
+                  </div>
+                  <div class="col-6 col-md-4">
+                      <input type="checkbox" checked="true" name="time7" value="Free" class="timeselect">15-16<br>
+                      <input type="checkbox" checked="true" name="time8" value="Free" class="timeselect">16-17<br>
+                      <input type="checkbox" checked="true" name="time9" value="Free" class="timeselect">17-18<br>
+                      <input type="checkbox" checked="true" name="time10" value="Free" class="timeselect">18-19<br>
+                      <input type="checkbox" checked="true" name="time11" value="Free" class="timeselect">19-20<br>
+                      <input type="checkbox" checked="true" name="time12" value="Free" class="timeselect">20-21<br>
+                  </div>
+              </div>
+            </form> 
+        </div>
       </div>
-      <br>
-      <br>
-      
-      <div align="center">
-          <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
-              <p>Don't see your area? Type here and click submit to add to the list!</p>
-              <input type="text" name="area" id="entry" placeholder="area" /></li>
-                <input type="submit" name="submit" value="Submit" />
+      <div class="addNew">
+            <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
+                 <p>Don't see your area? <br>Type here and click submit to add to the list!</p>
+                <input type="text" name="area" id="entry" placeholder="area" /></li>
+                <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
             </form>
-      </div>
-
+        </div>
 </body>
 </html>

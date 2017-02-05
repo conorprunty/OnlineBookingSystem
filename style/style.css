@@ -1,7 +1,7 @@
 #pageheader{
     font-size: 70px;
     margin-top: 75px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 body{
@@ -9,13 +9,21 @@ body{
 }
 
 .styled-select select {
-   border: groove;
-   font-size: 14px;
-   height: 29px;
-   padding: 5px; /* If you add too much padding here, the options won't show in IE */
-   width: 268px;
+    border: groove;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 268px;
 }
 
-.selectionButton {
+.homepageSubmit {
     border-radius: 50%;
+}
+
+.addNew{
+    margin-left: 50px;   
+}
+
+.setupForm{
+    border-style: groove;   
 }
