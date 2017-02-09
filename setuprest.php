@@ -13,6 +13,17 @@
 		die("Redirecting to index.php");
 	}
 
+    //this prevents direct access to this page - can only come from the redirect on setup.php
+    if (strstr($_SERVER['HTTP_REFERER'],"setup.php")){
+        //you can access yay!
+    }
+    else{
+        // returns to setup.php page
+        header("Location: setup.php");
+		// this kills the php script
+		die("Redirecting to setup.php");
+    }
+
 	//takes name from logged in username
 	$name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 
