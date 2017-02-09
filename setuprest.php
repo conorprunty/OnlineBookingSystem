@@ -85,16 +85,15 @@
       
       <div class="container">
           <div class="row">       
-            
               <div class="col-6 col-md-4">
                   <p><b>Choose days required:</b></p>
-                        <input type="checkbox" checked="true" name="monday" value="Monday" class="dayselect">Monday<br>
-                        <input type="checkbox" checked="true" name="tuesday" value="Tuesday" class="dayselect">Tuesday<br>
-                        <input type="checkbox" checked="true" name="wednesday" value="Wednesday" class="dayselect">Wednesday<br>
-                        <input type="checkbox" checked="true" name="thursday" value="Thursday" class="dayselect">Thursday<br>
-                        <input type="checkbox" checked="true" name="friday" value="Friday" class="dayselect">Friday<br>
-                        <input type="checkbox" checked="true" name="saturday" value="Saturday" class="dayselect">Saturday<br>
-                        <input type="checkbox" checked="true" name="sunday" value="Sunday" class="dayselect">Sunday<br>          
+                        <input type="checkbox" checked="true" name="day[]" value="Monday" class="dayselect">Monday<br>
+                        <input type="checkbox" checked="true" name="day[]" value="Tuesday" class="dayselect">Tuesday<br>
+                        <input type="checkbox" checked="true" name="day[]" value="Wednesday" class="dayselect">Wednesday<br>
+                        <input type="checkbox" checked="true" name="day[]" value="Thursday" class="dayselect">Thursday<br>
+                        <input type="checkbox" checked="true" name="day[]" value="Friday" class="dayselect">Friday<br>
+                        <input type="checkbox" checked="true" name="day[]" value="Saturday" class="dayselect">Saturday<br>
+                        <input type="checkbox" checked="true" name="day[]" value="Sunday" class="dayselect">Sunday<br>          
               </div>
               <div class="col-6 col-md-4">
                   <p><b>Choose times required:</b></p>
@@ -114,10 +113,8 @@
                       <input type="checkbox" checked="true" name="time11" value="Free" class="timeselect">19-20<br>
                       <input type="checkbox" checked="true" name="time12" value="Free" class="timeselect">20-21<br>
                   </div>
-                  </div>
-                
-                
               </div>
+          </div>
       </div>
           <input align="center" type="submit" class="homepageSubmit" name="submit" value="Submit" />
           </form> 

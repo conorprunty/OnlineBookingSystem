@@ -19,40 +19,20 @@ session_start();
 $name = $_SESSION['name'];
 
 
-if (isset($_POST['monday'])){
-        $sql = "UPDATE $name SET `Used`='True' WHERE `id` = 1;";
-}
-if (isset($_POST['tuesday'])){
-        $sql .= "UPDATE $name SET `Used`='True' WHERE `id` = 2;";
-}
-if (isset($_POST['wednesday'])){
-        $sql .= "UPDATE $name SET `Used`='True' WHERE `id` = 3;";
-}
-if (isset($_POST['thursday'])){
-        $sql .= "UPDATE $name SET `Used`='True' WHERE `id` = 4;";
-}
-if (isset($_POST['friday'])){
-        $sql .= "UPDATE $name SET `Used`='True' WHERE `id` = 5;";
-}
-if (isset($_POST['saturday'])){
-        $sql .= "UPDATE $name SET `Used`='True' WHERE `id` = 6;";
-}
-if (isset($_POST['sunday'])){
-        $sql .= "UPDATE $name SET `Used`='True' WHERE `id` = 7;";
-}
-    
+        foreach($_POST['day'] as $day)
+        {
+            $sql = "UPDATE daysUsed SET `Used`='Yes' WHERE `days` = '$day'";
+            	if (!$mysqli->multi_query($sql)) {
+                echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
+            }
 
-
-	if (!$mysqli->multi_query($sql)) {
-    echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
-}
-
-do {
-    if ($res = $mysqli->store_result()) {
-        var_dump($res->fetch_all(MYSQLI_ASSOC));
-        $res->free();
-    }
-} while ($mysqli->more_results() && $mysqli->next_result());
+            do {
+                if ($res = $mysqli->store_result()) {
+                    var_dump($res->fetch_all(MYSQLI_ASSOC));
+                    $res->free();
+                }
+            } while ($mysqli->more_results() && $mysqli->next_result());
+        }
 
 unset($_SESSION['name']);
 header("Location: setup.php");
