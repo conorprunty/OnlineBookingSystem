@@ -98,20 +98,20 @@
               <div class="col-6 col-md-4">
                   <p><b>Choose times required:</b></p>
                        <div class="col-6 col-md-4">
-                      <input type="checkbox" checked="true" name="day[]" value="09-10" class="timeselect">09-10<br>
-                      <input type="checkbox" checked="true" name="day[]" value="10-11" class="timeselect">10-11<br>
-                      <input type="checkbox" checked="true" name="day[]" value="11-12" class="timeselect">11-12<br>
-                      <input type="checkbox" checked="true" name="day[]" value="12-13" class="timeselect">12-13<br>
-                      <input type="checkbox" checked="true" name="day[]" value="13-14" class="timeselect">13-14<br>
-                      <input type="checkbox" checked="true" name="day[]" value="14-15" class="timeselect">14-15<br>
+                      <input type="checkbox" checked="true" name="time[]" value="09-10" class="timeselect">09-10<br>
+                      <input type="checkbox" checked="true" name="time[]" value="10-11" class="timeselect">10-11<br>
+                      <input type="checkbox" checked="true" name="time[]" value="11-12" class="timeselect">11-12<br>
+                      <input type="checkbox" checked="true" name="time[]" value="12-13" class="timeselect">12-13<br>
+                      <input type="checkbox" checked="true" name="time[]" value="13-14" class="timeselect">13-14<br>
+                      <input type="checkbox" checked="true" name="time[]" value="14-15" class="timeselect">14-15<br>
                   </div>
                   <div class="col-6 col-md-4">
-                      <input type="checkbox" checked="true" name="time[]" value="Free" class="timeselect">15-16<br>
-                      <input type="checkbox" checked="true" name="time[]" value="Free" class="timeselect">16-17<br>
-                      <input type="checkbox" checked="true" name="time[]" value="Free" class="timeselect">17-18<br>
-                      <input type="checkbox" checked="true" name="time[]" value="Free" class="timeselect">18-19<br>
-                      <input type="checkbox" checked="true" name="time[]" value="Free" class="timeselect">19-20<br>
-                      <input type="checkbox" checked="true" name="time[]" value="Free" class="timeselect">20-21<br>
+                      <input type="checkbox" checked="true" name="time[]" value="15-16" class="timeselect">15-16<br>
+                      <input type="checkbox" checked="true" name="time[]" value="16-17" class="timeselect">16-17<br>
+                      <input type="checkbox" checked="true" name="time[]" value="17-18" class="timeselect">17-18<br>
+                      <input type="checkbox" checked="true" name="time[]" value="18-19" class="timeselect">18-19<br>
+                      <input type="checkbox" checked="true" name="time[]" value="19-20" class="timeselect">19-20<br>
+                      <input type="checkbox" checked="true" name="time[]" value="20-21" class="timeselect">20-21<br>
                   </div>
               </div>
           </div>

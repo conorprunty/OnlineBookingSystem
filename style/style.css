@@ -27,3 +27,12 @@ body{
 .setupForm{
     border-style: groove;   
 }
+
+.fulltable, th, td {
+   border: 1px solid black;
+}
+
+th, td {
+   width: 100px;
+    align: center;
+}

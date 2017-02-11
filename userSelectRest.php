@@ -15,14 +15,15 @@
 	}
 
 session_start();
-//takes variable of the user's selected area
-//$name = $_SESSION['name'];
+//takes variable of the user's selections
+$name = $_SESSION['name'];
 $day = $_POST["day"]; session_start(); $_SESSION['day'] = $day;
+$time = $_POST["time"]; session_start(); $_SESSION['time'] = $time;
 
 
         foreach($_POST['day'] as $day)
         {
-            $sql = "UPDATE daysUsed SET `Used`='Yes' WHERE `days` = '$day'";
+            $sql = "UPDATE $name SET `$day`='Free'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
