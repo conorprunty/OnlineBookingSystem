@@ -15,14 +15,14 @@
 	}
 
 session_start();
-//takes variable of the user's selected area
-//$name = $_SESSION['name'];
-$day = $_POST["day"]; session_start(); $_SESSION['day'] = $day;
+//takes variable of the user's selected area and day
+$name = $_SESSION['name'];
+$day = $_SESSION['day'];
 
 
-        foreach($_POST['day'] as $day)
+        foreach($_SESSION['day'] as $day)
         {
-            $sql = "UPDATE daysUsed SET `Used`='Yes' WHERE `days` = '$day'";
+            $sql = "UPDATE $name SET `Used`='Yes' WHERE `Time` = '$day'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
@@ -35,9 +35,9 @@ $day = $_POST["day"]; session_start(); $_SESSION['day'] = $day;
             } while ($mysqli->more_results() && $mysqli->next_result());
         }
 
-header("Location: userSelectTime.php");
+header("Location: setup.php");
 		// this statement is needed 
-		die("Redirecting to userSelectTime.php");    
+		die("Redirecting to setup.php");    
 
 	$mysqli->close();
 	?>
