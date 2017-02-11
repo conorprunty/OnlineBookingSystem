@@ -59,9 +59,9 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
-header("Location: setuprest.php");
+header("Location: addArea.php");
 		// this statement is needed 
-		die("Redirecting to setuprest.php");    
+		die("Redirecting to addArea.php");    
 
 	$mysqli->close();
 	?>

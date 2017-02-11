@@ -1,47 +1,3 @@
-<?php
-	/*
-*@ author Conor Prunty
-*/
-	// connect to DB
-	require("session.php");
-	// Check whether user is logged in
-	
-	if(empty($_SESSION['user']))     {
-		// If they are not, redirect to the login page. 
-		header("Location: setup.php");
-		// this statement is needed 
-		die("Redirecting to setup.php");
-	}
-    else {
-        
-        session_start();
-        $name = $_SESSION['name'];
-			//selecting all areas available
-			$query = " 
-            SELECT *
-            FROM $name
-            WHERE Used = 'Yes'
-            ORDER BY id asc;
-        ";
-
-		try {
-			// run query
-			$stmt   = $db->prepare($query);
-			$result = $stmt->execute($query_params);
-			$row    = $stmt->fetch();
-		}
-
-		catch (PDOException $ex) {
-			die("Failed to run query: " . $ex->getMessage());
-		}
-
-	}
-
-	//takes name from logged in username
-	$name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
-
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -83,29 +39,64 @@
         Booking
       </div>
          <div align='center'>
-    <?php
-	
-	if ($row) {
-		echo "<table class='fulltable'><tr><th>TIME</th><th>MONDAY</th><th>TUESDAY</th><th>WEDNESDAY</th><th>THURSDAY</th><th>FRIDAY</th><th>SATURDAY</th><th>SUNDAY</th></tr>";
-		$count = 1;
-		// output data of first row
-		echo "<tr><td>" . $row["Time"] . "</td><td> " . $row["Monday"] . "</td><td> " . $row["Tuesday"] . "</td><td> " . $row["Wednesday"] . "</td><td>" . $row["Thursday"] . "</td><td> " . $row["Friday"] . "</td><td> " . $row["Saturday"] . "</td><td> " . $row["Sunday"] . "</td>";
-		echo "</tr>";
-		// output data of next rows
-		while ($row = $stmt->fetch()) {
-			$count++;
-			echo "<tr><td>" . $row["Time"] . "</td><td> " . $row["Monday"] . "</td><td> " . $row["Tuesday"] . "</td><td> " . $row["Wednesday"] . "</td><td>" . $row["Thursday"] . "</td><td> " . $row["Friday"] . "</td><td> " . $row["Saturday"] . "</td><td> " . $row["Sunday"] . "</td>";
-			echo "</tr>";
-		}
+            <?php
 
-		echo "</table>";
-	} else {
-		echo "Please go to setup page.";
-	}
+            $server = mysql_connect("localhost","root", "root");
+            $db =  mysql_select_db("obsadmin",$server);
+            session_start();
+            $name = $_SESSION['name'];
 
-	?>
+            $query = mysql_query(" 
+            SELECT *
+            FROM $name
+            WHERE Used = 'Yes'
+            ORDER BY id asc;
+        ");
+        ?>
+        <h4><?= $name ?> table:</h4>
+        <div class="floater">
+            <table class="striped" align='center'>
+                <tr class="header">
+                    <td><h4>Time</h4></td>
+                    <td><h4>Monday</h4></td>
+                    <td><h4>Tuesday</h4></td>
+                    <td><h4>Wednesday</h4></td>
+                    <td><h4>Thursday</h4></td>
+                    <td><h4>Friday</h4></td>
+                    <td><h4>Saturday</h4></td>
+                    <td><h4>Sunday</h4></td>
+                </tr>
+                <?php
+                   while ($row = mysql_fetch_array($query)) {
+                       echo "<tr>";
+                       echo "<td>".$row[Time]."</td>";
+                       echo "<td>".$row[Monday]."</td>";
+                       echo "<td>".$row[Tuesday]."</td>";
+                       echo "<td>".$row[Wednesday]."</td>";
+                       echo "<td>".$row[Thursday]."</td>";
+                       echo "<td>".$row[Friday]."</td>";
+                       echo "<td>".$row[Saturday]."</td>";
+                       echo "<td>".$row[Sunday]."</td>";
+                       echo "</tr>";
+                   }
+                ?>
+            </table>
         </div>
-
-     
-</body>
+        <form action="bookingOptions.php" name="userChoice" method="post" class="setupForm">
+          <div class="container">
+              <div class="row">      
+                  <div align="center">
+                      <br>
+                      <div class="styled-select select">
+                          <p><b>Select from your areas:</b></p>
+                          <select>
+                              <option value="test"><?php echo $_SESSION['name'];?></option>
+                          </select>
+                          <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                      </div>
+                  </div>
+               </div>
+          </div>
+      </form>
+    </body>
 </html>
