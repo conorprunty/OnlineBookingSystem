@@ -15,7 +15,7 @@
 
     //this prevents direct access to this page - can only come from the redirect on setup.php
     if (strstr($_SERVER['HTTP_REFERER'],"setup.php")){
-        //you can access yay!
+        //you came from the right page
     }
     else{
         // returns to setup.php page

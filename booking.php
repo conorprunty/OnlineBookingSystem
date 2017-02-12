@@ -1,3 +1,19 @@
+<?php
+	/*
+*@ author Conor Prunty
+*/
+	// connect to DB
+	require("session.php");
+	// Check whether user is logged in
+	
+	if(empty($_SESSION['user']))     {
+		// If they are not, redirect to the login page. 
+		header("Location: index.php");
+		// this statement is needed 
+		die("Redirecting to index.php");
+	}
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +27,11 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function goBack() {
+        window.history.back();
+        }
+    </script>
   </head>
   <body>
       
@@ -82,21 +103,13 @@
                 ?>
             </table>
         </div>
-        <form action="bookingOptions.php" name="userChoice" method="post" class="setupForm">
-          <div class="container">
-              <div class="row">      
-                  <div align="center">
-                      <br>
-                      <div class="styled-select select">
-                          <p><b>Select from your areas:</b></p>
-                          <select>
-                              <option value="test"><?php echo $_SESSION['name'];?></option>
-                          </select>
-                          <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
-                      </div>
-                  </div>
-               </div>
-          </div>
-      </form>
+        <br>
+        <div>
+            <p><b>Click here to return to the admin page.</b></p>
+            <form action="admin.php" name="add" method="post">
+                <input type="submit" class="homepageSubmit" name="submit" value="Enter" />
+            </form>
+        </div>
+        
     </body>
 </html>

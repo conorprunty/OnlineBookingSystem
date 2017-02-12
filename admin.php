@@ -65,10 +65,12 @@
                 </a>
                 <h2>Setup Features</h2>
             </div>
-        <div class="col-sm-4">
-            <img src="images/test.png">
-            <h2>Update Bookings</h2>
-        </div>
+            <div class="col-sm-4">
+                <a href="updatebookings.php">
+                    <img src="images/test.png">
+                </a>
+                <h2>Update Bookings</h2>
+            </div>
          <div class="col-sm-4">
             <img src="images/test.png">
              <h2>Update Information</h2>

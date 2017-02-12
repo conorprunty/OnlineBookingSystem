@@ -17,7 +17,7 @@
 			$query = " 
             SELECT id, allAreas
             FROM areas
-            WHERE `Chosen` = 'No'
+            WHERE `Chosen` = 'Yes'
             ORDER BY id desc;
         ";
 
@@ -52,17 +52,6 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-    function validateForm()
-        {
-        var entry=document.forms["add"]["area"].value;
-        if (entry==null || entry=="")
-          {
-          alert("Please enter an area");
-          return false;
-          }
-        }
-    </script>
   </head>
   <body>
       
@@ -88,16 +77,16 @@
     </nav>
       
       <div id="pageheader" align="center">
-        Setup
+        Update
       </div>
       
-      <form action="userSelect.php" name="userChoice" method="post" class="setupForm">
+      <form action="adminopts.php" name="userChoice" method="post" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">
           <div class="container">
               <div class="row">      
                   <div align="center">
                       <br>
                       <div class="styled-select select">
-                          <p><b>Choose area required for your club:</b></p>
+                          <p><b>Select from your list of areas:</b></p>
 
                           <?php
                             //partially taken from:
@@ -113,20 +102,17 @@
                             while ($row = $stmt->fetch()) ;
                             echo "</select>";
                             ?>     
-                          <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                          <br>
+                          <br>
+                          <p><b>And choose to update or delete:</b></p>
+                          <br>
+                        <input type="submit" class="homepageSubmit" name="Update" value="Update" />
+                        <input type="submit" class="homepageSubmit" name="Delete" value="Delete" />
                       </div>
                       <br>
                   </div>
                </div>
           </div>
       </form> 
-     
-      <div class="addNew">
-            <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
-                 <p>Don't see your area? <br>Type here and click submit to add to the list!</p>
-                <input type="text" name="area" id="entry" placeholder="area" /></li>
-                <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
-            </form>
-        </div>
 </body>
 </html>
