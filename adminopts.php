@@ -13,9 +13,11 @@
 	if ($mysqli->connect_error) {
 		die("Connection failed: " . $mysqli->connect_error);
 	}
+    $name = $_POST["userOption"]; session_start(); $_SESSION['name'] = $name;
 
     if (isset($_POST['Update'])) {
-        //update action
+        header("Location: updateopts.php");
+		die("Redirecting to updateopts.php");    
     } else if (isset($_POST['Delete'])) {
         //delete action
         //$sql = "DROP table ".$_POST["userOption"]."";

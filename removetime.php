@@ -14,11 +14,12 @@
 	}
     else {
 			//selecting all areas available
+            session_start();
+            $name = $_SESSION['name'];
 			$query = " 
-            SELECT id, allAreas
-            FROM areas
-            WHERE `Chosen` = 'Yes'
-            ORDER BY id desc;
+            SELECT *
+            FROM $name
+            WHERE `Used` = 'Yes';
         ";
 
 		try {
@@ -34,6 +35,8 @@
 
 	}
 
+	//takes name from logged in username
+	$name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 
 ?>
 
@@ -78,13 +81,13 @@
         Update
       </div>
       
-      <form action="adminopts.php" name="userChoice" method="post" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">
+      <form action="removeexistingtime.php" name="userChoice" method="post" class="setupForm">
           <div class="container">
               <div class="row">      
                   <div align="center">
                       <br>
                       <div class="styled-select select">
-                          <p><b>Select from your list of areas:</b></p>
+                          <p><b>Remove an existing time:</b></p>
 
                           <?php
                             //partially taken from:
@@ -92,20 +95,15 @@
 
                             echo "<select name='userOption'>";
                             do{
-                                unset($id, $name);
-                                $id = $row['allAreas'];
-                                $allAreas = $row['allAreas']; 
-                                echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
+                                unset($id, $Time);
+                                $id = $row['Time'];
+                                $Time = $row['Time']; 
+                                echo '<option value="'.$Time.'">'.$Time.'</option>';
                             }
                             while ($row = $stmt->fetch()) ;
                             echo "</select>";
                             ?>     
-                          <br>
-                          <br>
-                          <p><b>And choose to update or delete:</b></p>
-                          <br>
-                        <input type="submit" class="homepageSubmit" name="Update" value="Update" />
-                        <input type="submit" class="homepageSubmit" name="Delete" value="Delete" />
+                          <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
                       </div>
                       <br>
                   </div>
