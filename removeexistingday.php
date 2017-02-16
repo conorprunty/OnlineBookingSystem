@@ -20,7 +20,8 @@ $name = $_SESSION['name'];
 $day = $_SESSION['day'];
 $time = $_SESSION['time'];
 
-            $sql = "UPDATE $name SET `Used`='Yes' WHERE `Time` = '".$_POST['userOption']."';";
+            $sql = "UPDATE `daysUsed` SET `$name`='' WHERE `days` = '".$_POST['userOption']."';";
+            $sql .= "UPDATE `$name` SET `".$_POST['userOption']."`='Unavailable'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }

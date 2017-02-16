@@ -17,8 +17,8 @@
 session_start();
 //takes variable of the user's selections
 $name = $_SESSION['name'];
-//$day = $_POST["day"]; session_start(); $_SESSION['day'] = $day;
-$day = $_SESSION['day'];
+$day = $_POST["day"]; session_start(); $_SESSION['day'] = $day;
+//$day = $_SESSION['day'];
 $time = $_POST["time"]; session_start(); $_SESSION['time'] = $time;
 
 

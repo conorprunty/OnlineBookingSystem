@@ -17,9 +17,9 @@
             session_start();
             $name = $_SESSION['name'];
 			$query = " 
-            SELECT *
-            FROM $name
-            WHERE `Wednesday` = 'Unavailable';
+            SELECT id, days
+            FROM daysUsed
+            WHERE `$name` = '';
         ";
 
 		try {
@@ -95,10 +95,10 @@
 
                             echo "<select name='userOption'>";
                             do{
-                                unset($id, $Time);
-                                $id = $row['Wednesday'];
-                                $Time = $row['Wednesday']; 
-                                echo '<option value="'.$Time.'">'.$Time.'</option>';
+                                unset($id, $days);
+                                $id = $row['days'];
+                                $days = $row['days']; 
+                                echo '<option value="'.$days.'">'.$days.'</option>';
                             }
                             while ($row = $stmt->fetch()) ;
                             echo "</select>";

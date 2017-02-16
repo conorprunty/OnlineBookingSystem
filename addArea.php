@@ -18,7 +18,8 @@ session_start();
 //takes variable of the user's selection
 $name = $_SESSION['name'];
 
-            $sql .="UPDATE areas SET `used` = 'Yes', `Chosen` = 'Yes' WHERE allAreas = '$name'";
+            $sql ="UPDATE areas SET `used` = 'Yes', `Chosen` = 'Yes' WHERE allAreas = '$name';";
+            $sql .="ALTER TABLE `daysUsed` ADD COLUMN Basketball VARCHAR(50) NOT NULL";
 
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;

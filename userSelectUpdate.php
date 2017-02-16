@@ -21,9 +21,9 @@ $day = $_SESSION['day'];
 $time = $_SESSION['time'];
 
 
-        foreach($_SESSION['time'] as $time)
+        foreach($_SESSION['day'] as $day)
         {
-            $sql = "UPDATE $name SET `Used`='Yes' WHERE `Time` = '$time'";
+            $sql .= "UPDATE `daysUsed` SET `$name`='Yes' WHERE `days` = '$day';";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
@@ -36,9 +36,9 @@ $time = $_SESSION['time'];
             } while ($mysqli->more_results() && $mysqli->next_result());
         }
 
-        header("Location: userSelectUpdate.php");
+        header("Location: booking.php");
 		// this statement is needed 
-		die("Redirecting to userSelectUpdate.php");    
+		die("Redirecting to booking.php");    
 
 	$mysqli->close();
 	?>
