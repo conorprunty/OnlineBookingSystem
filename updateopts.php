@@ -56,9 +56,9 @@
               <a class="navbar-brand" href="#">Online Booking System</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Admin</a></li>
-              <li><a href="#">Bookings</a></li>
+              <li class="active"><a href="setup.php">Setup</a></li>
+              <li><a href="admin.php">Admin</a></li>
+              <li><a href="updatebookings.php">Bookings</a></li>
               <li><a href="#">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

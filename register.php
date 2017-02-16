@@ -161,19 +161,20 @@
   </head>
   <body>
       
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+ <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="#">Online Booking System</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Admin</a></li>
-              <li><a href="#">Bookings</a></li>
+              <li class="active"><a href="setup.php">Setup</a></li>
+              <li><a href="admin.php">Admin</a></li>
+              <li><a href="updatebookings.php">Bookings</a></li>
               <li><a href="#">About</a></li>
             </ul>
         </div>
     </nav>
+      
       
       <div id="pageheader" align="center">
         Registration
