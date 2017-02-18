@@ -50,6 +50,27 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--http://stackoverflow.com/questions/9570478/prevent-user-from-picking-the-default-value-in-a-dropdown-menu-->
+    <!--http://jsfiddle.net/q9Mh9/6/-->
+    <script LANGUAGE="JavaScript">
+        function ValidateForm(form){ 
+            ErrorText= ""; 
+            if ( form.userOption.selectedIndex == 0 ) {
+                 alert ( "Please select a value" );
+                 return false; 
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#userSubmit").submit(function (e) {
+                if ($("#allOptions").val() != "default") {
+                    return true;
+                }
+                e.preventDefault(e);
+            });
+        });  
+    </script>
   </head>
   <body>
       
@@ -77,8 +98,8 @@
       <div id="pageheader" align="center">
         Update
       </div>
-      
-      <form action="adminopts.php" name="userChoice" method="post" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">
+      <!--      <form action="adminopts.php" name="userChoice" method="post" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">  -->
+      <form action="adminopts.php" name="userChoice" method="post" id="userSubmit" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">
           <div class="container">
               <div class="row">      
                   <div align="center">
@@ -89,23 +110,37 @@
                           <?php
                             //partially taken from:
                             //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
-
-                            echo "<select name='userOption'>";
-                            do{
-                                unset($id, $name);
-                                $id = $row['allAreas'];
-                                $allAreas = $row['allAreas']; 
-                                echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
+                            if($row != null){
+                                echo "<select name='userOption' id='allOptions'>";
+                                echo "<option value='default'>Please select...</option>";
+                                do{
+                                    unset($id, $name);
+                                    $id = $row['allAreas'];
+                                    $allAreas = $row['allAreas']; 
+                                    echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
+                                }
+                                while ($row = $stmt->fetch()) ;
+                                echo "</select>"; 
+                                ?>
+                                <br>
+                                <br>
+                                <p><b>And choose to update or delete:</b></p>
+                                <br>
+                                <input type="submit" class="homepageSubmit" name="Update" value="Update" onClick="ValidateForm(this.form)"/>
+                                <input type="submit" class="homepageSubmit" name="Delete" value="Delete" onClick="ValidateForm(this.form)"/>
+                              <?php
+                                }  
+                            
+                            else{
+                                echo "No areas added!";
+                                ?>
+                                <br>
+                                <br>
+                                <p><b> Click here to add an area </b></p>
+                                <input type="button" onclick="location.href='setup.php';" value="Submit" />
+                                <?php
                             }
-                            while ($row = $stmt->fetch()) ;
-                            echo "</select>";
                             ?>     
-                          <br>
-                          <br>
-                          <p><b>And choose to update or delete:</b></p>
-                          <br>
-                        <input type="submit" class="homepageSubmit" name="Update" value="Update" />
-                        <input type="submit" class="homepageSubmit" name="Delete" value="Delete" />
                       </div>
                       <br>
                   </div>
