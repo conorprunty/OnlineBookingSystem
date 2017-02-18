@@ -92,19 +92,32 @@
                           <?php
                             //partially taken from:
                             //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
-
-                            echo "<select name='userOption'>";
-                            do{
-                                unset($id, $Time);
-                                $id = $row['Time'];
-                                $Time = $row['Time']; 
-                                echo '<option value="'.$Time.'">'.$Time.'</option>';
+                            if($row  != null){
+                                echo "<select name='userOption'>";
+                                do{
+                                    unset($id, $Time);
+                                    $id = $row['Time'];
+                                    $Time = $row['Time']; 
+                                    echo '<option value="'.$Time.'">'.$Time.'</option>';
+                                }
+                                while ($row = $stmt->fetch()) ;
+                                echo "</select>";
+                                ?> 
+                                <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                             <?php
                             }
-                            while ($row = $stmt->fetch()) ;
-                            echo "</select>";
-                            ?>     
-                          <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
-                      </div>
+                            else{
+                                //Note: this should never be reached as a time should always be selected!
+                                echo "No times were selected!";
+                                ?>
+                                <br>
+                                <br>
+                                <p><b> Click here to return </b></p>
+                                <input type="button" onclick="location.href='updatebookings.php';" value="Submit" />
+                                <?php
+                                }
+                                ?>
+                          </div>
                       <br>
                   </div>
                </div>

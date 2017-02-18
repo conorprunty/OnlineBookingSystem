@@ -52,6 +52,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--http://stackoverflow.com/questions/9570478/prevent-user-from-picking-the-default-value-in-a-dropdown-menu-->
     <!--http://jsfiddle.net/q9Mh9/6/-->
+<!--
     <script LANGUAGE="JavaScript">
         function ValidateForm(form){ 
             ErrorText= ""; 
@@ -61,6 +62,7 @@
             }
         }
     </script>
+-->
     <script>
         $(document).ready(function () {
             $("#userSubmit").submit(function (e) {
@@ -98,7 +100,6 @@
       <div id="pageheader" align="center">
         Update
       </div>
-      <!--      <form action="adminopts.php" name="userChoice" method="post" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">  -->
       <form action="adminopts.php" name="userChoice" method="post" id="userSubmit" onsubmit="return confirm('Warning: Updating or deleting entries cannot be undone. Are you sure you wish to continue?');">
           <div class="container">
               <div class="row">      
@@ -112,7 +113,7 @@
                             //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
                             if($row != null){
                                 echo "<select name='userOption' id='allOptions'>";
-                                echo "<option value='default'>Please select...</option>";
+                                //echo "<option value='default'>Please select...</option>";
                                 do{
                                     unset($id, $name);
                                     $id = $row['allAreas'];
@@ -126,8 +127,8 @@
                                 <br>
                                 <p><b>And choose to update or delete:</b></p>
                                 <br>
-                                <input type="submit" class="homepageSubmit" name="Update" value="Update" onClick="ValidateForm(this.form)"/>
-                                <input type="submit" class="homepageSubmit" name="Delete" value="Delete" onClick="ValidateForm(this.form)"/>
+                                <input type="submit" class="homepageSubmit" name="Update" value="Update"/>
+                                <input type="submit" class="homepageSubmit" name="Delete" value="Delete"/>
                               <?php
                                 }  
                             

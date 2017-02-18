@@ -98,22 +98,33 @@
                       <br>
                       <div class="styled-select select">
                           <p><b>Choose area required for your club:</b></p>
-
-                          <?php
+                            <?php
                             //partially taken from:
                             //http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
-
-                            echo "<select name='userOption'>";
-                            do{
-                                unset($id, $name);
-                                $id = $row['allAreas'];
-                                $allAreas = $row['allAreas']; 
-                                echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
-                            }
-                            while ($row = $stmt->fetch()) ;
-                            echo "</select>";
-                            ?>     
+                            if($row != null){
+                                echo "<select name='userOption'>";
+                                do{
+                                    unset($id, $name);
+                                    $id = $row['allAreas'];
+                                    $allAreas = $row['allAreas']; 
+                                    echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
+                                }
+                                while ($row = $stmt->fetch()) ;
+                                echo "</select>";
+                                ?>     
                           <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                          <?php
+                            }
+                          else{
+                            echo "Somehow you have selected every area!";
+                            ?>
+                            <br>
+                            <br>
+                            <p><b> Click here to return to the admin page</b></p>
+                            <input type="button" onclick="location.href='admin.php';" value="Submit" />
+                            <?php
+                            }
+                            ?>
                       </div>
                       <br>
                   </div>

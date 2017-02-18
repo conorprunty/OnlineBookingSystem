@@ -22,6 +22,7 @@
         //delete action
         $sql = "UPDATE areas SET `Chosen` = 'No', `used` = '' WHERE `allAreas` = '".$_POST['userOption']."';";
         $sql .= "ALTER TABLE `daysUsed` DROP ".$_POST["userOption"].";";
+        $sql .= "DELETE FROM `areas` WHERE `allAreas` = '".$_POST['userOption']."' AND `newentry` = 'yes';";
         $sql .= "DROP table ".$_POST["userOption"]."";
     } else {
         //no button pressed
