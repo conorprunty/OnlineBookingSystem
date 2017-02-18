@@ -138,6 +138,8 @@
                             <br>
                             <input type="submit" class="btn btn-info" value="Submit">
                         </form>
+                        <br>
+                        <input type="button" class="btn btn-info" onclick="location.href='register.php';" value="Register" />
                       </div>
                   </div>
               </div>
