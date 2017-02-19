@@ -98,8 +98,7 @@
                                 ?>
                                 <br>
                                 <br>
-                                <p><b> Click here to add an area </b></p>
-                                <input type="button" onclick="location.href='setup.php';" value="Submit" />
+                                <p><b> Please contact the admin of the site. </b></p>
                                 <?php
                             }
                             ?>     
