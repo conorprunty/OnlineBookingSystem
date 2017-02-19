@@ -140,6 +140,9 @@
                         </form>
                         <br>
                         <input type="button" class="btn btn-info" onclick="location.href='register.php';" value="Register" />
+                        <br>
+                        <br>
+                        <a href="mailto:admin@obs.ie?Subject=Password%20Reset" target="_top">Forgot Password</a>
                       </div>
                   </div>
               </div>
