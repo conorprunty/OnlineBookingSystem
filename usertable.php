@@ -60,6 +60,7 @@
             WHERE Used = 'Yes'
             ORDER BY id asc;
         ");
+        $userTable = $_POST["userOption"]; session_start(); $_SESSION['userTable'] = $userTable;
         ?>
         <h4><?= $_POST['userOption'] ?> table:</h4>
         <div class="floater">

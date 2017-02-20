@@ -98,8 +98,7 @@
       <div align='center'>
             <?php
 
-            $server = mysql_connect("localhost","root", "root");
-            $db =  mysql_select_db("obsadmin",$server);
+            include("sessions.php")
             session_start();
             $name = $_SESSION['name'];
 
