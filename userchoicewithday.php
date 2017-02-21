@@ -67,7 +67,7 @@
       <div id="pageheader" align="center">
         Booking
       </div>
-        <form action="usertable.php" name="userChoice" method="post" id="userSubmit">
+        <form action="userchoiceform.php" name="userChoice" method="post" id="userSubmit">
           <div class="container">
               <div class="row">      
                   <div align="center">
