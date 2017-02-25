@@ -15,18 +15,30 @@
   if (isset($_REQUEST['email']))  {
   
   //Email information
-  //$admin_email = "conorprunty@hotmail.com";
+      
+  //takes user's email address
   $admin_email = $_REQUEST['email'];
-  $email = "admin@obs.ie";
-  $subject = $_REQUEST['userday'];
+      
+  //need a valid 'from' address - will use old one for now
+  $email = "admin@swapsies.netai.net";
+      
+  //create a default subject
+  $subject = "Booking Confirmation";
+
   //$comment = $_REQUEST['comment'];
   //$name = $_REQUEST['name'];
   //$userarea = $_REQUEST['userarea'];
-  $body = "Name: ".$_POST["name"]."\n";
-  $body .= "Area: ".$_POST["userArea"]."\n";
+  $body = "Hi ".$_POST["name"].",\n\n";
+  $body .= "Your booking for ";
+  $body .= $userTable;
+  $body .= " on ";
+  $body .= $userDay;
+  $body .= " at ";
+  $body .= $userTime;
+  $body .= " has been confirmed.";
   
   //send email - To, Subject, Message, From (etc)
-  mail($admin_email, "$subject", $body, "From:" . $email);
+  mail("$admin_email", "$subject", $body, "From:" . $email);
   
   //JS to let user know the mail has been sent
 
@@ -95,7 +107,7 @@
           Day entered:<br>
           <input type="text" name="userday" id="userday" value="<?php echo $userDay; ?>" disabled><br>
           Time entered:<br>
-          <input type="text" name="usertime" id="usertime" value="<?php echo $userTime; ?>"disabled><br>
+          <input type="text" name="usertime" id="usertime" value="<?php echo $userTime; ?>" disabled><br>
           Please enter your name:<br>
           <input type="text" name="name" id="name"><br>
           Please enter your email address:<br>
