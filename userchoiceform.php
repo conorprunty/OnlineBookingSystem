@@ -8,7 +8,7 @@
     session_start();
     $userTable = $_SESSION['userTable'];
     $userDay = $_SESSION['userDay'];
-    $userTime = $_POST["userOption"]; session_start(); $_SESSION['userTime'] = $userTime;
+    $userTime = $_POST['userOption']; session_start(); $_SESSION['userTime'] = $userTime;
     
 
 //if "email" variable is filled out, send email
@@ -25,17 +25,23 @@
   //create a default subject
   $subject = "Booking Confirmation";
 
-  //$comment = $_REQUEST['comment'];
-  //$name = $_REQUEST['name'];
-  //$userarea = $_REQUEST['userarea'];
+  //body is broken down into different parts
+  //makes the code readable and easier to change
   $body = "Hi ".$_POST["name"].",\n\n";
   $body .= "Your booking for ";
   $body .= $userTable;
   $body .= " on ";
   $body .= $userDay;
   $body .= " at ";
-  $body .= $userTime;
-  $body .= " has been confirmed.";
+      
+  //this part doesn't work yet
+  $body .= $_REQUEST['userarea'];
+  // ^^^^^^^^^^^^^^^^^^^^^^^^^
+      
+  $body .= " has been confirmed.\n\n";
+  $body .= "Your unique booking reference is ";
+  $body .= $_REQUEST['ranNum'];
+  $body .= ".\n\nPlease use this when arriving or in the event of a cancellation.\n\nThanks.";
   
   //send email - To, Subject, Message, From (etc)
   mail("$admin_email", "$subject", $body, "From:" . $email);
@@ -113,7 +119,7 @@
           Please enter your email address:<br>
           <input type="email" name="email" id="email"><br>
           <!--the random number-->
-          <input type="text" name="ranNum" id="ranNum" /><br>
+          <input type="hidden" name="ranNum" id="ranNum" /><br>
           <button type="submit" value="Submit" class="homepageSubmit">Submit</button>
         </form>
     </div>

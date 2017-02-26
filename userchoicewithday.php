@@ -80,7 +80,7 @@
                       </div>
                       <br>
                       <div class="styled-select select">
-                          <p><b>Choose your day:</b></p>
+                          <p><b>Choose your time:</b></p>
 
                           <?php
                             //partially taken from:
@@ -104,7 +104,7 @@
                                 }  
                             
                             else{
-                                echo "There are no days available!";
+                                echo "There are no times available!";
                                 ?>
                                 <br>
                                 <br>
