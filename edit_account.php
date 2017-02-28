@@ -146,7 +146,7 @@
   </head>
   <body>
       
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="#">Online Booking System</a>
@@ -154,8 +154,14 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="setup.php">Setup</a></li>
               <li><a href="admin.php">Admin</a></li>
-              <li><a href="updatebookings.php">Bookings</a></li>
-              <li><a href="#">About</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="allBookings.php">View All</a></li>
+                  <li><a href="updatebookings.php">Edit</a></li>
+                </ul>
+              </li> 
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="logout.php">
