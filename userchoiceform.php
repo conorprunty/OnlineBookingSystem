@@ -8,7 +8,10 @@
     session_start();
     $userTable = $_SESSION['userTable'];
     $userDay = $_SESSION['userDay'];
-    $userTime = $_POST['userOption']; session_start(); $_SESSION['userTime'] = $userTime;
+    $userTime = $_REQUEST['userOption']; session_start(); $_SESSION['userOption'] = $userTime;
+    $ranNum = $_REQUEST['ranNum']; session_start(); $_SESSION['ranNum'] = $ranNum;
+    $userName = $_POST["userName"]; session_start(); $_SESSION['userName'] = $userName;
+    $email = $_REQUEST['email']; session_start(); $_SESSION['email'] = $email;
     
 
 //if "email" variable is filled out, send email
@@ -20,24 +23,20 @@
   $admin_email = $_REQUEST['email'];
       
   //need a valid 'from' address - will use old one for now
-  $email = "admin@swapsies.netai.net";
+  $email = "conorprunty@hotmail.com";
       
   //create a default subject
   $subject = "Booking Confirmation";
 
   //body is broken down into different parts
   //makes the code readable and easier to change
-  $body = "Hi ".$_POST["name"].",\n\n";
+  $body = "Hi ".$_POST["userName"].",\n\n";
   $body .= "Your booking for ";
   $body .= $userTable;
   $body .= " on ";
   $body .= $userDay;
   $body .= " at ";
-      
-  //this part doesn't work yet
-  $body .= $_REQUEST['userarea'];
-  // ^^^^^^^^^^^^^^^^^^^^^^^^^
-      
+  $body .= $_REQUEST['userTime'];
   $body .= " has been confirmed.\n\n";
   $body .= "Your unique booking reference is ";
   $body .= $_REQUEST['ranNum'];
@@ -51,7 +50,7 @@
         ?>
             <script type="text/javascript">
             alert("Mail sent!");
-            window.location.href = "index.php";
+            window.location.href = "addUserOption.php";
             </script>
         <?php
   }
@@ -109,13 +108,13 @@
     <div align="center">
         <form method="post">
           Area entered:<br>
-          <input type="text" name="userarea" id="userarea" value="<?php echo $userTable; ?>" disabled><br>
+          <input type="text" name="userArea" id="userArea" value="<?php echo $userTable; ?>" readonly><br>
           Day entered:<br>
-          <input type="text" name="userday" id="userday" value="<?php echo $userDay; ?>" disabled><br>
+          <input type="text" name="userDay" id="userDay" value="<?php echo $userDay; ?>" readonly><br>
           Time entered:<br>
-          <input type="text" name="usertime" id="usertime" value="<?php echo $userTime; ?>" disabled><br>
+          <input type="text" name="userTime" id="userTime" value="<?php echo $userTime; ?>" readonly><br>
           Please enter your name:<br>
-          <input type="text" name="name" id="name"><br>
+          <input type="text" name="userName" id="userName"><br>
           Please enter your email address:<br>
           <input type="email" name="email" id="email"><br>
           <!--the random number-->
