@@ -53,6 +53,31 @@
           }
         }
     </script>
+    <script>
+        //http://stackoverflow.com/questions/995183/how-to-allow-only-numeric-0-9-in-html-inputbox-using-jquery
+        $(document).ready(function() {
+            $("#txtboxToFilter").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                     // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+                     // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                         // let it happen, don't do anything
+                         return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });  
+    </script>
+    <script>
+        $(function() {
+          $('#staticParent').on('keydown', '#child', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+        })  
+    </script>
   </head>
   <body>
       
@@ -138,7 +163,9 @@
               </div>
               <div class="col-6 col-md-3">
                   <p><b>Choose cost of rent:</b></p>
-                        <input type="number" min="0" step="5" name="cost" id="cost" placeholder="Enter cost..." class="costselect"><br>      
+                        <div id="staticParent">
+                            <input id="child" name="cost" type="textarea" />
+                        </div><br>      
               </div>
           </div>
       </div>
