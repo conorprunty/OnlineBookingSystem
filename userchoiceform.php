@@ -19,6 +19,18 @@
       
   //overwrite the userTime variable  
   $userTime = $_POST['userTime']; session_start(); $_SESSION['userTime'] = $userTime;
+
+  //ensure valid email entered
+      if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))         {
+			?>
+			<script type="text/javascript">
+                alert("Please enter a valid email address.");
+                window.history.back();
+            </script>
+    <?php
+            die();
+		}
+      
   //Email information
       
   //takes user's email address
@@ -38,7 +50,7 @@
   $body .= " on ";
   $body .= $userDay;
   $body .= " at ";
-  $body .= $_POST['userTime'];
+  $body .= $userTime;
   $body .= " has been confirmed.\n\n";
   $body .= "Your unique booking reference is ";
   $body .= $_REQUEST['ranNum'];
@@ -51,7 +63,7 @@
 
         ?>
             <script type="text/javascript">
-            alert("Mail sent!");
+            alert("Booking confirmed, please check your email!");
             window.location.href = "addUserOption.php";
             </script>
         <?php

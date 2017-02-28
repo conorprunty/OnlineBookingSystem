@@ -66,6 +66,7 @@
         <div class="floater">
             <table class="striped" align='center'>
                 <tr class="header">
+                    <td><h4>ID</h4></td>
                     <td><h4>User</h4></td>
                     <td><h4>Table</h4></td>
                     <td><h4>Day</h4></td>
@@ -76,6 +77,7 @@
                 <?php
                    while ($row = mysql_fetch_array($query)) {
                        echo "<tr>";
+                       echo "<td>".$row[id]."</td>";
                        echo "<td>".$row[userName]."</td>";
                        echo "<td>".$row[userTable]."</td>";
                        echo "<td>".$row[userDay]."</td>";
