@@ -101,6 +101,23 @@
         <?php
             die();
 		}
+        
+        // only allow 2 users - as per survey results
+        include("registersession.php");
+
+        $result = mysql_query("SELECT * FROM users", $link);
+        $num_rows = mysql_num_rows($result);
+        
+		if($num_rows > 1)         {
+			?>
+			<script type="text/javascript">
+                alert("Too many users are registered.");
+                location.reload();
+            </script>
+        <?php
+            die();
+		}
+        
 		// Insert details into DB 
 		$query = " 
             INSERT INTO users ( 
