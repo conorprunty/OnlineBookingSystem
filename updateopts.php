@@ -3,7 +3,8 @@
 *@ author Conor Prunty
 */
 	// connect to DB
-	require("session.php");
+    require("session.php");
+	include("sessions.php");
 	// Check whether user is logged in
 	
 	if(empty($_SESSION['user']))     {
@@ -98,9 +99,6 @@
       <div align='center'>
             <?php
 
-            $server = mysql_connect("localhost","root", "root");
-            $db =  mysql_select_db("obsadmin",$server);
-            session_start();
             $name = $_SESSION['name'];
 
             $query = mysql_query(" 

@@ -3,7 +3,7 @@
 *@ author Conor Prunty
 */
 	// connect to DB
-	require("session.php");
+	require("session.php");    
 
     session_start();
     $userTable = $_SESSION['userTable'];
@@ -12,11 +12,13 @@
     $ranNum = $_REQUEST['ranNum']; session_start(); $_SESSION['ranNum'] = $ranNum;
     $userName = $_POST["userName"]; session_start(); $_SESSION['userName'] = $userName;
     $email = $_REQUEST['email']; session_start(); $_SESSION['email'] = $email;
-    
+  
 
 //if "email" variable is filled out, send email
   if (isset($_REQUEST['email']))  {
-  
+      
+  //overwrite the userTime variable  
+  $userTime = $_POST['userTime']; session_start(); $_SESSION['userTime'] = $userTime;
   //Email information
       
   //takes user's email address
@@ -36,7 +38,7 @@
   $body .= " on ";
   $body .= $userDay;
   $body .= " at ";
-  $body .= $_REQUEST['userTime'];
+  $body .= $_POST['userTime'];
   $body .= " has been confirmed.\n\n";
   $body .= "Your unique booking reference is ";
   $body .= $_REQUEST['ranNum'];

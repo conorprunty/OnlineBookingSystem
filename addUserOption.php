@@ -33,9 +33,10 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
-header("Location: index.php");
+//unset($_SESSION['userTime']);
+header("Location: userchoice.php");
 		// this statement is needed 
-		die("Redirecting to index.php");    
+		die("Redirecting to userchoice.php");    
 
 	$mysqli->close();
 	?>
