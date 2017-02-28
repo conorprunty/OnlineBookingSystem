@@ -91,7 +91,7 @@
       
       <div class="container">
           <div class="row">       
-              <div class="col-6 col-md-4">
+              <div class="col-6 col-md-3">
                   <p><b>Choose days required:</b></p>
                         <input type="checkbox" checked="true" name="day[]" value="Monday" class="dayselect">Monday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Tuesday" class="dayselect">Tuesday<br>
@@ -135,6 +135,10 @@
                       <input type="checkbox" name="time[]" value="22-23" class="timeselect">22-23<br>
                       <input type="checkbox" name="time[]" value="23-00" class="timeselect">23-00<br>
                   </div>
+              </div>
+              <div class="col-6 col-md-3">
+                  <p><b>Choose cost of rent:</b></p>
+                        <input type="number" min="0" step="5" name="cost" id="cost" placeholder="Enter cost..." class="costselect"><br>      
               </div>
           </div>
       </div>
