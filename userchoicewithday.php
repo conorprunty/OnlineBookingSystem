@@ -13,6 +13,7 @@
             SELECT id, Time
             FROM $userTable
             WHERE `Used` = 'Yes'
+            AND `$userDay` = 'Free'
             ORDER BY id asc;
         ";
 
