@@ -1,4 +1,3 @@
 <?php
-    $link = mysql_connect("localhost", "root", "root");
-    mysql_select_db("obsadmin", $link);
+    $connect = mysqli_connect('localhost','root','root','obsadmin');
 ?>

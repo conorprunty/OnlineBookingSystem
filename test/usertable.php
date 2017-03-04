@@ -60,7 +60,7 @@
 
             include("sessions.php");
 
-            $query = mysql_query(" 
+            $query = mysqli_query($db," 
             SELECT *
             FROM ".$_POST['userOption']."
             WHERE Used = 'Yes'
@@ -82,7 +82,10 @@
                     <td><h4>Sunday</h4></td>
                 </tr>
                 <?php
-                   while ($row = mysql_fetch_array($query)) {
+                    if (false === $query) {
+                        die(mysql_error()); 
+                    }
+                   while ($row = mysqli_fetch_array($query)) {
                        echo "<tr>";
                        echo "<td>".$row[Time]."</td>";
                        echo "<td>".$row[Monday]."</td>";

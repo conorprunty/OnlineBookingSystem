@@ -104,9 +104,15 @@
         
         // only allow 2 users - as per survey results
         include("registersession.php");
-
-        $result = mysql_query("SELECT * FROM users", $link);
-        $num_rows = mysql_num_rows($result);
+        
+        $q = mysqli_query($connect, " 
+            SELECT *
+            FROM users");
+    
+        $num_rows = mysqli_num_rows($q);
+        if (false === $num_rows) {
+            die(mysql_error()); 
+        }
         
 		if($num_rows > 1)         {
 			?>

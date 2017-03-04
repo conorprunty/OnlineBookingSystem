@@ -72,12 +72,11 @@
             session_start();
             $name = $_SESSION['name'];
 
-            $query = mysql_query(" 
+            $query = mysqli_query($db, " 
             SELECT *
             FROM $name
             WHERE Used = 'Yes'
-            ORDER BY id asc;
-        ");
+            ORDER BY id asc;");
         ?>
         <h4><?= $name ?> table:</h4>
         <div class="floater">
@@ -93,7 +92,10 @@
                     <td><h4>Sunday</h4></td>
                 </tr>
                 <?php
-                   while ($row = mysql_fetch_array($query)) {
+                    if (false === $query) {
+                        die(mysql_error()); 
+                    }
+                   while ($row = mysqli_fetch_array($query)) {
                        echo "<tr>";
                        echo "<td>".$row[Time]."</td>";
                        echo "<td>".$row[Monday]."</td>";

@@ -18,7 +18,7 @@ $time = $_SESSION['time'];
 
         foreach($_SESSION['day'] as $day)
         {
-            $sql .= "UPDATE `daysUsed` SET `$name`='Yes' WHERE `days` = '$day';";
+            $sql = "UPDATE `daysUsed` SET `$name`='Yes' WHERE `days` = '$day';";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }

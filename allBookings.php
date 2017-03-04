@@ -63,7 +63,7 @@
       </div>
          <div align='center'>
             <?php
-            $query = mysql_query(" 
+            $query = mysqli_query($db, " 
             SELECT *
             FROM bookings
             ORDER BY id asc;
@@ -81,7 +81,10 @@
                     <td><h4>Reference</h4></td>
                 </tr>
                 <?php
-                   while ($row = mysql_fetch_array($query)) {
+                    if (false === $query) {
+                        die(mysql_error()); 
+                    }
+                   while ($row = mysqli_fetch_array($query)) {
                        echo "<tr>";
                        echo "<td>".$row[id]."</td>";
                        echo "<td>".$row[userName]."</td>";

@@ -11,7 +11,7 @@ $host = "localhost";
 $dbname = "obsadmintest";
 
 try{
-    $db = new PDO("mysql:host={$host}; port=8889; dbname={$dbname};charset=UTF8", $username, $password, $options);
+    $db = new PDO("mysql:host={$host}; port=8889; dbname={$dbname};charset=UTF8", $username, $password);
 } catch (PDOException $ex) {
     die("Failed to connect to the database: " . $ex->getMessage()); 
 }
