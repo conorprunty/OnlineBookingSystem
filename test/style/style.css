@@ -1,0 +1,38 @@
+#pageheader{
+    font-size: 70px;
+    margin-top: 75px;
+    margin-bottom: 20px;
+}
+
+body{
+    background-color: azure;   
+}
+
+.styled-select select {
+    border: groove;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px;
+    width: 268px;
+}
+
+.homepageSubmit {
+    border-radius: 50%;
+}
+
+.addNew{
+    margin-left: 50px;   
+}
+
+.setupForm{
+    border-style: groove;   
+}
+
+.fulltable, th, td {
+   border: 1px solid black;
+}
+
+th, td {
+   width: 100px;
+    align: center;
+}

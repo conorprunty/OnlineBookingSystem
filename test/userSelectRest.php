@@ -10,12 +10,17 @@
 	}
 
 session_start();
-//takes variable of the user's selected area and day
+//takes variable of the user's selections
 $name = $_SESSION['name'];
-$day = $_SESSION['day'];
-$cost = $_SESSION['cost'];
+$day = $_POST["day"]; session_start(); $_SESSION['day'] = $day;
+//$day = $_SESSION['day'];
+$time = $_POST["time"]; session_start(); $_SESSION['time'] = $time;
+$cost = $_POST["cost"]; session_start(); $_SESSION['cost'] = $cost;
 
-            $sql .= "UPDATE `areas` SET `cost`='$cost' WHERE `allAreas` = '$name';";
+
+        foreach($_POST['day'] as $day)
+        {
+            $sql = "UPDATE $name SET `$day`='Free'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
@@ -26,10 +31,11 @@ $cost = $_SESSION['cost'];
                     $res->free();
                 }
             } while ($mysqli->more_results() && $mysqli->next_result());
+        }
 
-        header("Location: booking.php");
+header("Location: userSelectTime.php");
 		// this statement is needed 
-		die("Redirecting to booking.php");    
+		die("Redirecting to userSelectTime.php");    
 
 	$mysqli->close();
 	?>

@@ -10,12 +10,12 @@
 	}
 
 session_start();
-//takes variable of the user's selected area and day
+//takes variable of the user's selection
 $name = $_SESSION['name'];
-$day = $_SESSION['day'];
-$cost = $_SESSION['cost'];
 
-            $sql .= "UPDATE `areas` SET `cost`='$cost' WHERE `allAreas` = '$name';";
+            $sql ="UPDATE areas SET `used` = 'Yes', `Chosen` = 'Yes' WHERE allAreas = '$name';";
+            $sql .="ALTER TABLE `daysUsed` ADD COLUMN $name VARCHAR(50) NOT NULL";
+
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
@@ -27,9 +27,9 @@ $cost = $_SESSION['cost'];
                 }
             } while ($mysqli->more_results() && $mysqli->next_result());
 
-        header("Location: booking.php");
+header("Location: setuprest.php");
 		// this statement is needed 
-		die("Redirecting to booking.php");    
+		die("Redirecting to setuprest.php");    
 
 	$mysqli->close();
 	?>

@@ -2,10 +2,7 @@
 /*
 *@ author Conor Prunty
 */
-	$username = "root";
-	$password = "root";
-	$host = "localhost";
-	$dbname = "obsadmin";
+	include("phpsession.php");
 	// Create connection
 	$mysqli = new mysqli($host, $username, $password, $dbname);
 	// Check connection

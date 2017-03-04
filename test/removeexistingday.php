@@ -13,9 +13,10 @@ session_start();
 //takes variable of the user's selected area and day
 $name = $_SESSION['name'];
 $day = $_SESSION['day'];
-$cost = $_SESSION['cost'];
+$time = $_SESSION['time'];
 
-            $sql .= "UPDATE `areas` SET `cost`='$cost' WHERE `allAreas` = '$name';";
+            $sql = "UPDATE `daysUsed` SET `$name`='' WHERE `days` = '".$_POST['userOption']."';";
+            $sql .= "UPDATE `$name` SET `".$_POST['userOption']."`='Unavailable'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
