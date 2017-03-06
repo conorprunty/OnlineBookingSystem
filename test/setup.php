@@ -141,7 +141,7 @@
       <div class="addNew">
             <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
                  <p>Don't see your area? <br>Type here and click submit to add to the list!</p>
-                <input type="text" name="area" id="entry" placeholder="area" />
+                <input type="text" name="area" id="entry" placeholder="Enter a new area..." />
                 <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
             </form>
         </div>
