@@ -118,7 +118,7 @@
 			?>
 			<script type="text/javascript">
                 alert("Too many users are registered.");
-                location.reload();
+                window.location.href = "index.php";
             </script>
         <?php
             die();
