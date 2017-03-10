@@ -80,7 +80,7 @@
         ?>
         <h4><?= $_POST['userOption'] ?> table:</h4>
         <div class="floater">
-            <table class="table table-hover table-bordered table-responsive" align='center'>
+            <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
                         <td><h4>Time</h4></td>
@@ -123,6 +123,10 @@
                 <input type="submit" class="btn btn-info" name="submit" value="Enter" />
             </form>
         </div>
+             <footer>
+    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
+     conorprunty@hotmail.com</a></p>
+  </footer>
         
     </body>
 </html>

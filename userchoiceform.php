@@ -161,6 +161,10 @@
             <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
         </form>
+    <footer>
+    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
+     conorprunty@hotmail.com</a></p>
+  </footer>
     </body>
 </html>
 <?php

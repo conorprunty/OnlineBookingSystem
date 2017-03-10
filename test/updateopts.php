@@ -54,27 +54,37 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">Online Booking System</a>
+              <a class="navbar-brand" href="index.php">Online Booking System</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                </button>
             </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="setup.php">Setup</a></li>
-              <li><a href="admin.php">Admin</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="allBookings.php">View All</a></li>
-                  <li><a href="updatebookings.php">Edit</a></li>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="setup.php">Setup</a></li>
+                  <li><a href="admin.php">Admin</a></li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="allBookings.php">View All</a></li>
+                      <li><a href="updatebookings.php">Edit</a></li>
+                    </ul>
+                  </li> 
                 </ul>
-              </li> 
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php">
-                    <span class="glyphicon glyphicon-log-in"></span>
-                    Logout
-                    </a>
-                </li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="logout.php">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
       <div id="pageheader" align="center">
@@ -116,17 +126,19 @@
         ?>
         <h4>Here is the current <?= $name ?> table:</h4>
         <div class="floater">
-            <table class="striped" align='center'>
-                <tr class="header">
-                    <td><h4>Time</h4></td>
-                    <td><h4>Monday</h4></td>
-                    <td><h4>Tuesday</h4></td>
-                    <td><h4>Wednesday</h4></td>
-                    <td><h4>Thursday</h4></td>
-                    <td><h4>Friday</h4></td>
-                    <td><h4>Saturday</h4></td>
-                    <td><h4>Sunday</h4></td>
-                </tr>
+            <table class="table table-hover table-bordered table-responsive" align='center'>
+                <thead>
+                    <tr>
+                        <td><h4>Time</h4></td>
+                        <td><h4>Monday</h4></td>
+                        <td><h4>Tuesday</h4></td>
+                        <td><h4>Wednesday</h4></td>
+                        <td><h4>Thursday</h4></td>
+                        <td><h4>Friday</h4></td>
+                        <td><h4>Saturday</h4></td>
+                        <td><h4>Sunday</h4></td>
+                    </tr>
+                </thead>
                 <?php
                     if (false === $query) {
                         die(mysql_error()); 

@@ -164,5 +164,9 @@
               </div>
           </div>
       </div>
+      <footer>
+    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
+     conorprunty@hotmail.com</a></p>
+  </footer>
 </body>
 </html>

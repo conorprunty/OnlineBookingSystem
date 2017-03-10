@@ -155,5 +155,9 @@
                 <input type="submit" class="btn btn-info" name="submit" value="Submit" />
             </form>
         </div>
+      <footer>
+    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
+     conorprunty@hotmail.com</a></p>
+  </footer>
 </body>
 </html>

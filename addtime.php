@@ -137,6 +137,10 @@
                   </div>
                </div>
           </div>
-      </form> 
+      </form>
+      <footer>
+    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
+     conorprunty@hotmail.com</a></p>
+  </footer>
 </body>
 </html>

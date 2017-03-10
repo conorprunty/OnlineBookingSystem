@@ -80,16 +80,16 @@
         ");
         ?>
         <div class="floater">
-            <table class="table table-hover table-bordered table-responsive" align='center'>
+            <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
-                        <td><h4>ID</h4></td>
-                        <td><h4>User</h4></td>
-                        <td><h4>Table</h4></td>
-                        <td><h4>Day</h4></td>
-                        <td><h4>Time</h4></td>
-                        <td><h4>Email</h4></td>
-                        <td><h4>Reference</h4></td>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Table</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Email</th>
+                        <th>Reference</th>
                     </tr>
                 </thead>
                 <?php
@@ -117,6 +117,9 @@
                 <input type="submit" class="btn btn-info" name="submit" value="Enter" />
             </form>
         </div>
-        
+        <footer>
+   <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
+     conorprunty@hotmail.com</a></p>
+  </footer>
     </body>
 </html>
