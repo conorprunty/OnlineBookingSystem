@@ -109,7 +109,7 @@
                                 while ($row = $stmt->fetch()) ;
                                 echo "</select>";
                                 ?> 
-                                <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                                <input type="submit" class="btn btn-info" name="submit" value="Submit" />
                              <?php
                             }
                             else{
@@ -119,7 +119,7 @@
                                 <br>
                                 <br>
                                 <p><b> Click here to return </b></p>
-                                <input type="button" onclick="location.href='updatebookings.php';" value="Submit" />
+                                <input type="button" class="btn btn-info" onclick="location.href='updatebookings.php';" value="Submit" />
                                 <?php
                                 }
                                 ?>

@@ -118,7 +118,7 @@
                                 while ($row = $stmt->fetch()) ;
                                 echo "</select>";
                                 ?>     
-                          <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                          <input type="submit" class="btn btn-info" name="submit" value="Submit" />
                           <?php
                             }
                           else{
@@ -127,7 +127,7 @@
                             <br>
                             <br>
                             <p><b> Click here to return to the admin page</b></p>
-                            <input type="button" onclick="location.href='admin.php';" value="Submit" />
+                            <input type="button" class="btn btn-info" onclick="location.href='admin.php';" value="Submit" />
                             <?php
                             }
                             ?>
@@ -142,7 +142,7 @@
             <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
                  <p>Don't see your area? <br>Type here and click submit to add to the list!</p>
                 <input type="text" name="area" id="entry" placeholder="Enter a new area..." />
-                <input type="submit" class="homepageSubmit" name="submit" value="Submit" />
+                <input type="submit" class="btn btn-info" name="submit" value="Submit" />
             </form>
         </div>
 </body>

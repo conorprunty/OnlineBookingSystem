@@ -133,8 +133,8 @@
                                 <br>
                                 <p><b>And choose to update or delete:</b></p>
                                 <br>
-                                <input type="submit" class="homepageSubmit" name="Update" value="Update"/>
-                                <input type="submit" class="homepageSubmit" name="Delete" value="Delete"/>
+                                <input type="submit" class="btn btn-info" name="Update" value="Update"/>
+                                <input type="submit" class="btn btn-info" name="Delete" value="Delete"/>
                               <?php
                                 }  
                             
@@ -144,7 +144,7 @@
                                 <br>
                                 <br>
                                 <p><b> Click here to add an area </b></p>
-                                <input type="button" onclick="location.href='setup.php';" value="Submit" />
+                                <input type="button" class="btn btn-info" onclick="location.href='setup.php';" value="Submit" />
                                 <?php
                             }
                             ?>     

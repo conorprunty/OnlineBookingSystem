@@ -95,7 +95,7 @@
                                 <br>
                                 <br>
                                 <br>
-                                <input type="submit" class="homepageSubmit" name="Submit" value="Submit"/>
+                                <input type="submit" class="btn btn-info" name="Submit" value="Submit"/>
                               <?php
                                 }  
                             

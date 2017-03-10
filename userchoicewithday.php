@@ -5,6 +5,16 @@
 	// connect to DB
 	require("session.php");
 
+    if (strstr($_SERVER['HTTP_REFERER'],"userchoice.php")){
+            //you came from the right page
+        }
+        else{
+            // returns to initial booking page
+            header("Location: userbooking.php");
+            // this kills the php script
+            die("Redirecting to userbooking.php");
+        }
+
     session_start();
     $userTable = $_SESSION['userTable'];
     $userDay = $_POST["userOption"]; session_start(); $_SESSION['userDay'] = $userDay;
@@ -106,7 +116,7 @@
                                 <br>
                                 <br>
                                 <br>
-                                <input type="submit" class="homepageSubmit" name="Submit" value="Submit"/>
+                                <input type="submit" class="btn btn-info" name="Submit" value="Submit"/>
                               <?php
                                 }  
                             

@@ -80,17 +80,19 @@
         ?>
         <h4><?= $name ?> table:</h4>
         <div class="floater">
-            <table class="striped" align='center'>
-                <tr class="header">
-                    <td><h4>Time</h4></td>
-                    <td><h4>Monday</h4></td>
-                    <td><h4>Tuesday</h4></td>
-                    <td><h4>Wednesday</h4></td>
-                    <td><h4>Thursday</h4></td>
-                    <td><h4>Friday</h4></td>
-                    <td><h4>Saturday</h4></td>
-                    <td><h4>Sunday</h4></td>
-                </tr>
+            <table class="table table-hover table-bordered table-responsive" align='center'>
+                <thead>
+                    <tr>
+                        <td><h4>Time</h4></td>
+                        <td><h4>Monday</h4></td>
+                        <td><h4>Tuesday</h4></td>
+                        <td><h4>Wednesday</h4></td>
+                        <td><h4>Thursday</h4></td>
+                        <td><h4>Friday</h4></td>
+                        <td><h4>Saturday</h4></td>
+                        <td><h4>Sunday</h4></td>
+                    </tr>
+                </thead>
                 <?php
                     if (false === $query) {
                         die(mysql_error()); 
@@ -114,7 +116,7 @@
         <div>
             <p><b>Click here to return to the admin page.</b></p>
             <form action="admin.php" name="add" method="post">
-                <input type="submit" class="homepageSubmit" name="submit" value="Enter" />
+                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
             </form>
         </div>
         

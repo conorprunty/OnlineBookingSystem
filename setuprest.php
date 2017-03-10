@@ -169,7 +169,7 @@
               </div>
           </div>
       </div>
-          <input align="center" type="submit" class="homepageSubmit" name="submit" value="Submit" />
+          <input align="center" type="submit" class="btn btn-info" name="submit" value="Submit" />
           </form> 
 </body>
 </html>
