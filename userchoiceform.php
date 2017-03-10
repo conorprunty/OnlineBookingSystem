@@ -97,27 +97,37 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">Online Booking System</a>
+              <a class="navbar-brand" href="index.php">Online Booking System</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                    <span class="icon-bar">
+                    </span>
+                </button>
             </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="setup.php">Setup</a></li>
-              <li><a href="admin.php">Admin</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="allBookings.php">View All</a></li>
-                  <li><a href="updatebookings.php">Edit</a></li>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="setup.php">Setup</a></li>
+                  <li><a href="admin.php">Admin</a></li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="allBookings.php">View All</a></li>
+                      <li><a href="updatebookings.php">Edit</a></li>
+                    </ul>
+                  </li> 
                 </ul>
-              </li> 
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php">
-                    <span class="glyphicon glyphicon-log-in"></span>
-                    TBC
-                    </a>
-                </li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="logout.php">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        TBC
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
       
