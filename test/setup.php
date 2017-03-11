@@ -63,6 +63,15 @@
           }
         }
     </script>
+            <!-- forces user to not allow use spaces -->
+      <script>
+          $(function() {
+            $('#entry').on('keypress', function(e) {
+                if (e.which == 32)
+                    return false;
+            });
+        });
+      </script>
   </head>
   <body>
       

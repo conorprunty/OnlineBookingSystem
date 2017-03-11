@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: azure;   
+    background-color: azure; 
 }
 
 .styled-select select {
@@ -30,9 +30,38 @@ body{
 
 .fulltable, th, td {
    border: 1px solid black;
+    margin 20px;
 }
 
 th, td {
-   width: 100px;
+    width: 100px;
     align: center;
+}
+
+table.fulltable th {
+    text-align: center;
+    color: white;
+    font-size:15px;
+	background-color:cadetblue;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: white;
+} 
+
+table.fulltable {
+    text-align: center;
+	color:#333333;
+	border-width: 3px;
+	border-color: black;
+	border-collapse: collapse;
+}
+
+footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  text-align: right;
+  font-size:xx-small;
 }
