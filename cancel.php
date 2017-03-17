@@ -68,7 +68,7 @@
 		?>
         <script type="text/javascript">
             alert("Booking deleted.");
-            window.location.href = "index.php";
+            window.location.href = "welcome.php";
             </script>
 <?php
  } ?>
