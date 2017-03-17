@@ -1,12 +1,37 @@
 <?php
-	/*
-* welcome.php *
-*
+/*
+* contact.php
 *@ author Conor Prunty
+*
 */
-	// connect to DB
-	require("session.php");
-	?>
+    // connect to DB
+    require("session.php"); 
+
+//if "email" variable is filled out, send email
+  if (isset($_REQUEST['email']))  {
+  
+  //Email information
+  $admin_email = "conorprunty1@gmail.com";
+  $email = "admin@swapsies.netai.net";
+  $subject = $_REQUEST['subject'];
+  $comment = $_REQUEST['comment'];
+  
+  //send email - To, Subject, Message, From (etc)
+  mail("$admin_email", "$subject", $comment, "From:" . $email);
+  
+  //JS to let user know the mail has been sent
+
+        ?>
+            <script type="text/javascript">
+            alert("Mail sent to admin");
+            window.location.href = "welcome.php";
+            </script>
+        <?php
+  }
+  
+  //if "email" variable is not filled out, display the form
+  else  {
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,8 +46,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body>
-      
+<body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -51,36 +75,38 @@
             </div>
         </div>
     </nav>
-      
-      <div id="pageheader" align="center">
-        Welcome
+    
+    <div id="pageheader" align="center">
+        Contact
       </div>
-      
-      <div class="container">
-        <div class="row text-center">
-            <div class="col-sm-4">
-                <a href="userbooking.php">
-                    <img src="images/test.png">
-                </a>
-                <h2>Create Booking</h2>
-            </div>
-            <div class="col-sm-4">
-                <a href="cancel.php">
-                    <img src="images/test.png">
-                </a>
-                <h2>Delete Booking</h2>
-            </div>
-         <div class="col-sm-4">
-                <a href="contact.php">
-                    <img src="images/test.png">
-                </a>
-             <h2>Contact Admin</h2>
-            </div>
-        </div>
-    </div>  
-    <footer>
-      <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-      conorprunty@hotmail.com</a></p>
-    </footer>
+
+	<div align='center'>
+		<div class="col-md-offset-4 col-md-4">
+			<div class="panel-default">
+				<div class="panel-heading text-center">
+					<div class="panel-body">
+						<form method="post">
+							<div class="form-group">
+								<label for="email">Your Email</label>
+								<input type="email" class="form-control" name="email" id="email">
+							</div>
+							<label for="subject">Subject</label>
+							<input type="text" class="form-control" name="subject" id="subject">
+					</div>
+					<label for="comment">Comment</label>
+					<textarea class="form-control" name="comment" maxlength="250" placeholder="Enter comment(s) here..." rows="3" id="comment"></textarea>
+					<br>
+					<button type="submit" value="Submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
 </body>
+
 </html>
+
+<?php
+      
+  }
+?>

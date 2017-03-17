@@ -199,16 +199,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="setup.php">Setup</a></li>
-                  <li><a href="admin.php">Admin</a></li>
-                  <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="allBookings.php">View All</a></li>
-                      <li><a href="updatebookings.php">Edit</a></li>
-                    </ul>
-                  </li> 
+                  <!-- left empty <ul> in case want to add to in future -->
                 </ul>
             </div>
         </div>
