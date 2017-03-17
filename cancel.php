@@ -42,11 +42,12 @@
 		// fetch returns an array representing the next row or false for no rows
 		$row = $stmt->fetch();
 		// If a row is returned, then the email is in use
-		
+        
 		if(!$row)         {
 			?>
 			<script type="text/javascript">
                 alert("Invalid booking reference.");
+                //alert('<?php echo $bookingref ?>');
                 location.reload();
             </script>
         <?php
@@ -54,22 +55,23 @@
 		}	
               
 		// Remove option from bookings table
-		$query = " 
-            DELETE FROM bookings WHERE ranNum = :ranNum
-        ";
-		try         {
-			// Execute the query to create the user 
-			$stmt = $db->prepare($query);
-			$result = $stmt->execute($query_params);
-		}
-		catch(PDOException $ex)         {
-			die("Failed to run query: " . $ex->getMessage());
-		}
-        
+//		$query = " 
+//            DELETE FROM bookings WHERE ranNum = '$bookingref'
+//        ";
+//		try         {
+//			// Execute the query to create the user 
+//			$stmt = $db->prepare($query);
+//			$result = $stmt->execute($query_params);
+//		}
+//		catch(PDOException $ex)         {
+//			die("Failed to run query: " . $ex->getMessage());
+//		}
+        session_start();
+		$bookingref = $_POST["ranNum"]; session_start(); $_SESSION['bookingref'] = $bookingref;
 		?>
         <script type="text/javascript">
             alert("Booking deleted.");
-            window.location.href = "welcome.php";
+            window.location.href = "custDeleteButton.php";
             </script>
 <?php
  } ?>
