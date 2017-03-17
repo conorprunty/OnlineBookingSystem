@@ -83,13 +83,13 @@
             <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>User</th>
                         <th>Table</th>
                         <th>Day</th>
                         <th>Time</th>
                         <th>Email</th>
                         <th>Reference</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <?php
@@ -98,13 +98,16 @@
                     }
                    while ($row = mysqli_fetch_array($query)) {
                        echo "<tr>";
-                       echo "<td>".$row[id]."</td>";
                        echo "<td>".$row[userName]."</td>";
                        echo "<td>".$row[userTable]."</td>";
                        echo "<td>".$row[userDay]."</td>";
                        echo "<td>".$row[userTime]."</td>";
                        echo "<td>".$row[email]."</td>";
                        echo "<td>".$row[ranNum]."</td>";
+                       echo "<td><form id=\"delete\" method=\"post\" action=\"deleteBooking.php\" onsubmit=\"return confirm('Are you sure?')\">
+    <input type=\"hidden\" name=\"id\" value=" . $row["id"] . ">
+    <input class=\"submitb\" name=\"submit\" type=\"image\" src=\"images/delete.png\" height=\"42\" width=\"42\" value=\"Submit\">
+    </form></td>";
                        echo "</tr>";
                    }
                 ?>
