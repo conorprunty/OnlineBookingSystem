@@ -98,7 +98,7 @@
                   <div align="center">
                       <br>
                       <div class="styled-select select">
-                          <p><b>Choose your time:</b></p>
+                          <p><b>Choose your day:</b></p>
 
                           <?php
                             //partially taken from:
