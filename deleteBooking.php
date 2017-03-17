@@ -10,6 +10,7 @@
 	}
 
             $sql = "DELETE FROM `bookings` WHERE `id` = '".$_POST['id']."';";
+            $sql .= "UPDATE `".$_POST['table']."` SET `".$_POST['day']."`='Free' WHERE `Time` = '".$_POST['time']."'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }

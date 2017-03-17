@@ -51,8 +51,8 @@
             </script>
         <?php
             die();
-		}
-        
+		}	
+              
 		// Remove option from bookings table
 		$query = " 
             DELETE FROM bookings WHERE ranNum = :ranNum
@@ -65,6 +65,7 @@
 		catch(PDOException $ex)         {
 			die("Failed to run query: " . $ex->getMessage());
 		}
+        
 		?>
         <script type="text/javascript">
             alert("Booking deleted.");

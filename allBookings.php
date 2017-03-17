@@ -106,6 +106,9 @@
                        echo "<td>".$row[ranNum]."</td>";
                        echo "<td><form id=\"delete\" method=\"post\" action=\"deleteBooking.php\" onsubmit=\"return confirm('Are you sure?')\">
     <input type=\"hidden\" name=\"id\" value=" . $row["id"] . ">
+    <input type=\"hidden\" name=\"table\" value=" . $row["userTable"] . ">
+    <input type=\"hidden\" name=\"day\" value=" . $row["userDay"] . ">
+    <input type=\"hidden\" name=\"time\" value=" . $row["userTime"] . ">
     <input class=\"submitb\" name=\"submit\" type=\"image\" src=\"images/delete.png\" height=\"42\" width=\"42\" value=\"Submit\">
     </form></td>";
                        echo "</tr>";
