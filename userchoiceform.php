@@ -3,11 +3,11 @@
 *@ author Conor Prunty
 */
 	// connect to DB
-	require("session.php");  
+	
     require("registersession.php");
     $icon = mysqli_query($connect, "SELECT icon FROM banner");
     $bannerresult = mysqli_fetch_array($icon);
-
+    require("session.php"); 
     session_start();
     $userTable = $_SESSION['userTable'];
     $userDay = $_SESSION['userDay'];
@@ -70,6 +70,7 @@
             window.location.href = "addUserOption.php";
             </script>
         <?php
+      
   }
   
   //if "email" variable is not filled out, display the form
@@ -92,14 +93,14 @@
         <script type="text/javascript">
         var icon = <?php echo $bannerresult["icon"];?>;
         </script>
-        <script>
+        <script type="text/javascript">
             window.onload = function createRan(){
                 var test = Math.floor(Math.random() * 1000000);
                 document.getElementById("ranNum").value = test;
             }        
         </script>
     </head>
-<body onload="setBanner()">
+<body>
     
     <header>
         <div id="icon"></div>

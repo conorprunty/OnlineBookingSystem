@@ -11,7 +11,7 @@
             SELECT id, allAreas
             FROM areas
             WHERE `Chosen` = 'Yes'
-            ORDER BY id desc;
+            ORDER BY allAreas asc;
         ";
 
 		try {
