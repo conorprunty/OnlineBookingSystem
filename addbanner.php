@@ -1,12 +1,9 @@
 <?php
 	/*
-* mainmenu.php *
-*
 *@ author Conor Prunty
 */
 	// connect to DB
 	require("session.php");
-    require("registersession.php");
 	// Check whether user is logged in
 	
 	if(empty($_SESSION['user']))     {
@@ -16,10 +13,9 @@
 		die("Redirecting to index.php");
 	}
 
-    $icon = mysqli_query($connect, "SELECT icon FROM banner");
-    $bannerresult = mysqli_fetch_array($icon);
 
-	?>
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,15 +29,9 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/banner.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    var icon = <?php echo $bannerresult["icon"];?>;
-    </script>
+    <script src="js/bannerdemo.js" type="text/javascript"></script>
   </head>
-  <body onload="setBanner()">
-      <header>
-            <div id="icon"></div>
-        </header>
+  <body>
       
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -81,40 +71,23 @@
     </nav>
       
       <div id="pageheader" align="center">
-        Admin
+        Banner
+      </div>
+      <div align="center" class="styled-select select">
+         <form action="updatebanner.php" name="bannerchoice" method="post" onSubmit="alert('The admin page will display what the customer will see.');">
+              <select name="optionChoice" id="optionChoice" onChange="setIcon()">
+                   <option disabled selected value>Select an option...</option>
+                   <option name="one" id="one" value="1">Football</option>
+                   <option name="two" id="two" value="2">Swimming</option>
+                   <option name="three" id="three" value="3">Tennis</option>
+                   <option name="four" id="four" value="4">Basketball</option>
+                </select>
+             <input type="submit" class="btn btn-info" name="Submit" value="Choose"/>
+            </form>
+          <br>
+          <br>
+          <div id="icon"></div> 
       </div>
       
-      <div class="container">
-        <div class="row text-center">
-            <div class="col-sm-3">
-                <a href="setup.php">
-                    <img src="images/test.png">
-                </a>
-                <h2>Setup Features</h2>
-            </div>
-            <div class="col-sm-3">
-                <a href="updatebookings.php">
-                    <img src="images/test.png">
-                </a>
-                <h2>Update Bookings</h2>
-            </div>
-            <div class="col-sm-3">
-                <a href="edit_account.php">
-                    <img src="images/test.png">
-                </a>
-             <h2>Update Information</h2>
-            </div>
-            <div class="col-sm-3">
-                <a href="addbanner.php">
-                    <img src="images/test.png">
-                </a>
-                <h2>Add Banner</h2>
-            </div>
-        </div>
-    </div>  
-    <footer>
-      <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-      conorprunty@hotmail.com</a></p>
-    </footer>
 </body>
 </html>

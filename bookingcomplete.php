@@ -6,6 +6,7 @@
 */
 	// connect to DB
 	require("session.php");
+    require("registersession.php");
 
  //this prevents direct access to this page - can only come from the redirect on setup.php
     if (strstr($_SERVER['HTTP_REFERER'],"userchoiceform.php")){
@@ -17,6 +18,9 @@
 		// this kills the php script
 		die("Redirecting to welcome.php");
     }
+    
+    $icon = mysqli_query($connect, "SELECT icon FROM banner");
+    $bannerresult = mysqli_fetch_array($icon);
 	?>
 <!DOCTYPE html>
 <html>
@@ -31,8 +35,16 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/banner.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var icon = <?php echo $bannerresult["icon"];?>;
+    </script>
   </head>
-  <body>
+  <body onload="setBanner()">
+    
+    <header>
+        <div id="icon"></div>
+    </header>
       
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
