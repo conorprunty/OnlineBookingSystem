@@ -54,7 +54,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="welcome.php">Online Booking System</a>
+              <a class="navbar-brand" href="welcome.php">Homepage</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -128,8 +128,10 @@
           </div>
       </form> 
     </body>
-    <footer>
-    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-     conorprunty@hotmail.com</a></p>
-  </footer>
+    <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
 </html>

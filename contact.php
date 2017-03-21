@@ -15,7 +15,7 @@
   
   //Email information
   $admin_email = "conorprunty1@gmail.com";
-  $email = "admin@swapsies.netai.net";
+  $email = "conorprunty@hotmail.com";
   $subject = $_REQUEST['subject'];
   $comment = $_REQUEST['comment'];
   
@@ -61,7 +61,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="welcome.php">Online Booking System</a>
+              <a class="navbar-brand" href="welcome.php">Homepage</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -73,11 +73,11 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="userbooking.php">New Booking</a></li>
+                  <li><a href="userbooking.php">New Booking</a></li>
                   <li><a href="cancel.php">Cancel Booking</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="contact.php">
+                    <li class="active"><a href="contact.php">
                         <span class="glyphicon glyphicon-comment"></span>
                         Contact
                         </a>

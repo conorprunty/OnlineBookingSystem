@@ -46,7 +46,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.php">Online Booking System</a>
+              <a class="navbar-brand">Online Booking System</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -58,8 +58,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="setup.php">Setup</a></li>
-                  <li><a href="admin.php">Admin</a></li>
+                  <li><a href="setup.php">Setup</a></li>
+                  <li class="active"><a href="admin.php">Admin</a></li>
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
                     <span class="caret"></span></a>
@@ -70,7 +70,7 @@
                   </li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.php">
+                    <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">
                         <span class="glyphicon glyphicon-log-in"></span>
                         Logout
                         </a>
@@ -87,34 +87,36 @@
       <div class="container">
         <div class="row text-center">
             <div class="col-sm-3">
-                <a href="setup.php">
-                    <img src="images/test.png">
+                <a href="setup.php" data-toggle="tooltip" data-placement="top" title="Setup your area(s) required">
+                    <img src="images/setup.ico" height="200px" width="180px">
                 </a>
                 <h2>Setup Features</h2>
             </div>
             <div class="col-sm-3">
-                <a href="updatebookings.php">
-                    <img src="images/test.png">
+                <a href="updatebookings.php" data-toggle="tooltip" data-placement="top" title="Update or Delete areas or bookings">
+                    <img src="images/booking.png" height="200px" width="180px">
                 </a>
                 <h2>Update Bookings</h2>
             </div>
             <div class="col-sm-3">
-                <a href="edit_account.php">
-                    <img src="images/test.png">
+                <a href="edit_account.php" data-toggle="tooltip" data-placement="top" title="Update your own information">
+                    <img src="images/profile.png" height="200px" width="180px">
                 </a>
              <h2>Update Information</h2>
             </div>
             <div class="col-sm-3">
-                <a href="addbanner.php">
-                    <img src="images/test.png">
+                <a href="addbanner.php" data-toggle="tooltip" data-placement="top" title="Add or remove a banner">
+                    <img src="images/banner.png" height="200px" width="180px">
                 </a>
                 <h2>Add Banner</h2>
             </div>
         </div>
     </div>  
-    <footer>
-      <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-      conorprunty@hotmail.com</a></p>
-    </footer>
+    <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
 </body>
 </html>

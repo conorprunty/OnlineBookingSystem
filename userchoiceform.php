@@ -57,7 +57,7 @@
   $body .= " has been confirmed.\n\n";
   $body .= "Your unique booking reference is ";
   $body .= $_REQUEST['ranNum'];
-  $body .= ".\n\nPlease use this when arriving or in the event of a cancellation.\n\nThanks.";
+  $body .= ".\n\nPlease use this when arriving or in the event of a cancellation.\n\nIf there are any issues with this, or you did not request a booking, please contact conorprunty@hotmail.com\n\nThanks.";
   
   //send email - To, Subject, Message, From (etc)
   mail("$admin_email", "$subject", $body, "From:" . $email);
@@ -108,7 +108,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="welcome.php">Online Booking System</a>
+              <a class="navbar-brand" href="welcome.php">Homepage</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -164,10 +164,12 @@
             <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
             <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
         </form>
-    <footer>
-    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-     conorprunty@hotmail.com</a></p>
-  </footer>
+    <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
     </body>
 </html>
 <?php

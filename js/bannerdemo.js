@@ -12,6 +12,9 @@ function setIcon() {
   else if(selectDd.value === "4")
   	document.getElementById("icon").innerHTML = 
              "<img id='iconSize' src='images/basketball.jpg'/>";
+  else if(selectDd.value === "0")
+  	document.getElementById("icon").innerHTML = 
+             "Banner will be removed";
     document.getElementById('iconSize').height = "300";
     document.getElementById('iconSize').width = "1500";
 

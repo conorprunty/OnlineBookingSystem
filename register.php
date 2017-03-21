@@ -187,15 +187,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.php">Online Booking System</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar">
-                    </span>
-                    <span class="icon-bar">
-                    </span>
-                    <span class="icon-bar">
-                    </span>
-                </button>
+              <a class="navbar-brand">Online Booking System</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -239,14 +231,20 @@
                             <br>
                             <input type="submit" class="btn btn-info" value="Submit">
                         </form>
+                          <br>
+                          <form action="index.php" method="post">
+                            <input type="submit" class="btn btn-info" value="Back">
+                        </form>
                       </div>
                   </div>
               </div>
           </div>
       </div>
-      <footer>
-    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-     conorprunty@hotmail.com</a></p>
-  </footer>
+      <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
 </body>
 </html>

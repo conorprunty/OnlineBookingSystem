@@ -79,7 +79,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.php">Online Booking System</a>
+              <a class="navbar-brand">Online Booking System</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -91,9 +91,9 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="setup.php">Setup</a></li>
+                  <li><a href="setup.php">Setup</a></li>
                   <li><a href="admin.php">Admin</a></li>
-                  <li class="dropdown">
+                  <li class="dropdown active">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -103,7 +103,7 @@
                   </li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.php">
+                    <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">
                         <span class="glyphicon glyphicon-log-in"></span>
                         Logout
                         </a>
@@ -164,9 +164,11 @@
                </div>
           </div>
       </form>
-      <footer>
-    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-     conorprunty@hotmail.com</a></p>
-  </footer>
+      <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
 </body>
 </html>

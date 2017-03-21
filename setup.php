@@ -19,7 +19,7 @@
             SELECT id, allAreas
             FROM areas
             WHERE `Chosen` = 'No'
-            ORDER BY id desc;
+            ORDER BY allAreas asc;
         ";
 
 		try {
@@ -88,7 +88,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.php">Online Booking System</a>
+              <a class="navbar-brand">Online Booking System</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -112,7 +112,7 @@
                   </li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.php">
+                    <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">
                         <span class="glyphicon glyphicon-log-in"></span>
                         Logout
                         </a>
@@ -174,9 +174,11 @@
                 <input type="submit" class="btn btn-info" name="submit" value="Submit" />
             </form>
         </div>
-      <footer>
-    <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-     conorprunty@hotmail.com</a></p>
-  </footer>
+      <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
 </body>
 </html>

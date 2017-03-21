@@ -36,7 +36,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="welcome.php">Online Booking System</a>
+              <a class="navbar-brand" href="welcome.php">Homepage</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -48,7 +48,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li class="active"><a href="userbooking.php">New Booking</a></li>
+                  <li><a href="userbooking.php">New Booking</a></li>
                   <li><a href="cancel.php">Cancel Booking</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -70,27 +70,29 @@
         <div class="row text-center">
             <div class="col-sm-4">
                 <a href="userbooking.php">
-                    <img src="images/test.png">
+                    <img src="images/create.png" height="200px" width="180px">
                 </a>
                 <h2>Create Booking</h2>
             </div>
             <div class="col-sm-4">
                 <a href="cancel.php">
-                    <img src="images/test.png">
+                    <img src="images/userdelete.png" height="200px" width="180px">
                 </a>
                 <h2>Delete Booking</h2>
             </div>
          <div class="col-sm-4">
                 <a href="contact.php">
-                    <img src="images/test.png">
+                    <img src="images/contact.png" height="200px" width="180px">
                 </a>
              <h2>Contact Admin</h2>
             </div>
         </div>
     </div>  
-    <footer>
-      <p>Contact site owner: <a href="mailto:conorprunty@hotmail.com">
-      conorprunty@hotmail.com</a></p>
-    </footer>
+    <div>
+          <!-- need an empty div here due to issue with the webhost account -->
+          <br>
+          <br>
+          <br>
+      </div>
 </body>
 </html>
