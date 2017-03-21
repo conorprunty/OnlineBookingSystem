@@ -81,7 +81,7 @@
     </nav>
       
       <div id="pageheader" align="center">
-        Admin
+        <br>
       </div>
       
       <div class="container">
