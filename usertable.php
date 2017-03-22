@@ -85,14 +85,14 @@
             <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
-                        <td><h4>Time</h4></td>
-                        <td><h4>Monday</h4></td>
-                        <td><h4>Tuesday</h4></td>
-                        <td><h4>Wednesday</h4></td>
-                        <td><h4>Thursday</h4></td>
-                        <td><h4>Friday</h4></td>
-                        <td><h4>Saturday</h4></td>
-                        <td><h4>Sunday</h4></td>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
                     </tr>
                 </thead>
                 <?php
