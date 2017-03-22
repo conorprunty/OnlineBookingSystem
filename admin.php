@@ -88,7 +88,7 @@
         <div class="row text-center">
             <div class="col-sm-3">
                 <a href="setup.php" data-toggle="tooltip" data-placement="top" title="Setup your area(s) required">
-                    <img src="images/setup.ico" height="200px" width="180px">
+                    <img src="images/setup.jpg" height="200px" width="180px">
                 </a>
                 <h2>Setup Features</h2>
             </div>
