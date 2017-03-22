@@ -28,6 +28,7 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/filtertable.js" type="text/javascript"></script>
   </head>
   <body>
       
@@ -80,7 +81,9 @@
         ");
         ?>
         <div class="floater">
-            <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
+            <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Filter by name…"><br>
+            <br>
+            <table id="myTable" class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
                         <th>User</th>
@@ -92,6 +95,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
+                
                 <?php
                     if (false === $query) {
                         die(mysql_error()); 
