@@ -78,6 +78,15 @@
           $('#staticParent').on('keydown', '#child', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
         })  
     </script>
+      <!-- https://jsfiddle.net/b2wv2g84/ -->
+      <script>
+      $(document).ready(function(){
+        $('input[name="all"],input[name="title"]').bind('click', function(){
+        var status = $(this).is(':checked');
+        $('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
+        });
+        });
+      </script>
   </head>
   <body>
       
@@ -136,40 +145,55 @@
                         <input type="checkbox" checked="true" name="day[]" value="Saturday" class="dayselect">Saturday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Sunday" class="dayselect">Sunday<br>          
               </div>
-              <div class="col-6 col-md-4">
-                  <p><b>Choose times required:</b></p>
-                       <div class="col-6 col-md-3">
-                      <input type="checkbox" name="time[]" value="00-01" class="timeselect">00-01<br>
-                      <input type="checkbox" name="time[]" value="01-02" class="timeselect">01-02<br>
-                      <input type="checkbox" name="time[]" value="02-03" class="timeselect">02-03<br>
-                      <input type="checkbox" name="time[]" value="03-04" class="timeselect">03-04<br>
-                      <input type="checkbox" name="time[]" value="04-05" class="timeselect">04-05<br>
-                      <input type="checkbox" name="time[]" value="05-06" class="timeselect">05-06<br>
-                  </div>
-                  <div class="col-6 col-md-3">
-                      <input type="checkbox" name="time[]" value="06-07" class="timeselect">06-07<br>
-                      <input type="checkbox" name="time[]" value="07-08" class="timeselect">07-08<br>
-                      <input type="checkbox" name="time[]" value="08-09" class="timeselect">08-09<br>
-                      <input type="checkbox" checked="true" name="time[]" value="09-10" class="timeselect">09-10<br>
-                      <input type="checkbox" checked="true" name="time[]" value="10-11" class="timeselect">10-11<br>
-                      <input type="checkbox" checked="true" name="time[]" value="11-12" class="timeselect">11-12<br>
-                  </div>
-                  <div class="col-6 col-md-3">
-                      <input type="checkbox" checked="true" name="time[]" value="12-13" class="timeselect">12-13<br>
-                      <input type="checkbox" checked="true" name="time[]" value="13-14" class="timeselect">13-14<br>
-                      <input type="checkbox" checked="true" name="time[]" value="14-15" class="timeselect">14-15<br>
-                      <input type="checkbox" checked="true" name="time[]" value="15-16" class="timeselect">15-16<br>
-                      <input type="checkbox" checked="true" name="time[]" value="16-17" class="timeselect">16-17<br>
-                      <input type="checkbox" checked="true" name="time[]" value="17-18" class="timeselect">17-18<br>
-                  </div>
-                  <div class="col-6 col-md-3">
-                      <input type="checkbox" checked="true" name="time[]" value="18-19" class="timeselect">18-19<br>
-                      <input type="checkbox" checked="true" name="time[]" value="19-20" class="timeselect">19-20<br>
-                      <input type="checkbox" checked="true" name="time[]" value="20-21" class="timeselect">20-21<br>
-                      <input type="checkbox" name="time[]" value="21-22" class="timeselect">21-22<br>
-                      <input type="checkbox" name="time[]" value="22-23" class="timeselect">22-23<br>
-                      <input type="checkbox" name="time[]" value="23-00" class="timeselect">23-00<br>
-                  </div>
+              <div class="col-6 col-md-3">
+                 <li>
+<p><b>Choose times required:</b></p>
+<br>
+  <input type="checkbox" name="all" id="all" /> <label for='all'>All</label>
+  <br>
+  <ul>
+   <li><input type="checkbox" name="title" id="title_1" /> <label for="title_1"><strong>All Early</strong></label>
+    <ul>
+<li><input type="checkbox" name="time[]" class="timeselect" value="00-01" /> 00-01</li>
+     <li><input type="checkbox" name="time[]" class="timeselect" value="01-02" /> 01-02</li>
+     <li><input type="checkbox" name="time[]" class="timeselect" value="02-03" /> 02-03</li>
+     <li><input type="checkbox" name="time[]" class="timeselect" value="03-04" /> 03-04</li>
+                <li><input type="checkbox" name="time[]" class="timeselect" value="04-05" /> 04-05</li>
+                <li><input type="checkbox" name="time[]" class="timeselect" value="05-06" /> 05-06</li>
+                <li><input type="checkbox" name="time[]" class="timeselect" value="06-07" /> 06-07</li>
+                <li><input type="checkbox" name="time[]" class="timeselect" value="07-08" /> 07-08</li>
+                <li><input type="checkbox" name="time[]" class="timeselect" value="08-09" /> 08-09</li>
+                <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="09-10" /> 09-10</li>
+                <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="10-11" /> 10-11</li>
+                <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="11-12" /> 11-12</li>
+    </ul>
+   </li>
+  </ul>
+  <ul>
+      </div>
+      <div class="col-6 col-md-3">
+  <br>
+    <br>
+          <br>
+          <br>
+   <li><input type="checkbox" name="title" id="title_2" /> <label for="title_2"><strong>All Late</strong></label>
+    <ul>
+<li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="12-13" /> 12-13</li>
+                <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="13-14" /> 13-14</li>
+     <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="14-15" /> 14-15</li>
+     <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="15-16" /> 15-16</li>
+     <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="16-17" /> 16-17</li>
+                <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="17-18" /> 17-18</li>
+                <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="18-19" /> 18-19</li>
+     <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="19-20" /> 19-20</li>
+     <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="20-21" /> 20-21</li>
+     <li><input type="checkbox" name="time[]" class="timeselect" value="21-22" /> 21-22</li>
+                <li><input type="checkbox" name="time[]" class="timeselect" value="22-23" /> 22-23</li>
+     <li><input type="checkbox" name="time[]" class="timeselect" value="23-00" /> 23-00</li>
+    </ul>
+   </li>
+  </ul>
+</li>
               </div>
               <div class="col-6 col-md-3">
                   <p><b>Choose cost of rent:</b></p>
