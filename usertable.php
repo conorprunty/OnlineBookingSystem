@@ -82,13 +82,6 @@
         ?>
         <h4><?= $_POST['userOption'] ?> table:</h4>
         <div class="floater">
-            <div class="styled-select select" align="right">
-                <select>
-                    <option id="date"></option>
-                </select>
-            </div>
-            <br>
-            <script src="js/date.js" type="text/javascript"></script>
             <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
