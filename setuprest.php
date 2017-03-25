@@ -42,8 +42,51 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/numsonly.js" type="text/javascript"></script>
-    <script src="js/selectall.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function validateForm()
+        {
+        var entry=document.forms["add"]["area"].value;
+        if (entry==null || entry=="")
+          {
+          alert("Please enter an area");
+          return false;
+          }
+        }
+    </script>
+    <script>
+        //http://stackoverflow.com/questions/995183/how-to-allow-only-numeric-0-9-in-html-inputbox-using-jquery
+        $(document).ready(function() {
+            $("#txtboxToFilter").keydown(function (e) {
+                // Allow: backspace, delete, tab, escape, enter and .
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                     // Allow: Ctrl+A, Command+A
+                    (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+                     // Allow: home, end, left, right, down, up
+                    (e.keyCode >= 35 && e.keyCode <= 40)) {
+                         // let it happen, don't do anything
+                         return;
+                }
+                // Ensure that it is a number and stop the keypress
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+            });
+        });  
+    </script>
+    <script>
+        $(function() {
+          $('#staticParent').on('keydown', '#child', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+        })  
+    </script>
+      <!-- https://jsfiddle.net/b2wv2g84/ -->
+      <script>
+      $(document).ready(function(){
+        $('input[name="all"],input[name="title"]').bind('click', function(){
+        var status = $(this).is(':checked');
+        $('input[type="checkbox"]', $(this).parent('li')).attr('checked', status);
+        });
+        });
+      </script>
   </head>
   <body>
       

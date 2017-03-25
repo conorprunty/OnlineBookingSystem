@@ -51,10 +51,26 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/valForm.js" type="text/javascript"></script>
-    <script src="js/banner.js" type="text/javascript"></script>
-    <!-- forces user to not allow use spaces -->
-    <script src="js/nospaces.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        function validateForm()
+            {
+            var entry=document.forms["add"]["area"].value;
+            if (entry==null || entry=="")
+                  {
+                  alert("Please enter an area");
+                  return false;
+                  }
+            }
+        </script>
+      <!-- forces user to not allow use spaces -->
+      <script>
+          $(function() {
+            $('#entry').on('keypress', function(e) {
+                if (e.which == 32)
+                    return false;
+            });
+        });
+      </script>
   </head>
   <body>
       
@@ -141,7 +157,7 @@
       </form> 
      
       <div class="addNew">
-            <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
+            <form action="addNew.php" name="add" method="post" onclick="doSomething();" onsubmit="return validateForm()">
                  <p>Don't see your area? <br>Type here and click submit to add to the list!</p>
                 <input type="text" name="area" id="entry" placeholder="Enter a new area..." />
                 <input type="submit" class="btn btn-info" name="submit" value="Submit" />

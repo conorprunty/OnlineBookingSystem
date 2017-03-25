@@ -20,7 +20,7 @@
             ?>
 			<script type="text/javascript">
                 alert("Invalid email entered.");
-                window.location.href = "edit_account.php";
+                location.reload();
             </script>
     <?php
             die(); 

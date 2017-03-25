@@ -15,7 +15,7 @@
             ?>
 			<script type="text/javascript">
                 alert("Please enter a username.");
-                window.location.href = "register.php";
+                location.reload();
             </script>
     <?php
             die();
@@ -26,7 +26,7 @@
 			?>
 			<script type="text/javascript">
                 alert("Please enter a password.");
-                window.location.href = "register.php";
+                location.reload();
             </script>
     <?php
             die();
@@ -37,7 +37,7 @@
 			?>
 			<script type="text/javascript">
                 alert("Please enter a valid email address.");
-                window.location.href = "register.php";
+                location.reload();
             </script>
     <?php
             die();
@@ -69,7 +69,7 @@
 			?>
 			<script type="text/javascript">
                 alert("Username already chosen.");
-                window.location.href = "register.php";
+                location.reload();
             </script>
         <?php
             die();
@@ -96,7 +96,7 @@
 			?>
 			<script type="text/javascript">
                 alert("Email address already registered.");
-                window.location.href = "register.php";
+                location.reload();
             </script>
         <?php
             die();
@@ -117,7 +117,7 @@
 		if($num_rows > 1)         {
 			?>
 			<script type="text/javascript">
-                alert("The maximum amount of users are registered.");
+                alert("Too many users are registered.");
                 window.location.href = "index.php";
             </script>
         <?php

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 25, 2017 at 10:48 AM
+-- Generation Time: Feb 16, 2017 at 09:04 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -27,15 +27,15 @@ CREATE TABLE `users` (
   `salt` char(16) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `club` int(50) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `salt`, `email`, `club`) VALUES
-(30, 'conor', '8ddde1b9318e48c4a25c54aa5743bcc5d3a057a0da5869cdaae8af975258dae5', '47673ddd647c048', 'conor@hotmail.com', NULL),
-(43, 'test', '105aa96a1ae36124afdde0bca367f0b433e9dfc1ec83fb872a1ae75100b4356b', '2975a5912f7db29c', 'test@test.ie', NULL);
+(18, 'conor', 'e556c4368294a1ac328335c7b5e181b3d0815da934bfc545d0b8e3baa0e6456d', '8f5d42928a93216', 'conor@hotmail.com', NULL),
+(19, 'test', '13c30a187f11f7a24df7c5466f8f84145346b6fbc0ed973cf31eabbb7cb55871', '3235f92521a8b613', 'test@test.ie', NULL);
 
 --
 -- Indexes for dumped tables
@@ -57,4 +57,4 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
