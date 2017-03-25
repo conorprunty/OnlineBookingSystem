@@ -33,6 +33,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/filtertable.js" type="text/javascript"></script>
     <script src="js/sortTable.js" type="text/javascript"></script>
+    
   </head>
   <body>
       
@@ -76,6 +77,7 @@
       <div id="pageheader" align="center">
         User Bookings
       </div>
+      <p id="test"></p>
          <div align='center'>
             <?php
             $query = mysqli_query($db, " 
@@ -85,6 +87,13 @@
         ");
         ?>
         <div class="floater">
+            <div class="styled-select select" align="right">
+                <select>
+                    <option id="date"></option>
+                </select>
+            </div>
+            <br>
+            <script src="js/date.js" type="text/javascript"></script>
             <table id="tableFilter" class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
