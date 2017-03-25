@@ -148,9 +148,6 @@
               <div class="col-6 col-md-3">
                  <li>
 <p><b>Choose times required:</b></p>
-<br>
-  <input type="checkbox" name="all" id="all" /> <label for='all'>All</label>
-  <br>
   <ul>
    <li><input type="checkbox" name="title" id="title_1" /> <label for="title_1"><strong>All Early</strong></label>
     <ul>
@@ -174,8 +171,6 @@
       <div class="col-6 col-md-3">
   <br>
     <br>
-          <br>
-          <br>
    <li><input type="checkbox" name="title" id="title_2" /> <label for="title_2"><strong>All Late</strong></label>
     <ul>
 <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="12-13" /> 12-13</li>
