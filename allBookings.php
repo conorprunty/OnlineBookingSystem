@@ -27,8 +27,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/filtertable.js" type="text/javascript"></script>
+    <script>
+      $(document).ready(function() {
+            $('#tableFilter').DataTable( {
+                select: true
+            } );
+        } );
+    </script>
   </head>
   <body>
       
@@ -81,9 +91,7 @@
         ");
         ?>
         <div class="floater">
-            <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Filter by name…"><br>
-            <br>
-            <table id="myTable" class="table table-hover table-bordered table-responsive fulltable" align='center'>
+            <table id="tableFilter" class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
                         <th>User</th>
