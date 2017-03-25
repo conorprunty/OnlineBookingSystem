@@ -32,13 +32,7 @@
     <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/filtertable.js" type="text/javascript"></script>
-    <script>
-      $(document).ready(function() {
-            $('#tableFilter').DataTable( {
-                select: true
-            } );
-        } );
-    </script>
+    <script src="js/sortTable.js" type="text/javascript"></script>
   </head>
   <body>
       
