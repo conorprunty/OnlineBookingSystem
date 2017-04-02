@@ -87,13 +87,6 @@
         ");
         ?>
         <div class="floater">
-            <div class="styled-select select" align="right">
-                <select>
-                    <option id="date"></option>
-                </select>
-            </div>
-            <br>
-            <script src="js/date.js" type="text/javascript"></script>
             <table id="tableFilter" class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>
@@ -103,6 +96,7 @@
                         <th>Time</th>
                         <th>Email</th>
                         <th>Reference</th>
+                        <th>Week</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -119,6 +113,7 @@
                        echo "<td>".$row[userTime]."</td>";
                        echo "<td>".$row[email]."</td>";
                        echo "<td>".$row[ranNum]."</td>";
+                       echo "<td>".$row[week]."</td>";
                        echo "<td><form id=\"delete\" method=\"post\" action=\"deleteBooking.php\" onsubmit=\"return confirm('Are you sure?')\">
     <input type=\"hidden\" name=\"id\" value=" . $row["id"] . ">
     <input type=\"hidden\" name=\"table\" value=" . $row["userTable"] . ">

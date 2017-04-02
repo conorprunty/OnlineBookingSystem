@@ -77,10 +77,11 @@
             include("sessions.php");
             session_start();
             $name = $_SESSION['name'];
+            $weekthree = $name."week3";
 
             $query = mysqli_query($db, " 
             SELECT *
-            FROM $name
+            FROM $weekthree
             WHERE Used = 'Yes'
             ORDER BY id asc;");
         ?>
@@ -91,7 +92,7 @@
                     <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                         <option id="date" value="booking.php"></option>
                         <option id="datetwo" value="bookingtwo.php"></option>
-                        <option id="datethree" value="bookingthree.php"></option>
+                        <option id="datethree" selected="true" value="bookingthree.php"></option>
                     </select>
                 </div>
             </form>

@@ -67,9 +67,9 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
-header("Location: addArea.php");
+header("Location: userSelectWeekTwo.php");
 		// this statement is needed 
-		die("Redirecting to addArea.php");    
+		die("Redirecting to userSelectWeekTwo.php");    
 
 	$mysqli->close();
 	?>

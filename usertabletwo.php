@@ -1,18 +1,7 @@
 <?php
-	/*
-*@ author Conor Prunty
-*/
-	// connect to DB
-	require("session.php");
-	// Check whether user is logged in
-	
-	if(empty($_SESSION['user']))     {
-		// If they are not, redirect to the login page. 
-		header("Location: index.php");
-		// this statement is needed 
-		die("Redirecting to index.php");
-	}
-
+        require("registersession.php");
+        $icon = mysqli_query($connect, "SELECT icon FROM banner");
+        $bannerresult = mysqli_fetch_array($icon);
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,14 +16,20 @@
     <link href="style/style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/goback.js" type="text/javascript"></script>
+    <script src="js/banner.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var icon = <?php echo $bannerresult["icon"];?>;
+    </script>
   </head>
-  <body>
+  <body onload="setBanner()">
+      <header>
+            <div id="icon"></div>
+        </header>
       
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand">Online Booking System</a>
+              <a class="navbar-brand" href="welcome.php">Homepage</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar">
                     </span>
@@ -46,21 +41,13 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li><a href="setup.php">Setup</a></li>
-                  <li><a href="admin.php">Admin</a></li>
-                  <li class="dropdown active">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="allBookings.php">View All</a></li>
-                      <li><a href="updatebookings.php">Edit</a></li>
-                    </ul>
-                  </li> 
+                  <li class="active"><a href="userbooking.php">New Booking</a></li>
+                  <li><a href="cancel.php">Cancel Booking</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">
-                        <span class="glyphicon glyphicon-log-in"></span>
-                        Logout
+                    <li><a href="contact.php">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        Contact
                         </a>
                     </li>
                 </ul>
@@ -76,25 +63,24 @@
 
             include("sessions.php");
             session_start();
-            $name = $_SESSION['name'];
-
-            $query = mysqli_query($db, " 
+            $userTable = $_SESSION['userTable'];
+            $weektwo = $userTable."week2";
+            $query = mysqli_query($db," 
             SELECT *
-            FROM $name
+            FROM $weektwo
             WHERE Used = 'Yes'
-            ORDER BY id asc;");
+            ORDER BY id asc;
+        ");
         ?>
-        <h4><?= $name ?> table:</h4>
+        <h4><?= $userTable ?> table:</h4>
         <div class="floater">
-            <form>
-                <div class="styled-select select" align="right">
+            <div class="styled-select select" align="right">
                     <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                        <option id="date" value="booking.php"></option>
-                        <option id="datetwo" value="bookingtwo.php"></option>
-                        <option id="datethree" value="bookingthree.php"></option>
+                        <option id="date" value="usertable.php"></option>
+                        <option id="datetwo" selected = "true" value="usertabletwo.php"></option>
+                        <option id="datethree" value="usertablethree.php"></option>
                     </select>
                 </div>
-            </form>
             <br>
             <script src="js/date.js" type="text/javascript"></script>
             <script src="js/datetwo.js" type="text/javascript"></script>
@@ -133,16 +119,21 @@
         </div>
         <br>
         <div>
-            <p><b>Click here to return to the admin page.</b></p>
-            <form action="admin.php" name="add" method="post">
+            <p><b>Click here to select a different area.</b></p>
+            <form action="userbooking.php" method="post">
+                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
+            </form>
+            <p><b>Click here to make a booking.</b></p>
+            <form action="userchoicetwo.php" method="post">
                 <input type="submit" class="btn btn-info" name="submit" value="Enter" />
             </form>
         </div>
-        <div>
+             <div>
           <!-- need an empty div here due to issue with the webhost account -->
           <br>
           <br>
           <br>
       </div>
+        
     </body>
 </html>

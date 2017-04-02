@@ -9,6 +9,8 @@
 		die("Connection failed: " . $mysqli->connect_error);
 	}
     $name = $_POST["userOption"]; session_start(); $_SESSION['name'] = $name;
+    $weektwo = $_POST["userOption"]."week2";
+    $weekthree = $_POST["userOption"]."week3";
 
     if (isset($_POST['Update'])) {
         header("Location: updateopts.php");
@@ -19,7 +21,11 @@
         $sql .= "ALTER TABLE `daysUsed` DROP ".$_POST["userOption"].";";
         $sql .= "DELETE FROM `areas` WHERE `allAreas` = '".$_POST['userOption']."' AND `newentry` = 'yes';";
         $sql .= "DROP table ".$_POST["userOption"].";";
+        $sql .= "DROP table $weektwo;";
+        $sql .= "DROP table $weekthree;";
         $sql .= "DELETE FROM `bookings` WHERE `userTable` = '".$_POST['userOption']."';";
+        $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weektwo';";
+        $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weekthree';";
         $sql .= "UPDATE areas SET `cost` = '' WHERE `allAreas` = '".$_POST['userOption']."'";
     } else {
         //no button pressed

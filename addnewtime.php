@@ -12,6 +12,7 @@
 session_start();
 //takes variable of the user's selected area and day
 $name = $_SESSION['name'];
+$name = $_SESSION['name'];
 $day = $_SESSION['day'];
 $time = $_SESSION['time'];
 

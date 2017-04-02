@@ -18,7 +18,7 @@
     $ranNum = $_SESSION['ranNum'];
 
     $sql = "INSERT INTO `bookings` (`userName`, `userTable`, `userDay`, `userTime`, `email`, `ranNum`, `week`) VALUES
-    ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', 1);";
+    ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', 2);";
     $sql .= "UPDATE `$userTable` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
    
 

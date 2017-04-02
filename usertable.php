@@ -1,13 +1,4 @@
 <?php
-    if (strstr($_SERVER['HTTP_REFERER'],"userbooking.php")){
-            //you came from the right page
-        }
-        else{
-            // returns to setup.php page
-            header("Location: userbooking.php");
-            // this kills the php script
-            die("Redirecting to userbooking.php");
-        }
         require("registersession.php");
         $icon = mysqli_query($connect, "SELECT icon FROM banner");
         $bannerresult = mysqli_fetch_array($icon);
@@ -83,12 +74,16 @@
         <h4><?= $_POST['userOption'] ?> table:</h4>
         <div class="floater">
             <div class="styled-select select" align="right">
-                <select>
-                    <option id="date"></option>
-                </select>
-            </div>
+                    <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                        <option id="date" value="usertable.php"></option>
+                        <option id="datetwo" value="usertabletwo.php"></option>
+                        <option id="datethree" value="usertablethree.php"></option>
+                    </select>
+                </div>
             <br>
             <script src="js/date.js" type="text/javascript"></script>
+            <script src="js/datetwo.js" type="text/javascript"></script>
+            <script src="js/datethree.js" type="text/javascript"></script>
             <table class="table table-hover table-bordered table-responsive fulltable" align='center'>
                 <thead>
                     <tr>

@@ -12,10 +12,9 @@
 session_start();
 //takes variable of the user's selected area and day
 $name = $_SESSION['name'];
-$day = $_SESSION['day'];
-$cost = $_SESSION['cost'];
+$weekthree = $name."week3";
 
-            $sql .= "UPDATE `areas` SET `cost`='$cost' WHERE `allAreas` = '$name';";
+            $sql .= "INSERT INTO $weekthree SELECT * FROM `$name`;";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }
@@ -27,9 +26,9 @@ $cost = $_SESSION['cost'];
                 }
             } while ($mysqli->more_results() && $mysqli->next_result());
 
-        header("Location: userCopyTables.php");
+        header("Location: booking.php");
 		// this statement is needed 
-		die("Redirecting to userCopyTables.php");    
+		die("Redirecting to booking.php");    
 
 	$mysqli->close();
 	?>
