@@ -8,7 +8,7 @@
 
 			//selecting all areas available
 			$query = " 
-            SELECT id, allAreas
+            SELECT id, allAreas, cost
             FROM areas
             WHERE `Chosen` = 'Yes'
             ORDER BY allAreas asc;
@@ -97,10 +97,11 @@
                             if($row != null){
                                 echo "<select name='userOption' id='allOptions'>";
                                 do{
-                                    unset($id, $name);
+                                    unset($id, $name, $cost);
                                     $id = $row['allAreas'];
                                     $allAreas = $row['allAreas']; 
-                                    echo '<option value="'.$allAreas.'">'.$allAreas.'</option>';
+                                    $cost = $row['cost']; 
+                                    echo '<option value="'.$allAreas.'">'.$allAreas.' - '.$cost.' p/h</option>';
                                 }
                                 while ($row = $stmt->fetch()) ;
                                 echo "</select>"; 

@@ -26,7 +26,7 @@
         $sql .= "DELETE FROM `bookings` WHERE `userTable` = '".$_POST['userOption']."';";
         $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weektwo';";
         $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weekthree';";
-        $sql .= "UPDATE areas SET `cost` = '' WHERE `allAreas` = '".$_POST['userOption']."'";
+        $sql .= "UPDATE areas SET `cost` = '0' WHERE `allAreas` = '".$_POST['userOption']."'";
     } else {
         //no button pressed
         
