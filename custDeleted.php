@@ -28,9 +28,9 @@
                 }
             } while ($mysqli->more_results() && $mysqli->next_result());
 
-        header("Location: welcome.php");
+        header("Location: custDeletedEmail.php");
 		// this statement is needed 
-		die("Redirecting to welcome.php");    
+		die("Redirecting to custDeletedEmail.php");    
 
 	$mysqli->close();
 ?>
