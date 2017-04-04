@@ -62,16 +62,22 @@
             <?php
 
             include("sessions.php");
-
+            if(!empty($_POST['userOption'])){
+                $userTable = $_POST["userOption"]; session_start(); $_SESSION['userTable'] = $userTable;
+            }
+            else{
+                session_start();
+                $userTable = $_SESSION['userTable'];
+            }
             $query = mysqli_query($db," 
             SELECT *
-            FROM ".$_POST['userOption']."
+            FROM $userTable
             WHERE Used = 'Yes'
             ORDER BY id asc;
         ");
-        $userTable = $_POST["userOption"]; session_start(); $_SESSION['userTable'] = $userTable;
+        
         ?>
-        <h4><?= $_POST['userOption'] ?> table:</h4>
+        <h4><?= $userTable ?> table:</h4>
         <div class="floater">
             <div class="styled-select select" align="right">
                     <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">

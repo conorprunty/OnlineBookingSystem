@@ -15,7 +15,7 @@
     $ranNum = $_REQUEST['ranNum']; session_start(); $_SESSION['ranNum'] = $ranNum;
     $userName = $_POST["userName"]; session_start(); $_SESSION['userName'] = $userName;
     $email = $_REQUEST['email']; session_start(); $_SESSION['email'] = $email;
-  
+
 
 //if "email" variable is filled out, send email
   if (isset($_REQUEST['email']))  {
