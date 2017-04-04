@@ -76,8 +76,7 @@
     </nav>
       <br>
     <div align="center">
-        <h2><b>Booking Complete! Share with your friends below!</b></h2>
-      <br>
+        <h3><b>Booking Complete - Share with your friends below!</b></h3>
       <br>
           <!-- @reference http://stackoverflow.com/questions/14829040/facebook-sharer-popup-window/14829742#14829742 -->
         <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fonlinebookingsystem.000webhostapp.com%2Fwelcome.php&picture=&title=&caption=Online+Booking+System&quote=I+just+made+a+booking+online%21&description=" target="_blank">
@@ -93,7 +92,7 @@
             <p><b>Re-enter your email address here if you need to resend your booking.</b></p>
             <form action="resend.php" name="resend" method="post">
                 <input type="text" name="resend" id="resend" placeholder="Enter email address..." />
-                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
+                <input type="submit" class="btn btn-info" name="submit" value="Submit" />
             </form>
         </div>
       
