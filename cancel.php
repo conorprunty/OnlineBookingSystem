@@ -73,7 +73,6 @@
 		$bookingref = $_POST["ranNum"]; session_start(); $_SESSION['bookingref'] = $bookingref;
 		?>
         <script type="text/javascript">
-            alert("Booking deleted.");
             window.location.href = "custDeleteButton.php";
             </script>
 <?php
