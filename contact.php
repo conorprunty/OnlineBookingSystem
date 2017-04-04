@@ -128,25 +128,23 @@ if(!empty($_POST))     {
         </div>
     </nav>
     
-    <div id="pageheader" align="center">
-        Contact
-      </div>
-
+<br>
+    <br>
 	<div align='center'>
 		<div class="col-md-offset-4 col-md-4">
 			<div class="panel-default">
-				<div class="panel-heading text-center">
+				<div class="contactform">
 					<div class="panel-body">
 						<form method="post">
 							<div class="form-group">
-								<label for="email">Your Email</label>
-								<input type="email" class="form-control" name="email" id="email">
+								<label for="email">Email</label>
+								<input type="email" class="form-control" name="email" id="email" placeholder="Email">
 							</div>
 							<label for="subject">Subject</label>
-							<input type="text" class="form-control" name="subject" id="subject">
+							<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
 					</div>
-					<label for="comment">Comment</label>
-					<textarea class="form-control" name="comment" maxlength="250" placeholder="Enter comment(s) here..." rows="3" id="comment"></textarea>
+					<label for="comment">Comment(s)</label>
+					<textarea class="form-control" name="comment" maxlength="250" placeholder="Enter comment(s) here" rows="3" id="comment"></textarea>
 					<br>
 					<button type="submit" value="Submit" class="btn btn-default">Submit</button>
 				</div>

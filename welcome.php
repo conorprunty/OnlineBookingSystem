@@ -62,10 +62,8 @@
         </div>
     </nav>
       
-      <div id="pageheader" align="center">
-        Welcome
-      </div>
-      
+      <br>
+      <br>
       <div class="container">
         <div class="row text-center">
             <div class="col-sm-4">

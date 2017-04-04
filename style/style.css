@@ -69,3 +69,9 @@ footer {
 img {
     max-width: 100%;
 }
+
+.contactform{
+    border-style: ridge;
+    padding: 25px;
+    background-color:#e6f3ff;
+}
