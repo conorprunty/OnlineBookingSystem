@@ -10,12 +10,53 @@
     $icon = mysqli_query($connect, "SELECT icon FROM banner");
     $bannerresult = mysqli_fetch_array($icon);
 
+if(!empty($_POST))     {
+    if(empty($_POST['email']))         {
+            ?>
+			<script type="text/javascript">
+                alert("Please enter an email address.");
+                window.location.href = "contact.php";
+            </script>
+    <?php
+            die();
+		}
+    
+    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))         {
+			?>
+			<script type="text/javascript">
+                alert("Please enter a valid email address.");
+                window.location.href = "contact.php";
+            </script>
+    <?php
+            die();
+		}
+    
+    if(empty($_POST['subject']))         {
+            ?>
+			<script type="text/javascript">
+                alert("Please enter a subject.");
+                window.location.href = "contact.php";
+            </script>
+    <?php
+            die();
+		}
+    
+    if(empty($_POST['comment']))         {
+            ?>
+			<script type="text/javascript">
+                alert("Please enter a comment.");
+                window.location.href = "contact.php";
+            </script>
+    <?php
+            die();
+		}
+}
 //if "email" variable is filled out, send email
   if (isset($_REQUEST['email']))  {
   
   //Email information
   $admin_email = "conorprunty1@gmail.com";
-  $email = "conorprunty@hotmail.com";
+  $email = $_REQUEST['email'];
   $subject = $_REQUEST['subject'];
   $comment = $_REQUEST['comment'];
   
