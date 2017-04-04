@@ -88,24 +88,23 @@
         Setup
       </div>
       
-      <form action="userSelectRest.php" name="userChoice" method="post" class="setupForm">
-      
-      <div class="container">
-          <div class="row">       
-              <div class="col-6 col-md-3">
-                  <p><b>Choose days required:</b></p>
+      <form action="userSelectRest.php" name="userChoice" method="post" class="setupForm" align="center" >
+          <div class="row">
+            <div class="col-6 col-md-4">
+                <p><b>Choose days required:</b></p>
+                <br>
                         <input type="checkbox" checked="true" name="day[]" value="Monday" class="dayselect">Monday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Tuesday" class="dayselect">Tuesday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Wednesday" class="dayselect">Wednesday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Thursday" class="dayselect">Thursday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Friday" class="dayselect">Friday<br>
                         <input type="checkbox" checked="true" name="day[]" value="Saturday" class="dayselect">Saturday<br>
-                        <input type="checkbox" checked="true" name="day[]" value="Sunday" class="dayselect">Sunday<br>          
-              </div>
-              <div class="col-6 col-md-3">
-                 <li>
-<p><b>Choose times required:</b></p>
-  <ul>
+                        <input type="checkbox" checked="true" name="day[]" value="Sunday" class="dayselect">Sunday<br>
+            </div>
+            <div class="col-6 col-md-4" style="padding-left:25px;">
+                
+<p><b>     Choose times required:</b></p>
+  <ul style = "float:left;">
    <li><input type="checkbox" name="title" id="title_1" /> <label for="title_1"><strong>All Early</strong></label>
     <ul>
 <li><input type="checkbox" name="time[]" class="timeselect" value="00-01" /> 00-01</li>
@@ -123,12 +122,8 @@
     </ul>
    </li>
   </ul>
-  <ul>
-      </div>
-      <div class="col-6 col-md-3">
-  <br>
-    <br>
-   <li><input type="checkbox" name="title" id="title_2" /> <label for="title_2"><strong>All Late</strong></label>
+  <ul style = "float:left;">
+         <li><input type="checkbox" name="title" id="title_2" /> <label for="title_2"><strong>All Late</strong></label>
     <ul>
 <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="12-13" /> 12-13</li>
                 <li><input type="checkbox" name="time[]" checked="true" class="timeselect" value="13-14" /> 13-14</li>
@@ -145,18 +140,23 @@
     </ul>
    </li>
   </ul>
-</li>
-              </div>
-              <div class="col-6 col-md-3">
-                  <p><b>Choose cost of rent:</b></p>
+
+      </div>
+
+
+            <div class="col-6 col-md-4" align="center">
+                <p><b>Choose cost of rent:</b></p>
+                <br>
                         <div id="staticParent">
                             <input id="child" name="cost" type="textarea" />
-                        </div><br>      
-              </div>
+                        </div><br>
+            </div>
           </div>
-      </div>
-          <input align="center" type="submit" class="btn btn-info" name="submit" value="Submit" />
-          </form> 
+          <br>
+          <br>
+          <input type="submit" class="btn btn-info" name="submit" value="Submit" />
+      </form>
+
       <div>
           <!-- need an empty div here due to issue with the webhost account -->
           <br>

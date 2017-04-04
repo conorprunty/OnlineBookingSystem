@@ -68,9 +68,6 @@
         </div>
     </nav>
       
-      <div id="pageheader" align="center">
-        Booking
-      </div>
          <div align='center'>
             <?php
 
@@ -85,10 +82,22 @@
             WHERE Used = 'Yes'
             ORDER BY id asc;");
         ?>
-        <h4><?= $name ?> table:</h4>
-        <div class="floater">
-            <form>
-                <div class="styled-select select" align="right">
+        <h1><?= $name ?> table:</h1>
+             
+             <div class="row">
+                <div class="col-6 col-md-4">
+                    <p><b>Click here to return to the admin page.</b></p>
+            <form action="admin.php" name="add" method="post">
+                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
+            </form>
+                    <br>
+                </div>
+                <div class="col-6 col-md-4">
+                    
+                </div>
+                <div class="col-6 col-md-4">
+                    <form>
+                <div class="styled-select select" align="center" ><p><b>Choose your week:</b></p>
                     <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                         <option id="date" value="booking.php"></option>
                         <option id="datetwo" value="bookingtwo.php"></option>
@@ -96,7 +105,10 @@
                     </select>
                 </div>
             </form>
-            <br>
+                </div>
+             </div>
+             
+        <div class="floater">
             <script src="js/date.js" type="text/javascript"></script>
             <script src="js/datetwo.js" type="text/javascript"></script>
             <script src="js/datethree.js" type="text/javascript"></script>
@@ -131,13 +143,6 @@
                    }
                 ?>
             </table>
-        </div>
-        <br>
-        <div>
-            <p><b>Click here to return to the admin page.</b></p>
-            <form action="admin.php" name="add" method="post">
-                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
-            </form>
         </div>
         <div>
           <!-- need an empty div here due to issue with the webhost account -->

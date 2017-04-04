@@ -24,10 +24,6 @@ body{
     margin-left: 50px;   
 }
 
-.setupForm{
-    border-style: groove;   
-}
-
 .fulltable, th, td {
    border: 1px solid black;
     margin 20px;

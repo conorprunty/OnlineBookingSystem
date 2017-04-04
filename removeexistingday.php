@@ -14,9 +14,13 @@ session_start();
 $name = $_SESSION['name'];
 $day = $_SESSION['day'];
 $time = $_SESSION['time'];
+$weektwo = $name."week2";
+$weekthree = $name."week3";
 
             $sql = "UPDATE `daysUsed` SET `$name`='' WHERE `days` = '".$_POST['userOption']."';";
-            $sql .= "UPDATE `$name` SET `".$_POST['userOption']."`='Unavailable'";
+            $sql .= "UPDATE `$name` SET `".$_POST['userOption']."`='Unavailable';";
+            $sql .= "UPDATE `$weektwo` SET `".$_POST['userOption']."`='Unavailable';";
+            $sql .= "UPDATE `$weekthree` SET `".$_POST['userOption']."`='Unavailable'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }

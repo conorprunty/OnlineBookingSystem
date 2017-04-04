@@ -15,8 +15,12 @@ $name = $_SESSION['name'];
 $name = $_SESSION['name'];
 $day = $_SESSION['day'];
 $time = $_SESSION['time'];
+$weektwo = $name."week2";
+$weekthree = $name."week3";
 
             $sql = "UPDATE $name SET `Used`='Yes' WHERE `Time` = '".$_POST['userOption']."';";
+            $sql .= "UPDATE $weektwo SET `Used`='Yes' WHERE `Time` = '".$_POST['userOption']."';";
+            $sql .= "UPDATE $weekthree SET `Used`='Yes' WHERE `Time` = '".$_POST['userOption']."'";
             	if (!$mysqli->multi_query($sql)) {
                 echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
             }

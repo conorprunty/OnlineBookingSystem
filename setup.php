@@ -99,12 +99,21 @@
         Setup
       </div>
       
-      <form action="userSelect.php" name="userChoice" method="post" class="setupForm">
-          <div class="container">
-              <div class="row">      
-                  <div align="center">
+      <div class="row">
+        <div class="col-6 col-md-4">
+            <div class="addNew" align="left">
+                <br>
+            <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
+                 <p><b>Don't see your area?</b> <br><b>Enter new area here:</b></p>
+                <input type="text" name="area" id="entry" placeholder="Enter a new area..." />
+                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
+            </form>
+        </div>
+        </div>
+        <div class="col-6 col-md-4">
+            <form action="userSelect.php" name="userChoice" method="post" class="setupForm">   
                       <br>
-                      <div class="styled-select select">
+                      <div class="styled-select select" align="center">
                           <p><b>Choose area required for your club:</b></p>
                             <?php
                             //partially taken from:
@@ -119,7 +128,9 @@
                                 }
                                 while ($row = $stmt->fetch()) ;
                                 echo "</select>";
-                                ?>     
+                                ?>   
+                          <br>
+                          <br>
                           <input type="submit" class="btn btn-info" name="submit" value="Submit" />
                           <?php
                             }
@@ -133,20 +144,18 @@
                             <?php
                             }
                             ?>
-                      </div>
-                      <br>
-                  </div>
-               </div>
+
           </div>
-      </form> 
-     
-      <div class="addNew">
-            <form action="addNew.php" name="add" method="post" onsubmit="return validateForm()">
-                 <p>Don't see your area? <br>Type here and click submit to add to the list!</p>
-                <input type="text" name="area" id="entry" placeholder="Enter a new area..." />
-                <input type="submit" class="btn btn-info" name="submit" value="Submit" />
-            </form>
+      </form>
         </div>
+        <div class="col-6 col-md-4">
+            
+        </div>
+      </div>
+      
+       
+     
+      
       <div>
           <!-- need an empty div here due to issue with the webhost account -->
           <br>

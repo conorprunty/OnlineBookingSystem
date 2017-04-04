@@ -133,7 +133,7 @@
       </div>
         <div align="center">
             <form action="cancel.php" name="cancel" method="post" id="cancel">
-                Enter the booking reference number here to cancel<br><br>
+                <b>Enter the booking reference number here to cancel</b><br><br>
                 <input name="ranNum" type="text" id="ranNum"><br><br>
                 <input type="submit" class="btn btn-info" value="Submit" onclick="return confirm('Are you sure you want to cancel?');"><br><br>
             </form>
