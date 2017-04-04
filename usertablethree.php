@@ -77,7 +77,7 @@
                 <input type="submit" class="btn btn-info" name="submit" value="Select" />
             </form></div>
   <div class="col-6 col-md-4" align="center"><p><b>Click here to make a booking:</b></p>
-            <form action="userchoice.php" method="post" class="form-inline">
+            <form action="userchoicethree.php" method="post" class="form-inline">
                 <input type="submit" class="btn btn-info" name="submit" value="Booking" />
             </form></div>
   <div class="col-6 col-md-4, styled-select select" align="center"><p><b>Choose your week:</b></p><select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
