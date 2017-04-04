@@ -54,10 +54,6 @@
             </div>
         </div>
     </nav>
-      
-      <div id="pageheader" align="center">
-        Booking
-      </div>
          <div align='center'>
             <?php
 
@@ -72,15 +68,25 @@
             ORDER BY id asc;
         ");
         ?>
-        <h4><?= $userTable ?> table:</h4>
-        <div class="floater">
-            <div class="styled-select select" align="right">
-                    <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+        <h1><?= $userTable ?> table</h1>
+             <br>
+      </div>
+            <div class="row">
+  <div class="col-6 col-md-4" align="center"><p><b>Click here to select a different area:</b></p>
+            <form action="userbooking.php" method="post">
+                <input type="submit" class="btn btn-info" name="submit" value="Select" />
+            </form></div>
+  <div class="col-6 col-md-4" align="center"><p><b>Click here to make a booking:</b></p>
+            <form action="userchoice.php" method="post" class="form-inline">
+                <input type="submit" class="btn btn-info" name="submit" value="Booking" />
+            </form></div>
+  <div class="col-6 col-md-4, styled-select select" align="center"><p><b>Choose your week:</b></p><select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                         <option id="date" value="usertable.php"></option>
                         <option id="datetwo" value="usertabletwo.php"></option>
-                        <option id="datethree" selected = "true" value="usertablethree.php"></option>
-                    </select>
-                </div>
+                        <option id="datethree" selected="true" value="usertablethree.php"></option>
+                    </select></div>
+</div>
+            
             <br>
             <script src="js/date.js" type="text/javascript"></script>
             <script src="js/datetwo.js" type="text/javascript"></script>
@@ -116,17 +122,6 @@
                    }
                 ?>
             </table>
-        </div>
-        <br>
-        <div>
-            <p><b>Click here to select a different area.</b></p>
-            <form action="userbooking.php" method="post">
-                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
-            </form>
-            <p><b>Click here to make a booking.</b></p>
-            <form action="userchoicethree.php" method="post">
-                <input type="submit" class="btn btn-info" name="submit" value="Enter" />
-            </form>
         </div>
              <div>
           <!-- need an empty div here due to issue with the webhost account -->

@@ -34,9 +34,9 @@ do {
 } while ($mysqli->more_results() && $mysqli->next_result());
 
 //unset($_SESSION['userTime']);
-header("Location: bookingcompletethree.php");
+header("Location: bookingcomplete.php");
 		// this statement is needed 
-		die("Redirecting to bookingcompletethree.php");    
+		die("Redirecting to bookingcomplete.php");    
 
 	$mysqli->close();
 	?>

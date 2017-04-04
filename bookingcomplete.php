@@ -9,7 +9,7 @@
     require("registersession.php");
 
  //this prevents direct access to this page - can only come from the redirect on setup.php
-    if (strstr($_SERVER['HTTP_REFERER'],"userchoiceform.php")){
+    if ((strstr($_SERVER['HTTP_REFERER'],"userchoiceform.php") || strstr($_SERVER['HTTP_REFERER'],"userchoiceformtwo.php") || strstr($_SERVER['HTTP_REFERER'],"userchoiceformthree.php") || strstr($_SERVER['HTTP_REFERER'],"resend.php"))){
         //you came from the right page
     }
     else{

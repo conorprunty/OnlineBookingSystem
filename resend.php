@@ -38,7 +38,7 @@
         ?>
             <script type="text/javascript">
             alert("Booking confirmed. Please check your email!");
-            window.location.href = "welcome.php";
+            window.location.href = "bookingcomplete.php";
             </script>
         <?php
 ?>
