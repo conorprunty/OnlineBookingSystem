@@ -6,7 +6,7 @@
 	require("session.php");
     require("registersession.php");
 
-    if (strstr($_SERVER['HTTP_REFERER'],"usertable.php")){
+    if (strstr($_SERVER['HTTP_REFERER'],"usertable.php") || strstr($_SERVER['HTTP_REFERER'],"usertabletwo.php") || strstr($_SERVER['HTTP_REFERER'],"usertablethree.php")){
             //you came from the right page
     }
      else{
