@@ -191,13 +191,13 @@
         <div class="container">
               <div class="row">      
                   <div align="center">
-                    Username:<br> 
+                    <b>Username:</b><br> 
                     <b><?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></b> 
                     <br><br> 
-                    E-Mail Address:<br> 
+                    <b>Email Address:</b><br> 
                     <input type="text" name="email" value="<?php echo htmlentities($_SESSION['user']['email'], ENT_QUOTES, 'UTF-8'); ?>" /> 
                     <br><br> 
-                    Password:<br> 
+                    <b>Password:</b><br> 
                     <input type="password" name="password" value="" /><br> 
                     <i>(leave blank if you do not want to change your password)</i> 
                     <br><br> 
