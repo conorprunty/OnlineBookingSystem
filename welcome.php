@@ -72,13 +72,13 @@
                 <a href="userbooking.php">
                     <img src="images/create.png" height="200px" width="180px">
                 </a>
-                <h2>Create Booking</h2>
+                <h2>New Booking</h2>
             </div>
             <div class="col-sm-4">
                 <a href="cancel.php">
                     <img src="images/userdelete.png" height="200px" width="180px">
                 </a>
-                <h2>Delete Booking</h2>
+                <h2>Cancel Booking</h2>
             </div>
          <div class="col-sm-4">
                 <a href="contact.php">
