@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *setuprest.php
  */
 // connect to DB
 require("session.php");
@@ -84,6 +85,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 		<div id="pageheader" align="center">
 			Setup
 		</div>
+        <!-- this form has all the options available -->
 		<form action="userSelectRest.php" name="userChoice" method="post" class="setupForm" align="center" >
 			<div class="row">
 				<div class="col-6 col-md-4">

@@ -1,12 +1,13 @@
 <?php
 /*
- * contact.php
+ * resend.php
  *@ author Conor Prunty
  *
  */
 // connect to DB
 require("session.php");
 
+//takes all required session variables
 session_start();
 $userTable = $_SESSION['userTable'];
 $userDay   = $_SESSION['userDay'];
@@ -25,7 +26,7 @@ $_SESSION['resend'] = $email;
 
 $subject = "Booking Request";
 
-
+//this stores the body of the email
 $body = "Hi " . $_SESSION['userName'] . ",\n\n";
 $body .= "Your booking for ";
 $body .= $userTable;

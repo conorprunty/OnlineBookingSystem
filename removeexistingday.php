@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *removeexistingday.php
  */
 include("phpsession.php");
 // Check connection
@@ -10,13 +11,14 @@ if ($mysqli->connect_error) {
 }
 
 session_start();
-//takes variable of the user's selected area and day
+//takes the required session variables
 $name      = $_SESSION['name'];
 $day       = $_SESSION['day'];
 $time      = $_SESSION['time'];
 $weektwo   = $name . "week2";
 $weekthree = $name . "week3";
 
+//mysql commands for removing a day - must remove from each week
 $sql = "UPDATE `daysUsed` SET `$name`='' WHERE `days` = '" . $_POST['userOption'] . "';";
 $sql .= "UPDATE `$name` SET `" . $_POST['userOption'] . "`='Unavailable';";
 $sql .= "UPDATE `$weektwo` SET `" . $_POST['userOption'] . "`='Unavailable';";
@@ -32,6 +34,7 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
+//redirect after script has ran
 header("Location: booking.php");
 // this statement is needed 
 die("Redirecting to booking.php");

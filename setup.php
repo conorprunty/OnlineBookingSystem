@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *setup.php
  */
 // connect to DB
 require("session.php");
@@ -12,7 +13,7 @@ if (empty($_SESSION['user'])) {
     // this statement is needed 
     die("Redirecting to index.php");
 } else {
-    //selecting all areas available
+    //selecting all areas from the areas list which are not chosen
     $query = " 
             SELECT id, allAreas
             FROM areas
@@ -117,6 +118,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 							if($row != null){
 							    echo "<select name='userOption'>";
 							    do{
+                                    //puts all options from query above into select dropdown
 							        unset($id, $name);
 							        $id = $row['allAreas'];
 							        $allAreas = $row['allAreas']; 
@@ -131,6 +133,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 						<?php
 							}
 							else{
+                            //I'd imagine this shouldn't be reached but here just in case...
 							echo "Somehow you have selected every area!";
 							?>
 						<br>

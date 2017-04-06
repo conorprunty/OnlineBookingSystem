@@ -1,11 +1,13 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userchoicewithdaytwo.php
  */
 // connect to DB
 require("session.php");
 require("registersession.php");
 
+//only allow access via userchoicetwo.php
 if (strstr($_SERVER['HTTP_REFERER'], "userchoicetwo.php")) {
     //you came from the right page
 } else {
@@ -15,13 +17,14 @@ if (strstr($_SERVER['HTTP_REFERER'], "userchoicetwo.php")) {
     die("Redirecting to userbooking.php");
 }
 
+//takes all required session variables
 session_start();
 $userTable    = $_SESSION['userTable'];
 $userTableTwo = $userTable . "week2";
 $userDay      = $_POST["userOption"];
 session_start();
 $_SESSION['userDay'] = $userDay;
-//selecting all areas available
+//selecting all required options from db
 $query               = " 
             SELECT id, Time
             FROM $userTableTwo
@@ -115,6 +118,7 @@ $bannerresult = mysqli_fetch_array($icon);
 								//partially taken from:
 								//http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
 								if($row != null){
+                                    //puts all options from query above into a select dropdown
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
 								        unset($id, $Time);

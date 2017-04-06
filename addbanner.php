@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ * addbanner.php
  */
 
 //database connection
@@ -74,6 +75,7 @@ if (empty($_SESSION['user'])) {
 			Banner
 		</div>
 		<div align="center" class="styled-select select">
+            <!-- banner options -->
 			<form action="updatebanner.php" name="bannerchoice" method="post" onSubmit="alert('The admin page will display what the customer will see.');">
 				<select name="optionChoice" id="optionChoice" onChange="setIcon()">
 					<option disabled selected value>Select an option...</option>

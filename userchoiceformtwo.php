@@ -1,13 +1,18 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userchoiceformtwo.php
  */
 // connect to DB
 
 require("registersession.php");
+
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 require("session.php");
+
+//takes all required session variables
 session_start();
 $userTable    = $_SESSION['userTable'];
 $userTableTwo = $userTable . "week2";
@@ -141,6 +146,7 @@ else{
 			<b>You must pay before you can continue!</b>
 		</div>
 		<br>
+        <!-- the paypal button -->
 		<div id="hidepaypal">
 			<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" align="center">
 				<input type="hidden" name="cmd" value="_s-xclick">
@@ -157,6 +163,7 @@ else{
 					<div class="contactform">
 						<div class="panel-body">
 							<form method="post">
+                                <!-- this puts the user values chosen into a form -->
 								<b>Area chosen:</b><br>
 								<input type="text" class="form-control" name="userArea" id="userArea" value="<?php echo $userTable; ?>" readonly><br>
 								<b>Day chosen:</b><br>

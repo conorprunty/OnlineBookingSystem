@@ -7,9 +7,13 @@
 // connect to DB
 require("session.php");
 require("registersession.php");
+
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 
+
+//checks all combinations of invalid entries and ends the script with an alert
 if (!empty($_POST)) {
     if (empty($_POST['email'])) {
 ?>

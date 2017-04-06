@@ -8,7 +8,7 @@
 require("session.php");
 require("registersession.php");
 
-//this prevents direct access to this page - can only come from the redirect on setup.php
+//this prevents direct access to this page - can only come from the redirect on the pages below
 if ((strstr($_SERVER['HTTP_REFERER'], "userchoiceform.php") || strstr($_SERVER['HTTP_REFERER'], "userchoiceformtwo.php") || strstr($_SERVER['HTTP_REFERER'], "userchoiceformthree.php") || strstr($_SERVER['HTTP_REFERER'], "resend.php"))) {
     //you came from the right page
 } else {
@@ -18,6 +18,7 @@ if ((strstr($_SERVER['HTTP_REFERER'], "userchoiceform.php") || strstr($_SERVER['
     die("Redirecting to welcome.php");
 }
 
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 ?>

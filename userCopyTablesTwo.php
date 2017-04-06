@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userCopyTablesTwo.php
  */
 include("phpsession.php");
 // Check connection
@@ -10,10 +11,11 @@ if ($mysqli->connect_error) {
 }
 
 session_start();
-//takes variable of the user's selected area and day
+//takes session variable of area user chose
 $name      = $_SESSION['name'];
 $weekthree = $name . "week3";
 
+//puts same initial values into second table
 $sql .= "INSERT INTO $weekthree SELECT * FROM `$name`;";
 if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;

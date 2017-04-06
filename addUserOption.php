@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *addUserOption.php
  */
 include("phpsession.php");
 
@@ -17,6 +18,7 @@ $userName  = $_SESSION['userName'];
 $email     = $_SESSION['email'];
 $ranNum    = $_SESSION['ranNum'];
 
+//mysql commands
 $sql = "INSERT INTO `bookings` (`userName`, `userTable`, `userDay`, `userTime`, `email`, `ranNum`, `week`) VALUES
     ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', 1);";
 $sql .= "UPDATE `$userTable` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
@@ -33,7 +35,7 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
-//unset($_SESSION['userTime']);
+//required to relocate after php script is complete
 header("Location: bookingcomplete.php");
 // this statement is needed 
 die("Redirecting to bookingcomplete.php");

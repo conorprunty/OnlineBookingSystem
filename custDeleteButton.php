@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *custDeleteButton.php
  */
 include("registersession.php");
 
@@ -13,6 +14,7 @@ if (!$result) {
     exit;
 }
 $row          = mysqli_fetch_row($result);
+//takes all the required session variables
 $userTableTBD = $row[0];
 session_start();
 $_SESSION['userTableTBD'] = $userTableTBD;
@@ -26,6 +28,7 @@ $emailTBD                = $row[3];
 session_start();
 $_SESSION['emailTBD'] = $emailTBD;
 
+//redirect once script has ran
 header("Location: custDeleted.php");
 // this statement is needed 
 die("Redirecting to custDeleted.php");

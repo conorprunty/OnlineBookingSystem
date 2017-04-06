@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userSelectTime.php
  */
 include("phpsession.php");
 // Check connection
@@ -15,7 +16,7 @@ $name = $_SESSION['name'];
 $day  = $_SESSION['day'];
 $time = $_SESSION['time'];
 
-
+//updates each time
 foreach ($_SESSION['time'] as $time) {
     $sql = "UPDATE $name SET `Used`='Yes' WHERE `Time` = '$time'";
     if (!$mysqli->multi_query($sql)) {

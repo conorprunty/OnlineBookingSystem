@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *booking.php
  */
 // connect to DB
 require("session.php");
@@ -73,6 +74,7 @@ if (empty($_SESSION['user'])) {
 			session_start();
 			$name = $_SESSION['name'];
 			
+            //select all options from area
 			$query = mysqli_query($db, " 
 			SELECT *
 			FROM $name
@@ -93,6 +95,7 @@ if (empty($_SESSION['user'])) {
 				<form>
 					<div class="styled-select select" align="center" >
 						<p><b>Choose your week:</b></p>
+                        <!-- http://stackoverflow.com/questions/7562095/redirect-on-select-option-in-select-box -->
 						<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 							<option id="date" value="booking.php"></option>
 							<option id="datetwo" value="bookingtwo.php"></option>
@@ -124,6 +127,7 @@ if (empty($_SESSION['user'])) {
 					if (false === $query) {
 					    die(mysql_error()); 
 					}
+                    //takes all options for the table
 					while ($row = mysqli_fetch_array($query)) {
 					   echo "<tr>";
 					   echo "<td>".$row[Time]."</td>";

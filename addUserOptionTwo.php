@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *addUserOptionTwo.php
  */
 include("phpsession.php");
 
@@ -33,7 +34,7 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
-//unset($_SESSION['userTime']);
+//required to relocate after php script is complete
 header("Location: bookingcomplete.php");
 // this statement is needed 
 die("Redirecting to bookingcomplete.php");

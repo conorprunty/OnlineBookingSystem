@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *updatebookings.php
  */
 // connect to DB
 require("session.php");
@@ -103,6 +104,7 @@ if (empty($_SESSION['user'])) {
 								if($row != null){
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
+                                        //puts all values from query above into select dropdown
 								        unset($id, $name);
 								        $id = $row['allAreas'];
 								        $allAreas = $row['allAreas']; 

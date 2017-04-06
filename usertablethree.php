@@ -1,4 +1,9 @@
 <?php
+/*
+ *@ author Conor Prunty
+ *usertable.php
+ */
+
 require("registersession.php");
 $icon = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);

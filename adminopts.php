@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *adminopts.php
  */
 include("phpsession.php");
 // Check connection
@@ -15,8 +16,10 @@ $weektwo          = $_POST["userOption"] . "week2";
 $weekthree        = $_POST["userOption"] . "week3";
 
 if (isset($_POST['Update'])) {
+    //if update chosen, redirect - will use the session variables above too
     header("Location: updateopts.php");
     die("Redirecting to updateopts.php");
+    //else all the mysql commands required for deleting the options
 } else if (isset($_POST['Delete'])) {
     //delete action
     $sql = "UPDATE areas SET `Chosen` = 'No', `used` = '' WHERE `allAreas` = '" . $_POST['userOption'] . "';";
@@ -45,6 +48,7 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
+//required for a redirect when php script complete
 header("Location: admin.php");
 // this statement is needed 
 die("Redirecting to admin.php");

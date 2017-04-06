@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userSelectUpdate.php
  */
 include("phpsession.php");
 // Create connection
@@ -12,12 +13,12 @@ if ($mysqli->connect_error) {
 }
 
 session_start();
-//takes variable of the user's selected area and day
+//takes variable of the user's selected area, day and time
 $name = $_SESSION['name'];
 $day  = $_SESSION['day'];
 $time = $_SESSION['time'];
 
-
+//updates each day
 foreach ($_SESSION['day'] as $day) {
     $sql .= "UPDATE `daysUsed` SET `$name`='Yes' WHERE `days` = '$day';";
     if (!$mysqli->multi_query($sql)) {

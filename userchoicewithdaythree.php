@@ -1,11 +1,13 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userchoicewithdaythree.php
  */
 // connect to DB
 require("session.php");
 require("registersession.php");
 
+//only allow access via userchoicethree.php
 if (strstr($_SERVER['HTTP_REFERER'], "userchoicethree.php")) {
     //you came from the right page
 } else {
@@ -21,7 +23,7 @@ $userTableThree = $userTable . "week3";
 $userDay        = $_POST["userOption"];
 session_start();
 $_SESSION['userDay'] = $userDay;
-//selecting all areas available
+//selecting all required options from db
 $query               = " 
             SELECT id, Time
             FROM $userTableThree
@@ -117,6 +119,7 @@ $bannerresult = mysqli_fetch_array($icon);
 								if($row != null){
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
+                                        //puts all options from query above into a select dropdown
 								        unset($id, $Time);
 								        $id = $row['Time'];
 								        $Time = $row['Time']; 

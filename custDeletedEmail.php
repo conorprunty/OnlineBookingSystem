@@ -1,18 +1,16 @@
 <?php
 /*
- * contact.php
+ * custDeletedEmail.php
  *@ author Conor Prunty
  *
  */
 // connect to DB
 require("session.php");
+
+//session variables for the email
 session_start();
 $emailTBD = $_SESSION['emailTBD'];
-//Email information
-//$admin_email = "conorprunty@hotmail.com";
-//$email = "conorprunty@hotmail.com";
 $subject  = $_REQUEST['subject'];
-//$bookingref = $_SESSION['bookingref'];
 
 $bookingref = "Hi, \n\n";
 $bookingref .= "Your booking under reference " . $_SESSION['bookingref'] . " was cancelled. \n\n";

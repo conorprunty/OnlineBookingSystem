@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *allBookings.php
  */
 // connect to DB
 require("session.php");
@@ -78,6 +79,7 @@ if (empty($_SESSION['user'])) {
 		<p id="test"></p>
 		<div align='center'>
 		<?php
+            //select all the bookings
 			$query = mysqli_query($db, " 
 			SELECT *
 			FROM bookings
@@ -102,6 +104,7 @@ if (empty($_SESSION['user'])) {
 					if (false === $query) {
 					    die(mysql_error()); 
 					}
+                    //prints all the records into a table
 					while ($row = mysqli_fetch_array($query)) {
 					   echo "<tr>";
 					   echo "<td>".$row[userName]."</td>";
@@ -111,6 +114,7 @@ if (empty($_SESSION['user'])) {
 					   echo "<td>".$row[email]."</td>";
 					   echo "<td>".$row[ranNum]."</td>";
 					   echo "<td>".$row[week]."</td>";
+                       //hidden options to allow for database update
 					   echo "<td><form id=\"delete\" method=\"post\" action=\"deleteBooking.php\" onsubmit=\"return confirm('Are you sure?')\">
 					<input type=\"hidden\" name=\"id\" value=" . $row["id"] . ">
 					<input type=\"hidden\" name=\"table\" value=" . $row["userTable"] . ">

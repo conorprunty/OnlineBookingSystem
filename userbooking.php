@@ -1,12 +1,13 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userbooking.php
  */
 // connect to DB
 require("session.php");
 require("registersession.php");
 
-//selecting all areas available
+//selecting all options available which have been chosen
 $query = " 
             SELECT id, allAreas, cost
             FROM areas
@@ -25,6 +26,7 @@ catch (PDOException $ex) {
     die("Failed to run query: " . $ex->getMessage());
 }
 
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 
@@ -94,6 +96,7 @@ $bannerresult = mysqli_fetch_array($icon);
 								if($row != null){
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
+                                        //puts all values from query above into a select dropdown
 								        unset($id, $name, $cost);
 								        $id = $row['allAreas'];
 								        $allAreas = $row['allAreas']; 

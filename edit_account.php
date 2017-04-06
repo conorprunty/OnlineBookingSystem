@@ -1,6 +1,11 @@
 <?php
 
 //http://forums.devshed.com/php-faqs-stickies-167/program-basic-secure-login-system-using-php-mysql-891201.html
+
+/*
+ *@ author Conor Prunty
+ *edit_account.php
+ */
 require("session.php");
 
 //check user is logged in
@@ -174,6 +179,7 @@ if (!empty($_POST)) {
 				<div class="row">
 					<div align="center">
 						<b>Username:</b><br> 
+                        <!-- echo the username for the logged in user -->
 						<b><?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></b> 
 						<br><br> 
 						<b>Email Address:</b><br> 

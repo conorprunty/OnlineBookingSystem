@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *updatebanner.php
  */
 include("phpsession.php");
 // Check connection
@@ -9,9 +10,8 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-
+//mysql to update the banner 
 $sql = "UPDATE banner SET `icon`='" . $_POST['optionChoice'] . "' ;";
-//$sql = "UPDATE banner SET `icon`='1' ;";
 if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
@@ -23,6 +23,7 @@ do {
     }
 } while ($mysqli->more_results() && $mysqli->next_result());
 
+//redirects once the script has run
 header("Location: admin.php");
 // this statement is needed 
 die("Redirecting to admin.php");

@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *updateopts.php
  */
 // connect to DB
 require("session.php");
@@ -19,7 +20,7 @@ if (empty($_SESSION['user'])) {
 if (strstr($_SERVER['HTTP_REFERER'], "updatebookings.php")) {
     //you came from the right page
 } else {
-    // returns to setup.php page
+    // returns to updatebookings.php page
     header("Location: updatebookings.php");
     // this kills the php script
     die("Redirecting to updatebookings.php");
@@ -96,6 +97,8 @@ $name = $_SESSION['name'];
 						<!--http://stackoverflow.com/questions/7562095/redirect-on-select-option-in-select-box-->
 						<div class="styled-select select">
 							<p><b>Choose option required:</b></p>
+                            <!-- http://stackoverflow.com/questions/7562095/redirect-on-select-option-in-select-box -->
+                            <!-- values change dynamically, i.e. without clicking a submit button etc -->
 							<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 								<option value="">Select...</option>
 								<option value="addday.php">Add a new day</option>
@@ -139,6 +142,7 @@ $name = $_SESSION['name'];
 						if (false === $query) {
 						    die(mysql_error()); 
 						}
+                        //puts all values from query above into a table
 						while ($row = mysqli_fetch_array($query)) {
 						   echo "<tr>";
 						   echo "<td>".$row[Time]."</td>";

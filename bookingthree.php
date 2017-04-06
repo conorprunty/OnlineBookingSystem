@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *bookingthree.php
  */
 // connect to DB
 require("session.php");
@@ -71,6 +72,7 @@ if (empty($_SESSION['user'])) {
 		<?php
 			include("sessions.php");
 			session_start();
+            //these two statements get the table required
 			$name = $_SESSION['name'];
 			$weekthree = $name."week3";
 			
@@ -95,6 +97,7 @@ if (empty($_SESSION['user'])) {
 				<form>
 					<div class="styled-select select" align="center" >
 						<p><b>Choose your week:</b></p>
+                        <!-- http://stackoverflow.com/questions/7562095/redirect-on-select-option-in-select-box -->
 						<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 							<option id="date" value="booking.php"></option>
 							<option id="datetwo" value="bookingtwo.php"></option>

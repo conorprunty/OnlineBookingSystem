@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userSelectRest.php
  */
 include("phpsession.php");
 // Check connection
@@ -23,7 +24,7 @@ $cost             = $_POST["cost"];
 session_start();
 $_SESSION['cost'] = $cost;
 
-
+//updates each day
 foreach ($_POST['day'] as $day) {
     $sql = "UPDATE $name SET `$day`='Free'";
     if (!$mysqli->multi_query($sql)) {

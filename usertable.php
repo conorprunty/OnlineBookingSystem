@@ -1,5 +1,12 @@
 <?php
+/*
+ *@ author Conor Prunty
+ *usertable.php
+ */
+
 require("registersession.php");
+
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 ?>
@@ -57,10 +64,12 @@ $bannerresult = mysqli_fetch_array($icon);
 		<div align='center'>
 			<?php
 				include("sessions.php");
+                //if first visit, creates the userTable variable...
 				if(!empty($_POST['userOption'])){
 				    $userTable = $_POST["userOption"]; session_start(); $_SESSION['userTable'] = $userTable;
 				}
 				else{
+                    //...otherwise takes it from the stored session
 				    session_start();
 				    $userTable = $_SESSION['userTable'];
 				}

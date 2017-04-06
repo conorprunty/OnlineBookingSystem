@@ -1,6 +1,6 @@
 <?php
 /*
- * mainmenu.php *
+ * admin.php *
  *
  *@ author Conor Prunty
  */
@@ -16,6 +16,7 @@ if (empty($_SESSION['user'])) {
     die("Redirecting to index.php");
 }
 
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 

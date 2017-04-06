@@ -1,4 +1,5 @@
 //https://www.experts-exchange.com/questions/28155045/getting-the-date-of-monday-and-sunday-of-the-current-week.html
+//this gets the date for the week dropdown option
 var today = new Date();
 var dayOfWeekStartingSundayZeroIndexBased = today.getDay();
 var sundayOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() + 14);

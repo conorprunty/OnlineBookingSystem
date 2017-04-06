@@ -1,11 +1,13 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userchoice.php
  */
 // connect to DB
 require("session.php");
 require("registersession.php");
 
+//forces user to only be allowed access this pages from the pages below
 if (strstr($_SERVER['HTTP_REFERER'], "usertable.php") || strstr($_SERVER['HTTP_REFERER'], "usertabletwo.php") || strstr($_SERVER['HTTP_REFERER'], "usertablethree.php")) {
     //you came from the right page
 } else {
@@ -17,7 +19,7 @@ if (strstr($_SERVER['HTTP_REFERER'], "usertable.php") || strstr($_SERVER['HTTP_R
 
 session_start();
 $userTable = $_SESSION['userTable'];
-//selecting all areas available
+//selecting all options from daysUsed based on the user's chosen table
 $query     = " 
             SELECT id, days
             FROM daysUsed
@@ -36,6 +38,7 @@ catch (PDOException $ex) {
     die("Failed to run query: " . $ex->getMessage());
 }
 
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
 
@@ -105,6 +108,7 @@ $bannerresult = mysqli_fetch_array($icon);
 								if($row != null){
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
+                                        //puts all options from query above into a select dropdown
 								        unset($id, $days);
 								        $id = $row['days'];
 								        $days = $row['days']; 

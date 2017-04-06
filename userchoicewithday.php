@@ -1,11 +1,13 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userchoicewithday.php
  */
 // connect to DB
 require("session.php");
 require("registersession.php");
 
+//only allow access via userchoice.php
 if (strstr($_SERVER['HTTP_REFERER'], "userchoice.php")) {
     //you came from the right page
 } else {
@@ -20,7 +22,7 @@ $userTable = $_SESSION['userTable'];
 $userDay   = $_POST["userOption"];
 session_start();
 $_SESSION['userDay'] = $userDay;
-//selecting all areas available
+//selecting all required options from the db
 $query               = " 
             SELECT id, Time
             FROM $userTable
@@ -116,6 +118,7 @@ $bannerresult = mysqli_fetch_array($icon);
 								if($row != null){
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
+                                        //puts all options from query above into a select dropdown
 								        unset($id, $Time);
 								        $id = $row['Time'];
 								        $Time = $row['Time']; 

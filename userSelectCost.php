@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userSelectCost.php
  */
 include("phpsession.php");
 // Check connection
@@ -10,7 +11,7 @@ if ($mysqli->connect_error) {
 }
 
 session_start();
-//takes variable of the user's selected area and day
+//takes variable of the user's selected area, day and cost
 $name = $_SESSION['name'];
 $day  = $_SESSION['day'];
 $cost = $_SESSION['cost'];

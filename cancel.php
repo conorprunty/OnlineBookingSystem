@@ -7,13 +7,15 @@
 // get connection to DB
 require("session.php");
 require("registersession.php");
+
+//required for the banner
 $icon         = mysqli_query($connect, "SELECT icon FROM banner");
 $bannerresult = mysqli_fetch_array($icon);
+
 //check if form has been submitted, if not form is displayed
 
 if (!empty($_POST)) {
-    // if username is empty, tell user to submit proper username
-    
+    //returns if the entry is empty
     if (empty($_POST['ranNum'])) {
 ?>
            <script type="text/javascript">
@@ -46,15 +48,11 @@ if (!empty($_POST)) {
     }
     // fetch returns an array representing the next row or false for no rows
     $row = $stmt->fetch();
-    // If a row is returned, then the email is in use
     
     if (!$row) {
 ?>
            <script type="text/javascript">
                 alert("Invalid booking reference.");
-                //alert('<?php
-        echo $bookingref;
-?>');
                 window.location.href = "cancel.php";
             </script>
         <?php
@@ -67,6 +65,7 @@ if (!empty($_POST)) {
     $_SESSION['bookingref'] = $bookingref;
 ?>
        <script type="text/javascript">
+            //redirect once the booking reference was valid
             window.location.href = "custDeleteButton.php";
             </script>
 <?php

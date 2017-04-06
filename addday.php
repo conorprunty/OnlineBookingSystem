@@ -1,18 +1,19 @@
 <?php
 /*
  *@ author Conor Prunty
+ * addday.php
  */
 // connect to DB
 require("session.php");
-// Check whether user is logged in
 
+// Check whether user is logged in
 if (empty($_SESSION['user'])) {
     // If they are not, redirect to the login page. 
     header("Location: index.php");
     // this statement is needed 
     die("Redirecting to index.php");
 } else {
-    //selecting all areas available
+    //selecting options available
     session_start();
     $name  = $_SESSION['name'];
     $query = " 
@@ -104,6 +105,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 								//partially taken from:
 								//http://stackoverflow.com/questions/8022353/how-to-populate-html-dropdown-list-with-values-from-database
 								if($row  != null){
+                                    //takes all value from query above and puts into select dropdown
 								    echo "<select name='userOption'>";
 								    do{
 								        unset($id, $days);
@@ -118,6 +120,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 							<?php
 								}
 								else{
+                                //else there are no days left
 								echo "All days have been selected!";
 								?>
 							<br>

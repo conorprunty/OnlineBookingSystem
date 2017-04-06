@@ -1,4 +1,5 @@
 function setBanner() {
+    //used to display the banner
     if (icon == 1) {
         document.getElementById("icon").innerHTML =
             "<img id='iconSize' src='images/football.jpg'/>";

@@ -1,4 +1,5 @@
 //http://stackoverflow.com/questions/995183/how-to-allow-only-numeric-0-9-in-html-inputbox-using-jquery
+//this forces only numeric entries - used on the cost text area upon setup
 $(document).ready(function() {
     $("#txtboxToFilter").keydown(function(e) {
         // Allow: backspace, delete, tab, escape, enter and .

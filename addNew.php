@@ -6,6 +6,7 @@
 include("phpsession.php");
 {
     if (isset($_POST['area'])) {
+        //inserting values into db
         $sql = "INSERT INTO areas (allAreas)
           VALUES   ('" . $_POST["area"] . "')";
     }

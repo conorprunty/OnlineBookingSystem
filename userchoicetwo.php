@@ -1,11 +1,13 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userchoicetwo.php
  */
 // connect to DB
 require("session.php");
 require("registersession.php");
 
+//forces the page to redirect if not coming from the right previous page
 if (strstr($_SERVER['HTTP_REFERER'], "usertabletwo.php")) {
     //you came from the right page
 } else {
@@ -17,7 +19,7 @@ if (strstr($_SERVER['HTTP_REFERER'], "usertabletwo.php")) {
 
 session_start();
 $userTable = $_SESSION['userTable'];
-//selecting all areas available
+//selecting all required options
 $query     = " 
             SELECT id, days
             FROM daysUsed
@@ -105,6 +107,7 @@ $bannerresult = mysqli_fetch_array($icon);
 								if($row != null){
 								    echo "<select name='userOption' id='allOptions'>";
 								    do{
+                                        //puts all options from the query above into a select dropdown
 								        unset($id, $days);
 								        $id = $row['days'];
 								        $days = $row['days']; 

@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *addtime.php
  */
 // connect to DB
 require("session.php");
@@ -12,7 +13,7 @@ if (empty($_SESSION['user'])) {
     // this statement is needed 
     die("Redirecting to index.php");
 } else {
-    //selecting all areas available
+    //selecting all options from area
     session_start();
     $name  = $_SESSION['name'];
     $query = " 
@@ -106,6 +107,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 								if($row  != null){
 								    echo "<select name='userOption'>";
 								    do{
+                                        //takes all values for the select dropdown from the query above
 								        unset($id, $Time);
 								        $id = $row['Time'];
 								        $Time = $row['Time']; 
@@ -122,6 +124,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 								    ?>
 							<br>
 							<br>
+                            <!-- the return button -->
 							<p><b> Click here to return </b></p>
 							<input type="button" class="btn btn-info" onclick="location.href='updatebookings.php';" value="Submit" />
 							<?php

@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *removeday.php
  */
 // connect to DB
 require("session.php");
@@ -12,7 +13,7 @@ if (empty($_SESSION['user'])) {
     // this statement is needed 
     die("Redirecting to index.php");
 } else {
-    //selecting all areas available
+    //selecting all days available from the area chosen
     session_start();
     $name  = $_SESSION['name'];
     $query = " 
@@ -106,6 +107,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 								if($row  != null){
 								    echo "<select name='userOption'>";
 								    do{
+                                        //takes all from the query above and puts into select dropdown
 								        unset($id, $days);
 								        $id = $row['days'];
 								        $days = $row['days']; 

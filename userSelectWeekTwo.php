@@ -1,6 +1,7 @@
 <?php
 /*
  *@ author Conor Prunty
+ *userSelectWeekTwo.php
  */
 // get connection to DB
 include("phpsession.php");

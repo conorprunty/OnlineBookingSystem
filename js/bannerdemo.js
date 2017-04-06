@@ -1,4 +1,5 @@
 function setIcon() {
+    //used to show the banner selected from the dropdown list
     var selectDd = document.getElementById("optionChoice");
     if (selectDd.value === "1")
         document.getElementById("icon").innerHTML =

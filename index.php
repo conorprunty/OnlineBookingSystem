@@ -1,6 +1,7 @@
 <?php
 /*
  * index.php *
+ * @ author Conor Prunty
  *
  * @reference (PHP) http://forums.devshed.com/php-faqs-stickies-167/program-basic-secure-login-system-using-php-mysql-891201.html *
  */
