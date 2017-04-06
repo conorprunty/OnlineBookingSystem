@@ -1,28 +1,28 @@
 <?php
 /*
-*@ author Conor Prunty
-*/
-	include("phpsession.php");
-	
-	if ($mysqli->connect_error) {
-		die("Connection failed: " . $mysqli->connect_error);
-	}
+ *@ author Conor Prunty
+ */
+include("phpsession.php");
 
-    //get all variables to store in database
-    session_start();
-    $userTable = $_SESSION['userTable'];
-    $userDay = $_SESSION['userDay'];
-    $userTime = $_SESSION['userTime'];
-    $userName = $_SESSION['userName'];
-    $email = $_SESSION['email'];
-    $ranNum = $_SESSION['ranNum'];
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
-    $sql = "INSERT INTO `bookings` (`userName`, `userTable`, `userDay`, `userTime`, `email`, `ranNum`, `week`) VALUES
+//get all variables to store in database
+session_start();
+$userTable = $_SESSION['userTable'];
+$userDay   = $_SESSION['userDay'];
+$userTime  = $_SESSION['userTime'];
+$userName  = $_SESSION['userName'];
+$email     = $_SESSION['email'];
+$ranNum    = $_SESSION['ranNum'];
+
+$sql = "INSERT INTO `bookings` (`userName`, `userTable`, `userDay`, `userTime`, `email`, `ranNum`, `week`) VALUES
     ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', 3);";
-    $sql .= "UPDATE `$userTable` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
-   
+$sql .= "UPDATE `$userTable` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
 
-	if (!$mysqli->multi_query($sql)) {
+
+if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -35,8 +35,8 @@ do {
 
 //unset($_SESSION['userTime']);
 header("Location: bookingcomplete.php");
-		// this statement is needed 
-		die("Redirecting to bookingcomplete.php");    
+// this statement is needed 
+die("Redirecting to bookingcomplete.php");
 
-	$mysqli->close();
-	?>
+$mysqli->close();
+?>

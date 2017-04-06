@@ -1,20 +1,22 @@
 <?php
 /*
-*@ author Conor Prunty
-*/
-	// get connection to DB
-	include("phpsession.php");
-	// Check connection
-	
-	if ($mysqli->connect_error) {
-		die("Connection failed: " . $mysqli->connect_error);
-	}
+ *@ author Conor Prunty
+ */
+// get connection to DB
+include("phpsession.php");
+// Check connection
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
 //used to store user area choice as variable to pass to next page
-$name = $_POST["userOption"]; session_start(); $_SESSION['name'] = $name;
+$name = $_POST["userOption"];
+session_start();
+$_SESSION['name'] = $name;
 
 // sql to create table
-$sql = "CREATE TABLE ".$_POST["userOption"]." (
+$sql = "CREATE TABLE " . $_POST["userOption"] . " (
     id INT(100) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Time varchar(100) NOT NULL,
     Monday varchar(100) NOT NULL,
@@ -28,8 +30,7 @@ $sql = "CREATE TABLE ".$_POST["userOption"]." (
     );";
 
 //create default values
-$sql .= 
-    "INSERT INTO ".$_POST["userOption"]." (`id`, `Time`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`, `Used`) VALUES
+$sql .= "INSERT INTO " . $_POST["userOption"] . " (`id`, `Time`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`, `Used`) VALUES
     (1, '00-01', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', ''),
     (2, '01-02', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', ''),
     (3, '02-03', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', ''),
@@ -56,7 +57,7 @@ $sql .=
     (24, '23-00', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', 'Unavailable', '')";
 
 
-	if (!$mysqli->multi_query($sql)) {
+if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -68,8 +69,8 @@ do {
 } while ($mysqli->more_results() && $mysqli->next_result());
 
 header("Location: userSelectWeekTwo.php");
-		// this statement is needed 
-		die("Redirecting to userSelectWeekTwo.php");    
+// this statement is needed 
+die("Redirecting to userSelectWeekTwo.php");
 
-	$mysqli->close();
-	?>
+$mysqli->close();
+?>

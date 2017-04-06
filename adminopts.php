@@ -1,38 +1,40 @@
 <?php
 /*
-*@ author Conor Prunty
-*/
-	include("phpsession.php");
-	// Check connection
-	
-	if ($mysqli->connect_error) {
-		die("Connection failed: " . $mysqli->connect_error);
-	}
-    $name = $_POST["userOption"]; session_start(); $_SESSION['name'] = $name;
-    $weektwo = $_POST["userOption"]."week2";
-    $weekthree = $_POST["userOption"]."week3";
+ *@ author Conor Prunty
+ */
+include("phpsession.php");
+// Check connection
 
-    if (isset($_POST['Update'])) {
-        header("Location: updateopts.php");
-		die("Redirecting to updateopts.php");    
-    } else if (isset($_POST['Delete'])) {
-        //delete action
-        $sql = "UPDATE areas SET `Chosen` = 'No', `used` = '' WHERE `allAreas` = '".$_POST['userOption']."';";
-        $sql .= "ALTER TABLE `daysUsed` DROP ".$_POST["userOption"].";";
-        $sql .= "DELETE FROM `areas` WHERE `allAreas` = '".$_POST['userOption']."' AND `newentry` = 'yes';";
-        $sql .= "DROP table ".$_POST["userOption"].";";
-        $sql .= "DROP table $weektwo;";
-        $sql .= "DROP table $weekthree;";
-        $sql .= "DELETE FROM `bookings` WHERE `userTable` = '".$_POST['userOption']."';";
-        $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weektwo';";
-        $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weekthree';";
-        $sql .= "UPDATE areas SET `cost` = '0' WHERE `allAreas` = '".$_POST['userOption']."'";
-    } else {
-        //no button pressed
-        
-    }
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+$name = $_POST["userOption"];
+session_start();
+$_SESSION['name'] = $name;
+$weektwo          = $_POST["userOption"] . "week2";
+$weekthree        = $_POST["userOption"] . "week3";
 
-	if (!$mysqli->multi_query($sql)) {
+if (isset($_POST['Update'])) {
+    header("Location: updateopts.php");
+    die("Redirecting to updateopts.php");
+} else if (isset($_POST['Delete'])) {
+    //delete action
+    $sql = "UPDATE areas SET `Chosen` = 'No', `used` = '' WHERE `allAreas` = '" . $_POST['userOption'] . "';";
+    $sql .= "ALTER TABLE `daysUsed` DROP " . $_POST["userOption"] . ";";
+    $sql .= "DELETE FROM `areas` WHERE `allAreas` = '" . $_POST['userOption'] . "' AND `newentry` = 'yes';";
+    $sql .= "DROP table " . $_POST["userOption"] . ";";
+    $sql .= "DROP table $weektwo;";
+    $sql .= "DROP table $weekthree;";
+    $sql .= "DELETE FROM `bookings` WHERE `userTable` = '" . $_POST['userOption'] . "';";
+    $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weektwo';";
+    $sql .= "DELETE FROM `bookings` WHERE `userTable` = '$weekthree';";
+    $sql .= "UPDATE areas SET `cost` = '0' WHERE `allAreas` = '" . $_POST['userOption'] . "'";
+} else {
+    //no button pressed
+    
+}
+
+if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -44,8 +46,8 @@ do {
 } while ($mysqli->more_results() && $mysqli->next_result());
 
 header("Location: admin.php");
-		// this statement is needed 
-		die("Redirecting to admin.php");    
+// this statement is needed 
+die("Redirecting to admin.php");
 
-	$mysqli->close();
-	?>
+$mysqli->close();
+?>

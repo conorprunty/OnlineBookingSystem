@@ -1,19 +1,18 @@
 <?php
 /*
-*addNew.php
-*@ author Conor Prunty
-*/
-	include("phpsession.php");
-
-    {
-        if(isset($_POST['area'])){
-          $sql = "INSERT INTO areas (allAreas)
-          VALUES   ('".$_POST["area"]."')";
-        }
+ *addNew.php
+ *@ author Conor Prunty
+ */
+include("phpsession.php");
+{
+    if (isset($_POST['area'])) {
+        $sql = "INSERT INTO areas (allAreas)
+          VALUES   ('" . $_POST["area"] . "')";
     }
+}
 
 
-	if (!$mysqli->multi_query($sql)) {
+if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -25,8 +24,8 @@ do {
 } while ($mysqli->more_results() && $mysqli->next_result());
 
 header("Location: setup.php");
-		// this statement is needed 
-		die("Redirecting to setup.php");    
+// this statement is needed 
+die("Redirecting to setup.php");
 
-	$mysqli->close();
-	?>
+$mysqli->close();
+?>

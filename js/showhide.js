@@ -1,4 +1,3 @@
-
 function hide() {
     $("#submitButton").hide();
 }

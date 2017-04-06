@@ -1,19 +1,19 @@
 <?php
 /*
-*@ author Conor Prunty
-*/
-	// get connection to DB
-	include("phpsession.php");
-	// Check connection
-	
-	if ($mysqli->connect_error) {
-		die("Connection failed: " . $mysqli->connect_error);
-	}
+ *@ author Conor Prunty
+ */
+// get connection to DB
+include("phpsession.php");
+// Check connection
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
 
 //used to store user area choice as variable to pass to next page
-session_start(); 
-$name = $_SESSION['name'];
-$weektwo = $name."week2";
+session_start();
+$name    = $_SESSION['name'];
+$weektwo = $name . "week2";
 
 // sql to create table
 $sql = "CREATE TABLE $weektwo (
@@ -31,7 +31,7 @@ $sql = "CREATE TABLE $weektwo (
 
 
 
-	if (!$mysqli->multi_query($sql)) {
+if (!$mysqli->multi_query($sql)) {
     echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -43,8 +43,8 @@ do {
 } while ($mysqli->more_results() && $mysqli->next_result());
 
 header("Location: userSelectWeekThree.php");
-		// this statement is needed 
-		die("Redirecting to userSelectWeekThree.php");    
+// this statement is needed 
+die("Redirecting to userSelectWeekThree.php");
 
-	$mysqli->close();
-	?>
+$mysqli->close();
+?>
