@@ -50,6 +50,9 @@ if (isset($_REQUEST['email'])) {
         die();
     }
     
+    //take date of sunday two weeks
+    $nextSunday = date('Y-m-d', strtotime('sunday +2 weeks'));
+    
     //Email information
     
     //takes user's email address
@@ -70,7 +73,9 @@ if (isset($_REQUEST['email'])) {
     $body .= $userDay;
     $body .= " at ";
     $body .= $userTime;
-    $body .= " has been confirmed.\n\n";
+    $body .= " has been confirmed for the week ending ";
+    $body .= $nextSunday;
+    $body .= ".\n\n";
     $body .= "Your unique booking reference is ";
     $body .= $_REQUEST['ranNum'];
     $body .= ".\n\nPlease use this when arriving or in the event of a cancellation.\n\nIf there are any issues with this, or you did not request a booking, please contact conorprunty@hotmail.com\n\nThanks.";

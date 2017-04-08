@@ -17,9 +17,10 @@ $userTime  = $_SESSION['userTime'];
 $userName  = $_SESSION['userName'];
 $email     = $_SESSION['email'];
 $ranNum    = $_SESSION['ranNum'];
+$nextSunday = date('Y-m-d', strtotime('sunday next week'));
 
 $sql = "INSERT INTO `bookings` (`userName`, `userTable`, `userDay`, `userTime`, `email`, `ranNum`, `week`) VALUES
-    ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', 2);";
+    ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', '$nextSunday');";
 $sql .= "UPDATE `$userTable` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
 
 

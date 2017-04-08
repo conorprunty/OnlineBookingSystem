@@ -96,7 +96,7 @@ if (empty($_SESSION['user'])) {
 						<th>Time</th>
 						<th>Email</th>
 						<th>Reference</th>
-						<th>Week</th>
+						<th>Week Ending</th>
 						<th>Delete</th>
 					</tr>
 				</thead>
