@@ -49,6 +49,16 @@ if (isset($_REQUEST['email'])) {
         die();
     }
     
+    if (empty($_POST['name'])) {
+?>
+           <script type="text/javascript">
+                alert("Please enter your name.");
+                window.history.back();
+            </script>
+    <?php
+        die();
+    }
+    
     //take date of next Sunday
     $nextSunday = date('Y-m-d', strtotime('next sunday'));
     //Email information
