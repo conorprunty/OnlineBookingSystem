@@ -173,7 +173,7 @@ if (!empty($_POST)) {
 ?>
        <script type="text/javascript">
             alert("Thank you for registering! Please click close to go to login page.");
-            window.location.href = "index.php";
+            window.location.href = "registermail.php";
             </script>
 <?php
 }
