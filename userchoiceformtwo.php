@@ -50,6 +50,16 @@ if (isset($_REQUEST['email'])) {
         die();
     }
     
+    if (empty($_POST['userName'])) {
+?>
+           <script type="text/javascript">
+                alert("Please enter your name.");
+                window.history.back();
+            </script>
+    <?php
+        die();
+    }
+    
     //take date of sunday next week
     $nextSunday = date('Y-m-d', strtotime('sunday next week'));
     

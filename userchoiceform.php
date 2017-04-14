@@ -49,7 +49,7 @@ if (isset($_REQUEST['email'])) {
         die();
     }
     
-    if (empty($_POST['name'])) {
+    if (empty($_POST['userName'])) {
 ?>
            <script type="text/javascript">
                 alert("Please enter your name.");

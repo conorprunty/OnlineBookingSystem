@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 25, 2017 at 10:47 AM
+-- Generation Time: Apr 14, 2017 at 06:32 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -26,32 +26,32 @@ CREATE TABLE `areas` (
   `used` varchar(50) NOT NULL,
   `Chosen` varchar(50) NOT NULL DEFAULT 'No',
   `newentry` varchar(50) NOT NULL DEFAULT 'yes',
-  `cost` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+  `cost` varchar(50) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `areas`
 --
 
 INSERT INTO `areas` (`id`, `allAreas`, `used`, `Chosen`, `newentry`, `cost`) VALUES
-(1, 'Astro', 'Yes', 'Yes', 'no', ''),
-(2, 'Swimming', '', 'No', 'no', ''),
-(3, 'Tennis', '', 'No', 'no', ''),
-(4, 'Basketball', 'Yes', 'Yes', 'no', ''),
-(7, 'Fencing', 'Yes', 'Yes', 'no', ''),
-(9, 'Aerobics', 'Yes', 'Yes', 'no', ''),
-(12, 'Badminton', 'Yes', 'Yes', 'no', ''),
-(13, 'Yoga', '', 'No', 'no', ''),
-(14, 'Pilates', 'Yes', 'Yes', 'no', ''),
-(19, 'Boxercise', 'Yes', 'Yes', 'no', ''),
-(20, 'Netball', 'Yes', 'Yes', 'no', ''),
-(21, 'Karate', 'Yes', 'Yes', 'no', ''),
-(22, 'Dodgeball', 'Yes', 'Yes', 'no', ''),
-(23, 'Judo', 'Yes', 'Yes', 'no', ''),
-(24, 'Squash', '', 'No', 'no', ''),
-(26, 'Volleyball', 'Yes', 'Yes', 'no', ''),
-(27, 'Gymnastics', 'Yes', 'Yes', 'no', '55'),
-(28, 'Taekwondo', '', 'No', 'no', '');
+(1, 'Astro', '', 'No', 'no', '0'),
+(2, 'Swimming', '', 'No', 'no', '0'),
+(3, 'Tennis', '', 'No', 'no', '0'),
+(4, 'Basketball', '', 'No', 'no', '0'),
+(7, 'Fencing', '', 'No', 'no', '0'),
+(9, 'Aerobics', '', 'No', 'no', '0'),
+(12, 'Badminton', '', 'No', 'no', '0'),
+(13, 'Yoga', '', 'No', 'no', '0'),
+(14, 'Pilates', '', 'No', 'no', '0'),
+(19, 'Boxercise', '', 'No', 'no', '0'),
+(20, 'Netball', '', 'No', 'no', '0'),
+(21, 'Karate', '', 'No', 'no', '0'),
+(22, 'Dodgeball', '', 'No', 'no', '0'),
+(23, 'Judo', '', 'No', 'no', '0'),
+(24, 'Squash', '', 'No', 'no', '0'),
+(26, 'Volleyball', '', 'No', 'no', '0'),
+(27, 'Gymnastics', '', 'No', 'no', '0'),
+(28, 'Taekwondo', '', 'No', 'no', '0');
 
 --
 -- Indexes for dumped tables
@@ -71,4 +71,4 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT for table `areas`
 --
 ALTER TABLE `areas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
