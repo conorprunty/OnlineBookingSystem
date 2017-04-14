@@ -18,10 +18,11 @@ $userName  = $_SESSION['userName'];
 $email     = $_SESSION['email'];
 $ranNum    = $_SESSION['ranNum'];
 $nextSunday = date('Y-m-d', strtotime('sunday next week'));
+$weektwo = $userTable . "week2";
 
 $sql = "INSERT INTO `bookings` (`userName`, `userTable`, `userDay`, `userTime`, `email`, `ranNum`, `week`) VALUES
     ('$userName', '$userTable', '$userDay', '$userTime', '$email', '$ranNum', '$nextSunday');";
-$sql .= "UPDATE `$userTable` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
+$sql .= "UPDATE `$weektwo` SET `$userDay`='Booked' WHERE `Time`='$userTime'";
 
 
 if (!$mysqli->multi_query($sql)) {

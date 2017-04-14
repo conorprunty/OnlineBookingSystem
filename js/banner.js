@@ -13,7 +13,10 @@ function setBanner() {
     } else if (icon == 4) {
         document.getElementById("icon").innerHTML =
             "<img id='iconSize' src='images/basketball.jpg'/>";
-    }
+    } else if (icon == 0) {
+        document.getElementById("iconRemoved").innerHTML =
+            "<img id='iconSize' src='images/noimage.jpg'/>";
+    } 
     document.getElementById('iconSize').height = "100";
     document.getElementById('iconSize').width = "1500";
 };

@@ -127,7 +127,7 @@ else{
 	</head>
 	<body onload="setBanner(), createRan(), hide()">
 		<header>
-			<div id="icon"></div>
+            <div id="icon"></div>
 		</header>
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
@@ -200,6 +200,8 @@ else{
 		</form>
 		<br>
 		<div>
+            <!-- used when no banner is selected -->
+            <div id="iconRemoved" style="display:none"></div>
 			<!-- need an empty div here due to issue with the webhost account -->
 			<br>
 			<br>
