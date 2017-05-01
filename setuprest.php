@@ -144,7 +144,7 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 					<p><b>Choose cost of rent:</b></p>
 					<br>
 					<div id="staticParent">
-						<input id="child" name="cost" type="textarea" />
+						<input id="child" name="cost" type="textarea" value="0" />
 					</div>
 					<br>
 				</div>

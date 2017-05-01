@@ -6,3 +6,12 @@ function validateForm() {
         return false;
     }
 }
+
+function notEmpty() {
+    //this ensures something is entered in the text area to add a new area - otherwise return false
+    var entry = document.forms["userChoice"]["cost"].value;
+    if (entry == null || entry == "") {
+        alert("Cost cannot be blank");
+        return false;
+    }
+}

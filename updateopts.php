@@ -15,16 +15,28 @@ if (empty($_SESSION['user'])) {
     die("Redirecting to index.php");
 }
 
+if (strstr($_SERVER['HTTP_REFERER'], "updateopts.php")){
+    //this just displays an alert to say the cost was updated
+    //only works if coming from this page
+    ?>
+        <script type="text/javascript">
+            alert("Cost updated.");
+        </script>
+    <?php
+}
 //this prevents direct access to this page - can only come from the redirect on updatebookings.php
 //this also helps display the table based on the input from the selection menu
-if (strstr($_SERVER['HTTP_REFERER'], "updatebookings.php")) {
+else if (strstr($_SERVER['HTTP_REFERER'], "updatebookings.php")) {
     //you came from the right page
-} else {
+} 
+else {
     // returns to updatebookings.php page
     header("Location: updatebookings.php");
     // this kills the php script
     die("Redirecting to updatebookings.php");
 }
+
+
 
 //takes name from logged in username
 $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
@@ -48,6 +60,8 @@ $name = $_SESSION['name'];
 		<link href="style/style.css" rel="stylesheet" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/numsonly.js" type="text/javascript"></script>
+        <script src="js/valForm.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -89,13 +103,23 @@ $name = $_SESSION['name'];
 		<div id="pageheader" align="center">
 			Update
 		</div>
-		<form onSubmit="return checkAnswer();" name="userChoice" method="post" class="setupForm">
-			<div class="container">
-				<div class="row">
-					<div align="center">
-						<br>
-						<!--http://stackoverflow.com/questions/7562095/redirect-on-select-option-in-select-box-->
-						<div class="styled-select select">
+        
+        <div class="row">
+            <?php
+				$name = $_SESSION['name'];
+				
+				$query = mysqli_query($db," 
+				SELECT cost
+				FROM areas
+				WHERE allAreas = '$name';
+				");
+                $res = mysqli_fetch_row($query);
+				?>
+			<div class="col-6 col-md-4" align="center">
+				<!-- currently empty but leaving for potential future use -->
+			</div>
+			<div class="col-6 col-md-4" align="center">
+				<div class="styled-select select">
 							<p><b>Choose option required:</b></p>
                             <!-- http://stackoverflow.com/questions/7562095/redirect-on-select-option-in-select-box -->
                             <!-- values change dynamically, i.e. without clicking a submit button etc -->
@@ -107,11 +131,17 @@ $name = $_SESSION['name'];
 								<option value="removetime.php">Remove an existing time</option>
 							</select>
 						</div>
-						<br>
-					</div>
-				</div>
 			</div>
-		</form>
+			<div class="col-6 col-md-4, styled-select select" align="center">
+				<p><b>Update cost per hour:</b></p>
+                <form action="updatecostph.php" name="userChoice" method="post" onsubmit="return notEmpty()">
+                    <div id="staticParent">
+				        <input id="child" name="cost" type="textarea" cols="5" placeholder=" Current cost: <?php echo $res[0]; ?> p/h" />
+                        <input type="submit" class="btn btn-info" name="submit" value="Enter" />
+				    </div>
+                </form>
+			</div>
+		</div>
 		<div align='center'>
 			<?php
 				$name = $_SESSION['name'];
