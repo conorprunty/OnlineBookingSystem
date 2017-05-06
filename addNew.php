@@ -4,25 +4,23 @@
  *@ author Conor Prunty
  */
 include("phpsession.php");
-{
-    if (isset($_POST['area'])) {
-        //inserting values into db
-        $sql = "INSERT INTO areas (allAreas)
-          VALUES   ('" . $_POST["area"] . "')";
-    }
+
+$newarea = $_POST['area'];
+
+//this is to prevent MySQL injections by users entering malicious data
+//http://www.wikihow.com/Prevent-SQL-Injection-in-PHP
+if ($stmt = $mysqli->prepare("INSERT INTO areas (allAreas) VALUES (?)")) {
+ 
+    // Bind the variables to the parameter as strings. 
+    $stmt->bind_param("s", $newarea);
+ 
+    // Execute the statement.
+    $stmt->execute();
+ 
+    // Close the prepared statement.
+    $stmt->close();
+ 
 }
-
-
-if (!$mysqli->multi_query($sql)) {
-    echo "Multi query failed: (" . $mysqli->errno . ") " . $mysqli->error;
-}
-
-do {
-    if ($res = $mysqli->store_result()) {
-        var_dump($res->fetch_all(MYSQLI_ASSOC));
-        $res->free();
-    }
-} while ($mysqli->more_results() && $mysqli->next_result());
 
 header("Location: setup.php");
 // this statement is needed 
