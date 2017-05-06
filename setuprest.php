@@ -25,7 +25,12 @@ if (strstr($_SERVER['HTTP_REFERER'], "setup.php")) {
 }
 
 //takes name from logged in username
-$name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
+//not required for now
+//$name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
+
+session_start();
+//takes variable of the user's selections
+$name = $_SESSION['name'];
 
 ?>
 
@@ -82,8 +87,9 @@ $name = htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8');
 				</div>
 			</div>
 		</nav>
-		<div id="pageheader" align="center">
-			Setup
+		<div align="center">
+			<h2><?php echo $name; ?> Setup</h2>
+            <br>
 		</div>
         <!-- this form has all the options available -->
 		<form action="userSelectRest.php" name="userChoice" method="post" class="setupForm" align="center" >
