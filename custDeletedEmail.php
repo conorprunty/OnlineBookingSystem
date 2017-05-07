@@ -10,7 +10,7 @@ require("session.php");
 //session variables for the email
 session_start();
 $emailTBD = $_SESSION['emailTBD'];
-$subject  = $_REQUEST['subject'];
+$subject  = "Cancellation";
 
 $bookingref = "Hi, \n\n";
 $bookingref .= "Your booking under reference " . $_SESSION['bookingref'] . " was cancelled. \n\n";
