@@ -129,6 +129,9 @@ if (!empty($_POST)) {
 				<input name="ranNum" type="text" id="ranNum"><br><br>
 				<input type="submit" class="btn btn-info" value="Submit" onclick="return confirm('Are you sure you want to cancel?');"><br><br>
 			</form>
+            <br>
+            <br>
+            <b>For any queries regarding refunds, please contact the club on (01) 6172000</b>
 		</div>
 	</body>
 </html>

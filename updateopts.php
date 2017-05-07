@@ -116,7 +116,10 @@ $name = $_SESSION['name'];
                 $res = mysqli_fetch_row($query);
 				?>
 			<div class="col-6 col-md-4" align="center">
-				<!-- currently empty but leaving for potential future use -->
+				<p><b>Click to edit an individual timeslot:</b></p>
+                <form action="editind.php" name="userChoice" method="post">
+                    <input type="submit" class="btn btn-info" name="submit" value="Edit" />
+                </form>
 			</div>
 			<div class="col-6 col-md-4" align="center">
 				<div class="styled-select select">
