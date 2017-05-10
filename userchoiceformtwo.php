@@ -168,14 +168,14 @@ else{
 		<div id="hidepaypal" align="center">
             <a href="https://www.paypal.com/uk/signin" target="_blank" onclick="show()">
                 <img src="images/paypalimage.gif">
-                <div>
-                <br>
-                    <a href="#" onClick="window.open('privacy.html','privacy policy','resizable,height=300,width=500'); return false;">Privacy Policy</a>
-                </div>
-                <div>
-                    <a href="#" onClick="window.open('tandc.html','terms and conditions','resizable,height=300,width=500'); return false;">Terms and Conditions</a>
-                </div>
             </a>
+            <div>
+                <br>
+                <a href="#" onClick="window.open('privacy.html','privacy policy','resizable,height=300,width=500'); return false;">Privacy Policy</a>
+            </div>
+            <div>
+                <a href="#" onClick="window.open('tandc.html','terms and conditions','resizable,height=300,width=500'); return false;">Terms and Conditions</a>
+            </div>
 <!--
 			<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" align="center">
 				<input type="hidden" name="cmd" value="_s-xclick">
