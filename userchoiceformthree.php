@@ -165,13 +165,6 @@ else{
             <a href="https://www.paypal.com/uk/signin" target="_blank" onclick="show()">
                 <img src="images/paypalimage.gif">
             </a>
-            <div>
-                <br>
-                <a href="#" onClick="window.open('privacy.html','privacy policy','resizable,height=300,width=500'); return false;">Privacy Policy</a>
-            </div>
-            <div>
-                <a href="#" onClick="window.open('tandc.html','terms and conditions','resizable,height=300,width=500'); return false;">Terms and Conditions</a>
-            </div>
             <!-- the paypal button -->
             <!-- there is an issue with the developer paypal button currently
                  I have emailed them but for now, I'm putting in just a link 
@@ -207,6 +200,13 @@ else{
 								<!--the random number-->
 								<input type="hidden" name="ranNum" id="ranNum" /><br>
 								<button type="submit" id="submitButton" value="Submit" class="btn btn-info">Submit</button>
+                                <div>
+                                    <br>
+                                    <a href="#" onClick="window.open('privacy.html','privacy policy','resizable,height=300,width=500'); return false;">Privacy Policy</a>
+                                </div>
+                                <div>
+                                    <a href="#" onClick="window.open('tandc.html','terms and conditions','resizable,height=300,width=500'); return false;">Terms and Conditions</a>
+                                </div>
 						</div>
 					</div>
 				</div>
