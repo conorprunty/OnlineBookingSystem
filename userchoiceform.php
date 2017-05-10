@@ -164,10 +164,10 @@ else{
                 <img src="images/paypalimage.gif">
                 <div>
                 <br>
-                <a href="#" onClick="window.open('privacy.html','privacy policy','resizable,height=300,width=500'); return false;">Privacy Policy</a>
+                    <a href="#" onClick="window.open('privacy.html','privacy policy','resizable,height=300,width=500'); return false;">Privacy Policy</a>
                 </div>
                 <div>
-            <a href="#" onClick="window.open('tandc.html','terms and conditions','resizable,height=300,width=500'); return false;">Terms and Conditions</a>
+                    <a href="#" onClick="window.open('tandc.html','terms and conditions','resizable,height=300,width=500'); return false;">Terms and Conditions</a>
                 </div> 
             </a>
             <!-- this is the paypal button -->
