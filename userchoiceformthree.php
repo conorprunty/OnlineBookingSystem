@@ -60,6 +60,20 @@ if (isset($_REQUEST['email'])) {
         die();
     }
     
+        //need a check to ensure that can't be double booked
+    $check = mysqli_query($connect, "SELECT $userDay FROM `$userTableThree` WHERE `Time` = '$userTime'");
+    $isFree = mysqli_fetch_array($check);
+
+    if($isFree[0] != 'Free'){
+        ?>
+            <script type="text/javascript">
+                alert("Unfortunately, this timeslot has just been booked by someone else. Please choose a different option.");
+                window.location.href = "userbooking.php";
+            </script>
+    <?php
+            die();
+    }
+    
     //take date of sunday two weeks
     $nextSunday = date('Y-m-d', strtotime('sunday +2 weeks'));
     
