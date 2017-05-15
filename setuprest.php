@@ -147,7 +147,7 @@ $name = $_SESSION['name'];
 					</ul>
 				</div>
 				<div class="col-6 col-md-4" align="center">
-					<p><b>Choose cost of rent:</b></p>
+					<p><b>Choose cost of rent per hour:</b></p>
 					<br>
 					<div id="staticParent">
 						<input id="child" name="cost" type="textarea" value="0" />
