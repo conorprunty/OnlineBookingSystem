@@ -9,6 +9,7 @@ require("session.php");
 
 //session variables for the email
 session_start();
+$email = "conorprunty@hotmail.com";
 $emailTBD = $_SESSION['emailTBD'];
 $subject  = "Cancellation";
 
