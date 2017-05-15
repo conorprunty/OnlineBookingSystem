@@ -18,7 +18,7 @@ if (false === $result) {
 
 $username = $result['username'];
 $email = $result['email'];
-$subject = "Booking Request";
+$subject = "Registration";
 
 //this stores the body of the email
 $body = "Hi ";
