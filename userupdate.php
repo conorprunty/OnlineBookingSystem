@@ -28,6 +28,11 @@ if($userweek == "weektwo"){
 if($userweek == "weekthree"){
     $sql .= "UPDATE `$weekthree` SET `$userday`='$uservalue' WHERE `Time` = '$usertime'";
 }
+if($userweek == "all"){
+    $sql .= "UPDATE `$userarea` SET `$userday`='$uservalue' WHERE `Time` = '$usertime';";
+    $sql .= "UPDATE `$weektwo` SET `$userday`='$uservalue' WHERE `Time` = '$usertime';";
+    $sql .= "UPDATE `$weekthree` SET `$userday`='$uservalue' WHERE `Time` = '$usertime'";
+}
 
 //mysql commands
 

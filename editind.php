@@ -120,6 +120,7 @@ if (empty($_SESSION['user'])) {
 					           <option id="date" value="weekone"></option>
 					           <option id="datetwo" value="weektwo"></option>
 					           <option id="datethree" value="weekthree"></option>
+                               <option id="all" name="all" value="all">Select all weeks</option>
 				            </select>
                             <script src="js/date.js" type="text/javascript"></script>
 		                      <script src="js/datetwo.js" type="text/javascript"></script>
